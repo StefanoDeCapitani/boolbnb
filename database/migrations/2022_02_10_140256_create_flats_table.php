@@ -26,7 +26,7 @@ class CreateFlatsTable extends Migration
             $table->string("lat");
             $table->string("lon");
             $table->string("night_price");
-            $table->string("coverImg");
+            $table->string("cover_img");
             $table->timestamps();
         });
     }
