@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Flat;
+
 use Illuminate\Http\Request;
 
 class FlatController extends Controller
@@ -14,7 +15,14 @@ class FlatController extends Controller
      */
     public function index()
     {
-        //
+        // $flatSponsorship = Flat::where("visible",true)->with("activeSponsorships")->get();
+        // $flatsSponsered =[];
+        // foreach ($flatSponsorship as $flatActive) {
+        //     if (count($flatActive->activeSponsorships) > 0) {
+        //         $flatsSponsered[] = $flatActive;
+        //     }
+        // }
+        // return view("welcome",compact('flatsSponsered'));
     }
 
     /**
@@ -35,7 +43,9 @@ class FlatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $flat = new Flat();
+        $flat->fill($request->all());
+        $flat->save();
     }
 
     /**
@@ -44,9 +54,9 @@ class FlatController extends Controller
      * @param  \App\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function show(Flat $flat)
+    public function show($id)
     {
-        //
+        $flat = Flat::findOrFail($id);
     }
 
     /**
@@ -55,9 +65,9 @@ class FlatController extends Controller
      * @param  \App\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Flat $flat)
+    public function edit($id)
     {
-        //
+        $flat = Flat::findOrFail($id);
     }
 
     /**
