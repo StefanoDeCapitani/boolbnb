@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SponsorshipSeeder::class);
         $this->call(FlatSeeder::class);
         $this->call(FlatServiceSeeder::class);
+        $this->call(FlatSponsorshipSeeder::class);
     }
 }
