@@ -23,6 +23,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
+        // $flatSponsorship = Flat::where("visible",true)->with("activeSponsorships")->get();
+        // $flatsSponsered =[];
+        // foreach ($flatSponsorship as $flatActive) {
+        //     if (count($flatActive->activeSponsorships) > 0) {
+        //         $flatsSponsered[] = $flatActive;
+        //     }
+        // }
+        // return view("welcome",compact('flatsSponsered'));
+
         return view('home');
     }
 }

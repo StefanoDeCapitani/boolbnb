@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Flat extends Model
 {
@@ -33,6 +34,10 @@ class Flat extends Model
 
     public function sponsorships(){
         return $this->belongsToMany('App\Sponsorship')->withTimestamps();
+    }
+    public function activeSponsorships(){
+        $date = Carbon::now();
+        return $this->belongsToMany('App\Sponsorship')->wherePivot('expiration_date','>', $date);
     }
 
     public function services(){

@@ -83,6 +83,7 @@
                 <button class="btn btn-primary">Eccoci</button>
                 <div class="title m-b-md">
                     Laravel
+                    @dump($flatsSponsered)
                 </div>
 
                 <div class="links">

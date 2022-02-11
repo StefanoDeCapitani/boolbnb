@@ -17,7 +17,7 @@ class CreateFlatSponsorshipTable extends Migration
             $table->id();
             $table->foreignId("sponsorship_id")->constrained();
             $table->foreignId("flat_id")->constrained();
-            $table->date('expiration_date');
+            $table->datetime('expiration_date');
             $table->string("payment_id");
             $table->timestamps();
         });
