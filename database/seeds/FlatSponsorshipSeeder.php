@@ -48,10 +48,7 @@ class FlatSponsorshipSeeder extends Seeder
             $flat->sponsorships()->attach($sponsorship['sponsorship_id'], [
                 'expiration_date'=> $sponsorship['expiration_date'],
                 'payment_id'=> $sponsorship['payment_id'],
-                
             ]);
         }
-
-
     }
 }

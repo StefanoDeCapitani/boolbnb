@@ -8,7 +8,7 @@ class Image extends Model
 {
     protected $fillable = ['path', 'flat_id'];
 
-    public function flats(){
+    public function flat(){
         return $this->belongsTo('App\Flat');
     }
 }

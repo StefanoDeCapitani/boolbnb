@@ -26,7 +26,7 @@ class FlatSeeder extends Seeder
                 'lat' => '46.151107620494855', 
                 'lon' => '9.324520772846045', 
                 'night_price' => '99', 
-                'cover_img' =>'https://a0.muscache.com/im/pictures/prohost-api/Hosting-18598349/original/a977c1ed-2fdd-4359-b8f2-dc890197a79f.jpeg?im_w=1200' 
+                'cover_img' => asset("storage/app/public/img/cover_image_intero_alloggio_unità_in_affitto.jpeg") 
             ],
             [
                 'user_id' => 1,
@@ -40,7 +40,7 @@ class FlatSeeder extends Seeder
                 "lat"=>"41.89924070753656",
                 "lon"=>"12.465588775959976",
                 "night_price"=> "115",
-                "cover_img"=>"https://a0.muscache.com/im/pictures/f9c543ce-1e76-4fb7-b1fb-6ad694011c85.jpg?im_w=1200",
+                "cover_img"=> asset("storage/app/public/img/cover_image-mirò_loft_romantico.jpg"),
             ],
             [
                 'user_id' => 2,
@@ -54,7 +54,7 @@ class FlatSeeder extends Seeder
                 'lat'=> "39.21819137358091",
                 'lon'=>"9.114957126985011",
                 'night_price'=> "89,99",
-                'cover_img'=>'https://www.erato.it/contents/images/62f5d8d1-f948-4f26-82e2-841a1da88c29.jpg'
+                'cover_img'=> asset('storage/app/public/img/cover_image_la_terrazza_con_vista.jpg')
             ],
             [
                 'user_id' => 1,
@@ -68,7 +68,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.8685924113302',
                 'lon' => '9.114520520242015',
                 'night_price' => '380',
-                'cover_img' => 'https://a0.muscache.com/im/pictures/ca3093d8-5d4f-40d0-8615-3b26b331ebc9.jpg?im_w=960',
+                'cover_img' => asset('storage/app/public/img/cover_image_luxury_apartment.jpeg'),
             ],
             [
                 'user_id' => 2,
@@ -83,27 +83,7 @@ class FlatSeeder extends Seeder
                 'lon' => '11.250010',
                 'lon' => '11.250010',
                 'night_price' => '90',
-                'cover_img' => '[https://a0.muscache.com/im/pictures/56034745-8587-4891-b985-5d7bd3097c0e.jpg?im_w=1200](https://a0.muscache.com/im/pictures/56034745-8587-4891-b985-5d7bd3097c0e.jpg?im_w=1200)'
-            ]
-        ];
-
-        // Le seguenti linee sono commentate perchè c'è da lavorarci. Probabilmente vanno sistemate.
-
-        $services = [
-            [
-                3, 1, 2
-            ],
-            [
-                0
-            ],
-            [
-                1, 4, 3
-            ],
-            [
-                3, 2, 1, 0
-            ],
-            [
-                1
+                'cover_img' => asset('storage/app/public/img/cover_image_san_giorgio_flat.jpg')
             ]
         ];
 
@@ -123,8 +103,6 @@ class FlatSeeder extends Seeder
             $newFlat->night_price= $flat['night_price'];
             $newFlat->cover_img= $flat['cover_img'];
             $newFlat->save();
-
-            /* $newFlat->services()->sync($services[$i]); */
         }
     }
 }
