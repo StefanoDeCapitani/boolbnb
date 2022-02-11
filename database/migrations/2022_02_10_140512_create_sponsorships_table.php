@@ -17,7 +17,8 @@ class CreateSponsorshipsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('price');
-            $table->string('duration');
+            $table->string('duration'); 
+            $table->timestamps(); 
         });
     }
 
