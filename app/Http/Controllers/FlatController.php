@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Flat;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FlatController extends Controller
 {
@@ -13,6 +14,19 @@ class FlatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function generateSlug($title){
+        $slug = Str::slug($title);
+        $counter = 1;
+        if (Flat::where('slug', $slug)->first() === $slug) {
+            $newSlug = $slug . '-' . $counter;
+            $counter++;
+
+            return $newSlug;
+        }
+
+        return $slug;
+    }
+
     public function index()
     {
         // $flatSponsorship = Flat::where("visible",true)->with("activeSponsorships")->get();
@@ -45,7 +59,13 @@ class FlatController extends Controller
     {
         $flat = new Flat();
         $flat->fill($request->all());
+
+
+        $title=$request->only('title');
+        $flat->slug = $this->generateSlug($title);
+
         $flat->save();
+    
     }
 
     /**

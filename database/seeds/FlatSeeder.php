@@ -102,6 +102,7 @@ class FlatSeeder extends Seeder
             $newFlat->lon= $flat['lon'];
             $newFlat->night_price= $flat['night_price'];
             $newFlat->cover_img= $flat['cover_img'];
+            $newFlat->slug = str_replace(' ', '-', $flat['title']);
             $newFlat->save();
         }
     }
