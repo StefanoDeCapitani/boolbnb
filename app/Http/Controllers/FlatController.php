@@ -74,9 +74,9 @@ class FlatController extends Controller
      * @param  \App\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Flat $flat)
     {
-        $flat = Flat::findOrFail($id);
+      
     }
 
     /**
@@ -85,9 +85,9 @@ class FlatController extends Controller
      * @param  \App\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Flat $flat)
     {
-        $flat = Flat::findOrFail($id);
+
     }
 
     /**
