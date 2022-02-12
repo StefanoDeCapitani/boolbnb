@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -18,11 +19,11 @@ class UserSeeder extends Seeder
                 "last_name" => "Cordari",
                 "date_of_birth" => "1985/12/10",
                 "email" => "prova0@prova.it",
-                "password" => "password"
+                "password" => Hash::make('password')
             ],
             [
                 "email" => "prova1@prova.it",
-                "password" => "password",
+                "password" => Hash::make("password"),
             ]
         ];
 
