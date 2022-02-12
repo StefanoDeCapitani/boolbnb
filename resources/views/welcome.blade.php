@@ -83,7 +83,7 @@
                 <button class="btn btn-primary">Eccoci</button>
                 <div class="title m-b-md">
                     Laravel
-                    {{-- @dump($flatsSponsered) --}}
+                    @dump($flats)
                 </div>
 
                 <div class="links">

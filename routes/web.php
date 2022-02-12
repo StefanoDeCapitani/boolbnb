@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
-
+Route::get('/', 'FlatController@index');
+Route::post('/flats/{slug}/images', 'FlatController@storeImages')->name('admin.flats.storeimages');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
