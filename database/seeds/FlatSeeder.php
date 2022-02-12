@@ -26,7 +26,7 @@ class FlatSeeder extends Seeder
                 'lat' => '46.151107620494855', 
                 'lon' => '9.324520772846045', 
                 'night_price' => '99', 
-                'cover_img' => asset("storage/app/public/img/cover_image_intero_alloggio_unità_in_affitto.jpeg") 
+                'cover_img' => asset("storage/img/cover_image_intero_alloggio_unità_in_affitto.jpeg") 
             ],
             [
                 'user_id' => 1,
@@ -40,7 +40,7 @@ class FlatSeeder extends Seeder
                 "lat"=>"41.89924070753656",
                 "lon"=>"12.465588775959976",
                 "night_price"=> "115",
-                "cover_img"=> asset("storage/app/public/img/cover_image-mirò_loft_romantico.jpg"),
+                "cover_img"=> asset("public/storage/img/cover_image_mirò_loft_romantico.jpg"),
             ],
             [
                 'user_id' => 2,
@@ -54,7 +54,7 @@ class FlatSeeder extends Seeder
                 'lat'=> "39.21819137358091",
                 'lon'=>"9.114957126985011",
                 'night_price'=> "89,99",
-                'cover_img'=> asset('storage/app/public/img/cover_image_la_terrazza_con_vista.jpg')
+                'cover_img'=> asset('storage/img/cover_image_la_terrazza_con_vista.jpg')
             ],
             [
                 'user_id' => 1,
@@ -68,7 +68,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.8685924113302',
                 'lon' => '9.114520520242015',
                 'night_price' => '380',
-                'cover_img' => asset('storage/app/public/img/cover_image_luxury_apartment.jpeg'),
+                'cover_img' => asset('public/storage/img/cover_image_luxury_apartment.jpeg'),
             ],
             [
                 'user_id' => 2,
@@ -83,7 +83,7 @@ class FlatSeeder extends Seeder
                 'lon' => '11.250010',
                 'lon' => '11.250010',
                 'night_price' => '90',
-                'cover_img' => asset('storage/app/public/img/cover_image_san_giorgio_flat.jpg')
+                'cover_img' => asset('public/storage/img/cover_image_san_giorgio_flat.jpg')
             ]
         ];
 
