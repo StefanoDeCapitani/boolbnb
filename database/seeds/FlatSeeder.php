@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Flat;
 use App\Service;
+use Illuminate\Support\Str;
+
 
 class FlatSeeder extends Seeder
 {
@@ -20,13 +22,13 @@ class FlatSeeder extends Seeder
                 'n_rooms' => 1,
                 'n_beds' => 2,
                 'n_bathrooms' => 1, 
-                'sq_meters' => '100', 
+                'sq_meters' => 100, 
                 'visible' => true, 
                 'address' =>  'Via Miscaslano, 22, 22013 Domaso CO', 
                 'lat' => '46.151107620494855', 
                 'lon' => '9.324520772846045', 
-                'night_price' => '99', 
-                'cover_img' => asset("storage/img/cover_image_intero_alloggio_unità_in_affitto.jpeg") 
+                'night_price' => 99, 
+                'cover_img' =>"storage\app\public\img\cover_image_intero_alloggio_unità_in_affitto.jpeg"
             ],
             [
                 'user_id' => 1,
@@ -34,13 +36,13 @@ class FlatSeeder extends Seeder
                 "n_rooms"=> 1,
                 "n_beds"=> 2,
                 "n_bathrooms"=> 1,
-                "sq_meters"=> "40",
+                "sq_meters"=> 40,
                 "visible"=> true,
                 "address"=> "Via Giulia, 87, 00186 Roma RM",
                 "lat"=>"41.89924070753656",
                 "lon"=>"12.465588775959976",
-                "night_price"=> "115",
-                "cover_img"=> asset("public/storage/img/cover_image_mirò_loft_romantico.jpg"),
+                "night_price"=> 115,
+                "cover_img"=> "storage\app\public\img\cover_image_miro_loft_romantico.jpg",
             ],
             [
                 'user_id' => 2,
@@ -53,8 +55,8 @@ class FlatSeeder extends Seeder
                 'address'=>"Torre dell'Elefante, Via Santa Croce, Cagliari, CA",
                 'lat'=> "39.21819137358091",
                 'lon'=>"9.114957126985011",
-                'night_price'=> "89,99",
-                'cover_img'=> asset('storage/img/cover_image_la_terrazza_con_vista.jpg')
+                'night_price'=> 89,99,
+                'cover_img'=> "storage\app\public\img\cover_image_la_terrazza_con_vista.jpg"
             ],
             [
                 'user_id' => 1,
@@ -62,13 +64,13 @@ class FlatSeeder extends Seeder
                 'n_rooms' => 3,
                 'n_beds' => 5,
                 'n_bathrooms' => 2,
-                'sq_meters' => '300',
+                'sq_meters' => 300,
                 'visible' => true,
                 'address' => 'Via Pangino, 23, 22010 Carate Urio CO',
                 'lat' => '45.8685924113302',
                 'lon' => '9.114520520242015',
-                'night_price' => '380',
-                'cover_img' => asset('public/storage/img/cover_image_luxury_apartment.jpeg'),
+                'night_price' => 380,
+                'cover_img' => "storage\app\public\img\cover_image_luxury_apartment.jpeg",
             ],
             [
                 'user_id' => 2,
@@ -76,14 +78,14 @@ class FlatSeeder extends Seeder
                 'n_rooms' => 1,
                 'n_beds' => 1,
                 'n_bathrooms' => 1,
-                'sq_meters' => '110',
+                'sq_meters' => 110,
                 'visible' => true,
                 'address' => 'Via dei Velluti 26/r, Firenze',
                 'lat' => '43.766890',
                 'lon' => '11.250010',
                 'lon' => '11.250010',
-                'night_price' => '90',
-                'cover_img' => asset('public/storage/img/cover_image_san_giorgio_flat.jpg')
+                'night_price' => 90,
+                'cover_img' => "storage\app\public\img\cover_image_san_giorgio_flat.jpg"
             ]
         ];
 
@@ -102,7 +104,7 @@ class FlatSeeder extends Seeder
             $newFlat->lon= $flat['lon'];
             $newFlat->night_price= $flat['night_price'];
             $newFlat->cover_img= $flat['cover_img'];
-            $newFlat->slug = str_replace(' ', '-', $flat['title']);
+            $newFlat->slug = Str::slug($flat["title"]);
             $newFlat->save();
         }
     }

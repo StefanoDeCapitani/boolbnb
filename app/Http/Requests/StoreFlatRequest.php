@@ -33,7 +33,7 @@ class StoreFlatRequest extends FormRequest
             'address' => 'required|string',
             'lat' => 'required|string',
             'lon' => 'required|string',
-            'night_price' => 'required|string',
+            'night_price' => 'required|numeric',
             'cover_img' => 'required|mimes:jpeg,jpg,png',
             'services'=>'array',
 
