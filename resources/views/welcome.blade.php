@@ -87,12 +87,12 @@
                 </div>
 
             <div>
-                <form action="{{route("flats.store")}}" method="post" enctype="multipart/form-data">
+                {{-- <form action="{{route("flats.store")}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input name="images[]" type="file" multiple>
                     
                     <button class="btn btn-primary" type="submit">Invia</button>
-                </form>
+                </form> --}}
             </div>
             </div>
         </div>
