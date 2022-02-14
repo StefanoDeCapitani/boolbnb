@@ -28,6 +28,7 @@ class CreateFlatsTable extends Migration
             $table->string("night_price");
             $table->string("cover_img");
             $table->string('slug');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

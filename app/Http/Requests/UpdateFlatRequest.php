@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFlatRequest extends FormRequest
+class UpdateFlatRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,7 +34,7 @@ class StoreFlatRequest extends FormRequest
             'lat' => 'required|string',
             'lon' => 'required|string',
             'night_price' => 'required|string',
-            'cover_img' => 'required|mimes:jpeg,jpg,png',
+            'cover_img' => 'mimes:jpeg,jpg,png',
             'services'=>'array',
 
         ];

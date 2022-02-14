@@ -15,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FlatController@index');
-Route::post('/flats/{slug}/images', 'FlatController@storeImages')->name('admin.flats.storeimages');
+
+Route::namespace('Admin')
+->middleware('auth')
+->prefix('admin')
+->name('admin.')
+->group( function(){
+    Route::resource("flats","FlatController");
+});
+
+
+// Route::post('/flats/{slug}/images', 'FlatController@storeImages')->name('admin.flats.storeimages');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

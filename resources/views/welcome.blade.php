@@ -83,19 +83,17 @@
                 <button class="btn btn-primary">Eccoci</button>
                 <div class="title m-b-md">
                     Laravel
-                    @dump($flats)
+                    {{-- @dump($flats) --}}
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+            <div>
+                <form action="{{route("flats.store")}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input name="images[]" type="file" multiple>
+                    
+                    <button class="btn btn-primary" type="submit">Invia</button>
+                </form>
+            </div>
             </div>
         </div>
     </body>

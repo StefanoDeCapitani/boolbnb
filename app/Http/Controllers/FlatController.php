@@ -18,12 +18,13 @@ class FlatController extends Controller
                 $flatsSponsered[] = $flatActive;
             }
         }
-        return view("home", compact('flatsSponsored'));
+        return view("welcome");
     }
 
   
     public function show(Flat $flat)
     {
       
+     return view("show", compact("flat"));
     }
 }

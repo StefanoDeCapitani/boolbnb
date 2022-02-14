@@ -51,29 +51,35 @@ class FlatController extends Controller
         $flat->fill($data);
 
 
-        $title=$request->only('title');
+        $title=$data['title'];
         $flat->slug = $this->generateSlug($title);
-
+        $flat->services()->sync($data["services"]);
         $cover_img = Storage::put($request->file('cover_img'));
         $flat->cover_img = $cover_img;
 
         $flat->save();
 
-        // $images = $request->only('images');
-
-        return redirect()->route('admin.flats.storeimages', $flat->slug);
+        $images = $request->only('images');
+        foreach ($images as $image) {
+            $path = Storage::put($image->validate());
+        }
+    // da completare 
+        return redirect()->route('/');
     
     }
 
-    public function storeImages(Request $request, Flat $flat){
-        // salvare le immagini nello storage e tabella immagini
+    // public function storeImages(Request $request, Flat $flat){
+    //     // salvare le immagini nello storage e tabella immagini
 
-        return view('show', compact('flat'));
-    }
+    //     return view('show', compact('flat'));
+    // }
 
     public function edit(Flat $flat)
     {
+      $services = Service::all();
+      
 
+     return view("admin.edit",compact('services','flat'));
     }
 
     /**
@@ -83,9 +89,22 @@ class FlatController extends Controller
      * @param  \App\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Flat $flat)
+    public function update(StoreFlatRequest $request, Flat $flat)
     {
-        //
+        $data = $request->validated();
+        
+        $flat->update($data);
+        $flat->services()->sync($data["services"]);
+
+        if($data["cover_img"]){
+            $cover_img = Storage::put($request->file('cover_img'));
+            $flat->cover_img = $cover_img;
+            $flat->save();
+        }
+
+
+       
+        
     }
 
     /**
@@ -96,6 +115,8 @@ class FlatController extends Controller
      */
     public function destroy(Flat $flat)
     {
-        //
+        $flat->delete();
+        
+        return redirect()->route('admin.flats.index');
     }
 }
