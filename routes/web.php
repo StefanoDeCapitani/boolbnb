@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FlatController@index');
 
+
 Route::namespace('Admin')
 ->middleware('auth')
 ->prefix('admin')

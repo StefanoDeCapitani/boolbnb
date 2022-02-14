@@ -18,7 +18,7 @@ class FlatController extends Controller
                 $flatsSponsered[] = $flatActive;
             }
         }
-        return view("welcome");
+        return view("index",compact('flatsSponsered'));
     }
 
   

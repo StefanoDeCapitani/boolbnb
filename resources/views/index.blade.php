@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Dashboard</h1>  
+    <h1>Index</h1>  
     <div>
         @dump($flatsSponsered)
         @foreach ($flatsSponsered as $flat)

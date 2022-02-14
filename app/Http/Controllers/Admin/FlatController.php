@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Flat;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFlatRequest;
+use App\Image;
 use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,7 @@ class FlatController extends Controller
 
     public function index()
     {
+
         $flats = Flat::where('user_id', '=', Auth::id())->with('activeSponsorships')->get();
 
         return view('admin.dashboard', compact('flats'));
@@ -44,24 +46,27 @@ class FlatController extends Controller
 
     public function store(StoreFlatRequest $request)
     {
-
+       
         $data = $request->validated();
-
+     
         $flat = new Flat();
         $flat->fill($data);
+        $flat->user_id = Auth::id();
 
 
         $title=$data['title'];
         $flat->slug = $this->generateSlug($title);
-        $flat->services()->sync($data["services"]);
-        $cover_img = Storage::put($request->file('cover_img'));
+      
+        $cover_img = Storage::put('img',$request->file('cover_img'));
         $flat->cover_img = $cover_img;
 
         $flat->save();
+        $flat->services()->sync($data["services"]);
 
         $images = $request->only('images');
         foreach ($images as $image) {
-            $path = Storage::put($image->validate());
+            $path = Storage::put('img',$image->validate());
+           
         }
     // da completare 
         return redirect()->route('/');

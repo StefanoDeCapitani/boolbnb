@@ -15,7 +15,7 @@ class Flat extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'n_rooms', 'n_beds', 'n_bathrooms', 'sq_meters', 'visible', 'address', 'lat', 'lon', 'night_price', 'cover_img', 'slug'
+        'title', 'n_rooms', 'n_beds', 'n_bathrooms', 'sq_metres', 'visible', 'address', 'lat', 'lon', 'night_price', 'cover_img', 'slug'
     ];
 
     public function user(){
