@@ -13,7 +13,7 @@ class UpdateFlatRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -36,6 +36,8 @@ class UpdateFlatRequest extends FormRequest
             'night_price' => 'required|string',
             'cover_img' => 'mimes:jpeg,jpg,png',
             'services'=>'array',
+            'images'=>'array',
+            'images.*'=>'mimes:jpeg,jpg,png',
 
         ];
     }

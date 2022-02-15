@@ -22,7 +22,6 @@ form.addEventListener("submit", function(event){
          const lngData = result.results[0].position.lng;
          lat.value = latData;
          lng.value = lngData;
-         console.log('ciaooo')
          form.submit()
         
 
