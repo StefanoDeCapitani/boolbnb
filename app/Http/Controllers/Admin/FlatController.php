@@ -56,20 +56,26 @@ class FlatController extends Controller
 
         $title=$data['title'];
         $flat->slug = $this->generateSlug($title);
+
       
-        $cover_img = Storage::put('img',$request->file('cover_img'));
+        $cover_img = Storage::put('public/img/',$data['cover_img']);
         $flat->cover_img = $cover_img;
 
         $flat->save();
         $flat->services()->sync($data["services"]);
+    
 
-        $images = $request->only('images');
+        $images = $data['images'];
         foreach ($images as $image) {
-            $path = Storage::put('img',$image->validate());
+            $path = Storage::put('public/img',$image);
+            $newImage = new Image();
+            $newImage->flat_id = $flat->id;
+            $newImage->path = $path;
+            $newImage->save();
            
         }
     // da completare 
-        return redirect()->route('/');
+        return redirect()->route('admin.flats.index');
     
     }
 

@@ -9,10 +9,10 @@
 <body>
     <h1>Dashboard</h1>  
     <div>
-        @dump($flatsSponsered)
-        @foreach ($flatsSponsered as $flat)
+    @dump($flats)
+        @foreach ($flats as $flat)
         <h5>{{$flat->title}}</h5>
-        
+         
             
         @endforeach
     </div>

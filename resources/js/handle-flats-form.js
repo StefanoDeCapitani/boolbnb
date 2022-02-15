@@ -11,7 +11,7 @@ form.addEventListener("submit", function(event){
     console.log('ciaoo')
     event.preventDefault();
     const formData = new FormData(event.target)
-    // services.value = formData.getAll('service')
+    //  services.value =  formData.getAll('service')
     const address = formData.get('address')
     tt.services.geocode({
         key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
