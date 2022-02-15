@@ -2,6 +2,9 @@
 @section('links')
 <script src="{{asset("js\handle-flats-form.js")}}" defer></script>
 @endsection
+
+@section('title-page', 'Aggiungi appartamento')
+
 @section('content')
     
         @foreach($errors->all() as $error)

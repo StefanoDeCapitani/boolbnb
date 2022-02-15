@@ -38,10 +38,20 @@ nav {
   border-bottom: 1px solid #DEE4EC;
 }
 
-nav .menu a {
+nav .menu .dropdown a {
   text-decoration: none;
   color: black;
   padding: 0px 5px;
+}
+
+nav .menu .dropdown #dropdownMenuLink {
+  color: black !important;
+  background-color: #DEE4EC !important;
+  border-color: #ffffff !important;
+}
+
+nav .menu .dropdown #dropdownMenuLink :focus {
+  box-shadow: none !important;
 }
 
 /*!
@@ -12222,7 +12232,7 @@ fieldset:disabled .btn {
   }
 }
 
-.main {
-  height: calc(100vh - 350px);
+.my_cont {
+  height: calc(100vh - 280px);
 }
 
