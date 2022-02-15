@@ -4,5 +4,15 @@
 // Variables
 @import 'variables';
 
+// stile homepage
+@import 'footer';
+@import 'header';
+
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+.main{
+    height: calc(100vh - (280px + 70px));
+}
