@@ -96,6 +96,14 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+            <div>
+                {{-- <form action="{{route("flats.store")}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input name="images[]" type="file" multiple>
+                    
+                    <button class="btn btn-primary" type="submit">Invia</button>
+                </form> --}}
+            </div>
             </div>
         </div>
     </body>
