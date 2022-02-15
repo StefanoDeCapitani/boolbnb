@@ -58,7 +58,7 @@ class FlatController extends Controller
         $flat->slug = $this->generateSlug($title);
 
       
-        $cover_img = Storage::put('public/img/',$data['cover_img']);
+        $cover_img = Storage::put('public/img',$data['cover_img']);
         $flat->cover_img = $cover_img;
 
         $flat->save();
@@ -74,16 +74,9 @@ class FlatController extends Controller
             $newImage->save();
            
         }
-    // da completare 
         return redirect()->route('admin.flats.index');
     
     }
-
-    // public function storeImages(Request $request, Flat $flat){
-    //     // salvare le immagini nello storage e tabella immagini
-
-    //     return view('show', compact('flat'));
-    // }
 
     public function edit(Flat $flat)
     {
@@ -103,14 +96,35 @@ class FlatController extends Controller
     public function update(StoreFlatRequest $request, Flat $flat)
     {
         $data = $request->validated();
-        
+        $cover_img=$flat->cover_img;
         $flat->update($data);
         $flat->services()->sync($data["services"]);
 
         if($data["cover_img"]){
-            $cover_img = Storage::put($request->file('cover_img'));
+            Storage::delete($cover_img);
+            $cover_img = Storage::put('public/img', $data['cover_img']);
             $flat->cover_img = $cover_img;
             $flat->save();
+        }
+
+        if($data['images']){
+            $oldImages = $flat->images();
+
+            foreach($oldImages as $oldImage){
+                Storage::delete($oldImage->path);
+                $oldImage->delete();
+            }
+            
+            $images = $data['images'];
+            foreach ($images as $image) {
+                $path = Storage::put('public/img',$image);
+                $newImage = new Image();
+                $newImage->flat_id = $flat->id;
+                $newImage->path = $path;
+                $newImage->save();
+               
+            }
+
         }
 
 
