@@ -5,11 +5,12 @@
 }
 
 .bg_color {
-  height: 280px;
+  /* min-height: 280px; */
   background-color: #DEE4EC;
 }
 
 .bg_color ul {
+  padding: 0px;
   list-style: none;
 }
 
@@ -12232,7 +12233,15 @@ fieldset:disabled .btn {
   }
 }
 
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 main {
-  min-height: calc(100vh - 350px);
+  /* min-height:calc(100vh - (280px + 70px));  */
+  flex-grow: 2;
 }
 

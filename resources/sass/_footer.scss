@@ -3,9 +3,11 @@
 }
 
 .bg_color{
-    height: 280px;
+
+    /* min-height: 280px; */
     background-color: #DEE4EC;
     ul{
+        padding: 0px;
         list-style: none;
         li{
             a{
