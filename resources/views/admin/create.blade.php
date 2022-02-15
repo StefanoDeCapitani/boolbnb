@@ -6,7 +6,8 @@
 @section('title-page', 'Aggiungi appartamento')
 
 @section('content')
-    
+    <div>
+
         @foreach($errors->all() as $error)
             {{$error}}
         
@@ -121,5 +122,6 @@
 
 
         </form>
+    </div>
     
     @endsection

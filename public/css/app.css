@@ -12232,7 +12232,7 @@ fieldset:disabled .btn {
   }
 }
 
-.my_cont {
-  height: calc(100vh - 280px);
+main {
+  min-height: calc(100vh - 350px);
 }
 

@@ -26,14 +26,11 @@
 <body>
     <div id="app">
 
-        <div class="my_cont">
+        @include('partials.header')
 
-            @include('partials.header')
-            <main class="py-4">
-                @yield('content')
-            </main>
-        </div>
-        
+        <main class="py-4 container">
+            @yield('content')
+        </main>
         
         @include('partials.footer')
 
