@@ -1,7 +1,7 @@
 <footer class="bg_color">
     <div class="container ">
         <div class="row pt-5 ">
-            <div class="col-lg-2 col-sm-12 text-center">
+            <div class="col-lg-2 col-sm-12 text-center text-lg-start text-sm-center">
                 <ul>
                     <li><a href="#">prova</a></li>
                     <li><a href="#">provasdasd</a></li>
@@ -10,7 +10,7 @@
                     <li><a href="#">prodfgdgdfgva</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-sm-12 text-center">
+            <div class="col-lg-2 col-sm-12 text-center text-lg-start text-sm-center">
                 <ul>
                     <li><a href="#">prova</a></li>
                     <li><a href="#">provasdasd</a></li>
@@ -19,7 +19,7 @@
                     <li><a href="#">prodfgdgdfgva</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-sm-12 text-center">
+            <div class="col-lg-2 col-sm-12 text-center text-lg-start text-sm-center">
                 <ul>
                     <li><a href="#">prova</a></li>
                     <li><a href="#">provasdasd</a></li>
@@ -40,7 +40,7 @@
     <hr class="footer_bar">
 
     <div class="container">
-        <div class="d-flex justify-content-between py-1 ">
+        <div class="d-flex justify-content-lg-between flex-column-reverse flex-lg-row py-1 text-lg-start text-center">
             <div class="col-lg-8 col-sm-12">
                 <span>© 2022 Boolbnb, Inc. privacy etc..</span>
             </div>
