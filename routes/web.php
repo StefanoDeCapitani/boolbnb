@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FlatController@index');
+Route::get('/flats/{slug}','FlatController@show')->name('flats.show');
 
 
 Route::namespace('Admin')

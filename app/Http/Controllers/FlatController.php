@@ -22,9 +22,12 @@ class FlatController extends Controller
     }
 
   
-    public function show(Flat $flat)
+    public function show($slug)
     {
-      
+    
+    $flat = Flat::where('slug',$slug)->first();
+   
+   
      return view("show", compact("flat"));
     }
 }

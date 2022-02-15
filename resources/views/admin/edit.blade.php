@@ -2,10 +2,10 @@
 
 @section('title-page', 'Home page')
 
-@section('content')
+
 
     
-@endsection
+
 @section('links')
 <script src="{{asset("js\handle-flats-form.js")}}" defer></script>
 @endsection

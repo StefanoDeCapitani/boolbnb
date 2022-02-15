@@ -49,7 +49,8 @@ class FlatController extends Controller
     {
        
         $data = $request->validated();
-     
+        // $data['visible'] = $data['visible'] === 'on' ? true : false;
+        
         $flat = new Flat();
         $flat->fill($data);
         $flat->user_id = Auth::id();
@@ -60,7 +61,7 @@ class FlatController extends Controller
 
       
         $cover_img = Storage::put('public/img',$data['cover_img']);
-        $flat->cover_img = $cover_img;
+        $flat->cover_img =  'storage'. str_replace('public','',$cover_img);;
 
         $flat->save();
         $flat->services()->sync($data["services"]);
@@ -69,6 +70,7 @@ class FlatController extends Controller
         $images = $data['images'];
         foreach ($images as $image) {
             $path = Storage::put('public/img',$image);
+            $path = 'storage'. str_replace('public','',$path);
             $newImage = new Image();
             $newImage->flat_id = $flat->id;
             $newImage->path = $path;
@@ -112,14 +114,14 @@ class FlatController extends Controller
         $flat->update($data);
         
 
-        if($data["cover_img"]){
+        if($request->has('cover_img')){
             Storage::delete($cover_img);
             $cover_img = Storage::put('public/img', $data['cover_img']);
             $flat->cover_img = $cover_img;
             $flat->save();
         }
 
-        if($request->only('images')){
+        if($request->has('images')){
             $oldImages = $flat->images()->get();
             dump($oldImages->toArray());
           
@@ -145,11 +147,14 @@ class FlatController extends Controller
 
         }
 
-
+        return redirect()->route('flats.show',$flat->slug);
        
         
     }
 
+    public function show(){
+
+    }
     /**
      * Remove the specified resource from storage.
      *

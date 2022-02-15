@@ -117,7 +117,7 @@ var lng = document.getElementById('lng');
 form.addEventListener("submit", function (event) {
   console.log('ciaoo');
   event.preventDefault();
-  var formData = new FormData(event.target); // services.value = formData.getAll('service')
+  var formData = new FormData(event.target); //  services.value =  formData.getAll('service')
 
   var address = formData.get('address');
   _tomtom_international_web_sdk_services__WEBPACK_IMPORTED_MODULE_0___default.a.services.geocode({
@@ -129,7 +129,6 @@ form.addEventListener("submit", function (event) {
     var lngData = result.results[0].position.lng;
     lat.value = latData;
     lng.value = lngData;
-    console.log('ciaooo');
     form.submit();
   });
 });
