@@ -77,13 +77,11 @@
 
 
                     {{-- multiple options --}}
-               {{--  
-                <select name="services[]" class="form-control" multiple>
-                 @foreach($services as $service)
-                <option value="{{$service->id}}" {{in_array($service->id, old("services") ?: []) ? "selected": ""}}></option>
-                 @endforeach
-                </select> 
-                --}}
+               {{--  <select name="services[]" class="form-control" multiple>
+                    @foreach($services as $service)
+                 <option value="{{$service->id}}" {{in_array($service->id, old("services") ?: []) ? "selected": ""}}>{{$service->name}}</option>
+                    @endforeach
+                 </select> --}}
 
                 @dump($flat->services)
                 {{-- 
