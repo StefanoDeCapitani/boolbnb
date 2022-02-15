@@ -13,7 +13,7 @@ class StoreFlatRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -36,6 +36,8 @@ class StoreFlatRequest extends FormRequest
             'night_price' => 'required|numeric',
             'cover_img' => 'required|mimes:jpeg,jpg,png',
             'services'=>'array',
+            'images'=>'array',
+            'images.*'=>'mimes:jpeg,jpg,png'
 
         ];
     }

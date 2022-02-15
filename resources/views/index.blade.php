@@ -7,12 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Dashboard</h1>  
+    <h1>Index</h1>  
     <div>
-    @dump($flats)
-        @foreach ($flats as $flat)
+        @dump($flatsSponsered)
+        @foreach ($flatsSponsered as $flat)
         <h5>{{$flat->title}}</h5>
-         
+        
             
         @endforeach
     </div>
