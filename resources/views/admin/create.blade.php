@@ -70,8 +70,7 @@
 
                 <select name="services[]" class="form-control" multiple>
                   @foreach($services as $service)
-                  <option value="{{$service->id}}">{{$service->name}}
-                  </option>
+                  <option value="{{$service->id}}" {{in_array($service->id, old("services") ?: []) ? 'selected': ''}}>{{$service->name}}</option>
                   @endforeach
                 </select>
               </div>

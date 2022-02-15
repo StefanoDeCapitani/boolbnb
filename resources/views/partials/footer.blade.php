@@ -1,4 +1,4 @@
-<footer class="bg_color">
+<footer class="bg_color d-none">
     <div class="container ">
         <div class="row pt-5">
             <div class="col-2">

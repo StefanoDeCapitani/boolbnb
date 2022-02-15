@@ -17,6 +17,11 @@ class Flat extends Model
     protected $fillable = [
         'title', 'n_rooms', 'n_beds', 'n_bathrooms', 'sq_metres', 'visible', 'address', 'lat', 'lon', 'night_price', 'cover_img', 'slug'
     ];
+    public function getRouteKeyName()
+    {
+    return 'slug'; 
+    }
+
 
     public function user(){
         return $this->belongsTo('App\User');

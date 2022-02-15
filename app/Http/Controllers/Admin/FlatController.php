@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Flat;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFlatRequest;
+use App\Http\Requests\UpdateFlatRequest;
 use App\Image;
 use App\Service;
 use Illuminate\Http\Request;
@@ -81,9 +82,20 @@ class FlatController extends Controller
     public function edit(Flat $flat)
     {
       $services = Service::all();
+      $flatServices = $flat->services()->get()->map(function ($service) {
+        return $service->id;
+    });
+
+    $flatServices=$flatServices->toArray();
+    // $flatServizi = $flat->services()->where('flat_id', $flat->id)->get()->toArray();
+
+
+   
+     
+    
       
 
-     return view("admin.edit",compact('services','flat'));
+     return view("admin.edit",compact('services','flat','flatServices'));
     }
 
     /**
@@ -93,12 +105,12 @@ class FlatController extends Controller
      * @param  \App\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreFlatRequest $request, Flat $flat)
+    public function update(UpdateFlatRequest $request, Flat $flat)
     {
         $data = $request->validated();
         $cover_img=$flat->cover_img;
         $flat->update($data);
-        $flat->services()->sync($data["services"]);
+        
 
         if($data["cover_img"]){
             Storage::delete($cover_img);
@@ -107,10 +119,12 @@ class FlatController extends Controller
             $flat->save();
         }
 
-        if($data['images']){
-            $oldImages = $flat->images();
-
+        if($request->only('images')){
+            $oldImages = $flat->images()->get();
+            dump($oldImages->toArray());
+          
             foreach($oldImages as $oldImage){
+               
                 Storage::delete($oldImage->path);
                 $oldImage->delete();
             }
@@ -123,6 +137,10 @@ class FlatController extends Controller
                 $newImage->path = $path;
                 $newImage->save();
                
+            }
+            
+            if ($request->has('services')) {
+                $flat->services()->sync($data["services"]);
             }
 
         }
