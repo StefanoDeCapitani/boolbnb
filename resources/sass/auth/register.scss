@@ -1,0 +1,36 @@
+.bg_register{
+    width: 70%!important;
+    padding: 0px 50px!important;
+    background-color: #7193be;
+    /* background-image: url('ian-keefe-OgcJIKRnRC8-unsplash.jpg'); */
+    margin-bottom: 100px;
+    border-radius: 25px;
+    /* background-position: center;
+    background-size: cover; */
+    /* filter: blur(2px); */
+
+    h2{
+        margin-top: 60px;
+        margin-bottom: -30px;
+        color: white;
+    }
+    .card{
+        position: relative;
+        bottom: -80px;
+        border-radius: 25px;
+        background-color: #dee4ec!important;
+        button{
+            background-color: #001632;
+            border-radius: 20px!important;
+            color: white;
+        }
+        .card-body{
+            padding: 50px 60px;
+            .form-group{
+                input{
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
