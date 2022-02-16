@@ -117,7 +117,11 @@ var lng = document.getElementById('lng');
 form.addEventListener("submit", function (event) {
   console.log('ciaoo');
   event.preventDefault();
-  var formData = new FormData(event.target); //  services.value =  formData.getAll('service')
+  var formData = new FormData(event.target);
+
+  if (formData.has('service')) {
+    services.value = formData.getAll('service');
+  }
 
   var address = formData.get('address');
   _tomtom_international_web_sdk_services__WEBPACK_IMPORTED_MODULE_0___default.a.services.geocode({
@@ -142,7 +146,7 @@ form.addEventListener("submit", function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\mauri\Documents\Boolean\Progetto finale\boolbnb\resources\js\handle-flats-form.js */"./resources/js/handle-flats-form.js");
+module.exports = __webpack_require__(/*! C:\Users\matte\Desktop\classe43BOOLEAN\boolbnb\resources\js\handle-flats-form.js */"./resources/js/handle-flats-form.js");
 
 
 /***/ })

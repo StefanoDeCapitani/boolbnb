@@ -11,12 +11,12 @@
 @endsection
 @section('content')
 
-    <div class="container">
-        @foreach($errors->all() as $error)
-            {{$error}}
-        
-        @endforeach
-    
+<div class="row d-flex position-relative">
+    <div class="col-5 position-absolute " >
+        <img class="w-100" style="border-radius:11px" src="https://images-na.ssl-images-amazon.com/images/I/81elkt8KPjL._AC_SL1500_.jpg"  alt="">
+
+    </div>
+    <div class="col-9 ms-auto p-5 mt-5 mb-5 " style="background-color: #DEE4EC; border-radius:11px ; z-index:2">
         <form   id="create-form-try" action="{{route("admin.flats.update", $flat->slug)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -27,6 +27,7 @@
                     {{$message}}  
                 @enderror
             </div>
+            <div class="d-flex " style="justify-content: space-between">
             <div class="mb-3">
                 <label for="n_rooms" class="form-label">Numero stanze</label>
                 <input type="number" class="form-control" id="n_rooms" name="n_rooms" value="{{$flat->n_rooms}}">
@@ -55,6 +56,7 @@
                 {{$message}}
                 @enderror
             </div>
+            </div>
            
             <div class="mb-3">
                 <label for="address" class="form-label">Indirizzo</label>
@@ -81,11 +83,28 @@
 
 
                     {{-- multiple options --}}
-                <select name="services[]" class="form-control" multiple>
+                {{-- <select name="services[]" class="form-control" multiple>
                     @foreach($services as $service)
                  <option value="{{$service->id}}" {{in_array($service->id, $flatServices) ? 'selected': ''}}>{{$service->name}}</option>
                     @endforeach
-                 </select>
+                 </select> --}}
+
+                 <div class="mb-3">
+                    <label for="service">Servizi:</label><br>
+                     <div class="d-flex" style="justify-content: space-between">
+                         @foreach ($services as $service)
+                         <div>
+                             <input type="checkbox" class="" id="service" name="service" value="{{$service->id}}"  {{in_array($service->id, $flatServices) ? 'checked': ''}}>
+                             <label for="service" class="form-label">{{$service->name}}</label>
+                             @error('services')
+                             {{$message}}
+                             @enderror
+     
+                         </div>
+                         @endforeach
+                     </div>
+                 </div>
+                 <input id="services" type="hidden" name="services[]" value="" >
                  
 
               
@@ -124,11 +143,11 @@
                 @enderror
             </div>
 
-            <div>
-                <label for="visible" class="form-label">visible</label>
-                <input type="checkbox" id="visible" name="visible" {{ $flat->visible ? "checked" : "" }} value='1'>
+            
 
-
+            <div class="form-check form-switch">
+                <label class="form-check-label" for="visible" >Visibile</label>
+                <input  class="form-check-input" type="checkbox" id="visible" {{ $flat->visible ? "checked" : "" }} name="visible" value="1">
             </div>
             
             <button class="btn btn-success mb-3" >Salva</button>
