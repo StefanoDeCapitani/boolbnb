@@ -103,6 +103,7 @@ class FlatController extends Controller
     {
         $data = $request->validated();
         $cover_img=$flat->cover_img;
+        $data['slug'] = $this->generateSlug($data['title']);
         $flat->update($data);
         
 
