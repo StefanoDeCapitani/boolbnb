@@ -61,7 +61,7 @@
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="text" class="form-control" id="email" name="email" value="{{ Auth::user()->email}}">
+                <input type="text" class="form-control" id="email" name="email" value="{{ Auth::user() ? Auth::user()->email : ""}}">
                 @error('email')
                     {{$message}}
                 @enderror
