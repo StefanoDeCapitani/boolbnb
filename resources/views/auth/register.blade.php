@@ -3,12 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        
         <div class="bg_register">
+
+            <div class="cont_img">
+
+                <img src="{{ asset('logo/ian-keefe-OgcJIKRnRC8-unsplash.jpg') }}" alt="">
+            </div>
+
+        
 
             <h2 class="text-center">Ti diamo il benvenuto su Boolbnb</h2>
             
             <div class="card border-0">
-                
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -89,7 +96,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0 justify-content-center">
+                        <div class="form-group row mb-0 mt-4 justify-content-center">
                             
                             <button type="submit" class="btn btn-primary col-2">
                                 {{ __('Register') }}

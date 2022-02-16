@@ -3,12 +3,28 @@ nav{
     height: 70px;
     border-bottom: 1px solid #DEE4EC;
     .menu{
-        .dropdown{
-            a{
-                text-decoration: none;
-                color: black;
-                padding: 0px 5px;
+        a{
+            text-decoration: none;
+            color: black;
+            padding: 0px 5px;
+            .btn{
+                background-color: #001632;
+                border-radius: 20px!important;
+                color: white;
+                padding: 7px 20px;
+                
+                :hover{
+                    color: white!important;
+                }
+                
+                
             }
+            .login{
+                background-color: #DEE4EC;
+                color: #001632;
+            }
+        }
+        .dropdown{
             #dropdownMenuLink {
                 color: rgb(0, 0, 0)!important;
                 background-color: #DEE4EC!important;
