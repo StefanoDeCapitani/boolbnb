@@ -47,7 +47,7 @@ class FlatController extends Controller
 
     public function store(StoreFlatRequest $request)
     {
-       
+      
         $data = $request->validated();
         
         $flat = new Flat();
@@ -63,7 +63,10 @@ class FlatController extends Controller
         $flat->cover_img =  'storage'. str_replace('public','',$cover_img);
 
         $flat->save();
-        $flat->services()->sync($data["services"]);
+        if ($data['services'][0]) {
+                $services = explode(',',$data['services'][0]);
+                $flat->services()->sync($services);
+            }
     
 
         $images = $data['images'];
@@ -134,10 +137,16 @@ class FlatController extends Controller
                
             }
             
-            if ($request->has('services')) {
-                $flat->services()->sync($data["services"]);
-            }
+         
 
+        }
+
+        if ($request->has('services')) {
+           
+            if ($data['services'][0]) {
+                $services = explode(',',$data['services'][0]);
+                $flat->services()->sync($services);
+            }
         }
 
         return redirect()->route('flats.show',$flat->slug);        

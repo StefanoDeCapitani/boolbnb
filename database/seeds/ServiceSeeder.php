@@ -27,11 +27,11 @@ class ServiceSeeder extends Seeder
             ],
             [
                 "name" => "Camino",
-                "icon" => "fa-solid fa-fireplace",
+                "icon" => "fa-solid fa-fire-flame-curved",
             ],
             [
                 "name" => "Paperella Boolean",
-                "icon" => "fa-solid fa-duck",
+                "icon" => "fa-brands fa-earlybirds",
             ]
         ];
 
