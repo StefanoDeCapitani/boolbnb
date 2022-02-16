@@ -14,7 +14,7 @@ class CreateViewsTable extends Migration
     public function up()
     {
         Schema::create('views', function (Blueprint $table) {
-            $table->foreignId("user_id")->constrained()->nullable();
+            $table->foreignId("user_id")->nullable()->constrained();
             $table->foreignId("flat_id")->constrained();
             $table->ipAddress('ip');
             $table->timestamps();

@@ -21,7 +21,7 @@ class CreateFlatsTable extends Migration
             $table->unsignedTinyInteger("n_beds");
             $table->unsignedTinyInteger("n_bathrooms");
             $table->integer("sq_metres");
-            $table->boolean("visible");
+            $table->boolean("visible")->default(false);
             $table->string("address");
             $table->string("lat");
             $table->string("lon");

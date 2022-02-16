@@ -2,10 +2,10 @@
 
 @section('title-page', 'Home page')
 
-@section('content')
+
 
     
-@endsection
+
 @section('links')
 <script src="{{asset("js\handle-flats-form.js")}}" defer></script>
 @endsection
@@ -50,7 +50,7 @@
             </div>
             <div class="mb-3">
                 <label for="sq_metres" class="form-label">Metri quadri</label>
-                <input type="number" class="form-control" id="sq_metres" name="sq_metres" value="{{$flat->sq_metres}}">>
+                <input type="number" class="form-control" id="sq_metres" name="sq_metres" value="{{$flat->sq_metres}}">
                 @error('sq_metres')
                 {{$message}}
                 @enderror
@@ -133,9 +133,8 @@
 
             <div>
                 <label for="visible" class="form-label">visible</label>
-                <input type="radio" id="visible"  value='true'>
+                <input type="checkbox" id="visible" name="visible" {{ $flat->visible ? "checked" : "" }} value='1'>
 
-                <input type="hidden" name="visible" value="1">
 
             </div>
             
