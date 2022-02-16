@@ -49,7 +49,6 @@ class FlatController extends Controller
     {
        
         $data = $request->validated();
-        // $data['visible'] = $data['visible'] === 'on' ? true : false;
         
         $flat = new Flat();
         $flat->fill($data);
@@ -61,7 +60,7 @@ class FlatController extends Controller
 
       
         $cover_img = Storage::put('public/img',$data['cover_img']);
-        $flat->cover_img =  'storage'. str_replace('public','',$cover_img);;
+        $flat->cover_img =  'storage'. str_replace('public','',$cover_img);
 
         $flat->save();
         $flat->services()->sync($data["services"]);
@@ -83,21 +82,14 @@ class FlatController extends Controller
 
     public function edit(Flat $flat)
     {
-      $services = Service::all();
-      $flatServices = $flat->services()->get()->map(function ($service) {
-        return $service->id;
-    });
+        $services = Service::all();
+        $flatServices = $flat->services()->get()->map(function ($service) {
+            return $service->id;
+        });
 
-    $flatServices=$flatServices->toArray();
-    // $flatServizi = $flat->services()->where('flat_id', $flat->id)->get()->toArray();
+        $flatServices=$flatServices->toArray();
 
-
-   
-     
-    
-      
-
-     return view("admin.edit",compact('services','flat','flatServices'));
+        return view("admin.edit",compact('services','flat','flatServices'));
     }
 
     /**
@@ -117,7 +109,7 @@ class FlatController extends Controller
         if($request->has('cover_img')){
             Storage::delete($cover_img);
             $cover_img = Storage::put('public/img', $data['cover_img']);
-            $flat->cover_img = $cover_img;
+            $flat->cover_img = 'storage'. str_replace('public','',$cover_img);
             $flat->save();
         }
 
@@ -136,7 +128,7 @@ class FlatController extends Controller
                 $path = Storage::put('public/img',$image);
                 $newImage = new Image();
                 $newImage->flat_id = $flat->id;
-                $newImage->path = $path;
+                $newImage->path = 'storage'. str_replace('public','',$path);
                 $newImage->save();
                
             }
@@ -147,14 +139,9 @@ class FlatController extends Controller
 
         }
 
-        return redirect()->route('flats.show',$flat->slug);
-       
-        
+        return redirect()->route('flats.show',$flat->slug);        
     }
 
-    public function show(){
-
-    }
     /**
      * Remove the specified resource from storage.
      *

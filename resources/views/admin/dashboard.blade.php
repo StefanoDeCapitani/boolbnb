@@ -19,6 +19,7 @@
 
             <button class="btn btn-danger">Elimina</button>
         </form>
+        <p>Visite: {{ $flat->views->count() }}</p>
     </div>
  
     @endforeach
