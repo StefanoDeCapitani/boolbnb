@@ -15,15 +15,15 @@ class ImageSeeder extends Seeder
         $images = [
             [ 
                 "flat_id" => 1,
-                "path" => "storage/img/intero_alloggio_unità_in_affitto.jpg"
+                "path" => "storage/img/intero_alloggio_unita_in_affitto.jpg"
             ],
             [ 
                 "flat_id" => 1,
-                "path" => "storage/img/intero_alloggio unità_in_affitto2.jpg"
+                "path" => "storage/img/intero_alloggio_unita_in_affitto2.jpg"
             ],
             [ 
                 "flat_id" => 3,
-                "path" =>"storage/img/la_terrazza_con vista_del_castello.jpg"
+                "path" =>"storage/img/la_terrazza_con_vista_del_castello.jpg"
             ],
             [ 
                 "flat_id" => 3,
@@ -47,11 +47,11 @@ class ImageSeeder extends Seeder
             ],
             [ 
                 "flat_id" => 5,
-                "path" => "storage/img/san_giorgio_flat_intero_alloggio_unità_in_affitto.jpg"
+                "path" => "storage/img/san_giorgio_flat_intero_alloggio_unita_in_affitto.jpg"
             ],
             [ 
                 "flat_id" => 5,
-                "path" => "storage/img/san_giorgio_flat_intero_alloggio_unità_in_affitto2.jpg"
+                "path" => "storage/img/san_giorgio_flat_intero_alloggio_unita_in_affitto2.jpg"
             ]
         ];
 

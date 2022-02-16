@@ -19,6 +19,7 @@ class MessageSeeder extends Seeder
             
             $message = new Message();
             $message->flat_id= rand(1, 5);
+            $message->name = $faker->name();
             $message->text= $faker->realText();
             $message->email= $faker->email();
             $message->save();

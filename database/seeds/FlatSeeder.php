@@ -28,7 +28,7 @@ class FlatSeeder extends Seeder
                 'lat' => '46.151107620494855', 
                 'lon' => '9.324520772846045', 
                 'night_price' => 99, 
-                'cover_img' =>"storage/img/cover_image_intero_alloggio_unità_in_affitto.jpeg"
+                'cover_img' =>"storage/img/cover_image_intero_alloggio_unita_in_affitto.jpeg"
             ],
             [
                 'user_id' => 1,
