@@ -5,9 +5,10 @@
 @import 'variables';
 
 // stile homepage
-@import 'footer';
-@import 'header';
-@import 'login';
+@import 'partials/footer';
+@import 'partials/header';
+@import 'auth/login';
+@import 'auth/register';
 
 
 // Bootstrap
