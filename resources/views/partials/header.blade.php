@@ -37,10 +37,13 @@
                         </div>
                         
                     @else
-                        <a href="{{ route('login') }}">Accedi</a>
+                        
+                            <a href="{{ route('login') }}"><button class="btn login">Accedi</button></a>
+                        
     
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Registrati</a>
+                        
+                            <a href="{{ route('register') }}"><button id="register" class="btn">Registrati</button></a>
                         @endif
                     @endauth
                 </div>

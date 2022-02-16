@@ -39,10 +39,26 @@ nav {
   border-bottom: 1px solid #DEE4EC;
 }
 
-nav .menu .dropdown a {
+nav .menu a {
   text-decoration: none;
   color: black;
   padding: 0px 5px;
+}
+
+nav .menu a .btn {
+  background-color: #001632;
+  border-radius: 20px !important;
+  color: white;
+  padding: 7px 20px;
+}
+
+nav .menu a .btn :hover {
+  color: white !important;
+}
+
+nav .menu a .login {
+  background-color: #DEE4EC;
+  color: #001632;
 }
 
 nav .menu .dropdown #dropdownMenuLink {
@@ -95,6 +111,81 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   color: white;
   border-radius: 20px !important;
   padding: 7px 20px;
+}
+
+.container :nth-child(2) .bg-login {
+  background-color: #dee4ec;
+  padding: 25px 25px;
+  border-radius: 25px;
+  height: 400px;
+  position: relative;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  width: 525px;
+}
+
+.bg_register {
+  width: 70% !important;
+  padding: 0px 50px !important;
+  background-color: #7193be;
+  /* background-image: url('ian-keefe-OgcJIKRnRC8-unsplash.jpg'); */
+  margin-bottom: 100px;
+  border-radius: 25px;
+  /* background-position: center;
+  background-size: cover; */
+  /* filter: blur(2px); */
+  position: relative;
+}
+
+.bg_register h2,
+.bg_register .h2 {
+  z-index: 99;
+  position: relative;
+  font-weight: 700;
+  margin-top: 60px;
+  margin-bottom: -30px;
+  color: white;
+}
+
+.bg_register .cont_img {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  top: 0;
+  right: 0;
+  border-radius: 25px;
+}
+
+.bg_register .cont_img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  filter: blur(2px);
+}
+
+.bg_register .card {
+  position: relative;
+  bottom: -80px;
+  border-radius: 25px;
+  background-color: #dee4ec !important;
+}
+
+.bg_register .card button {
+  background-color: #001632;
+  border-radius: 20px !important;
+  color: white;
+}
+
+.bg_register .card .card-body {
+  padding: 50px 60px;
+}
+
+.bg_register .card .card-body .form-group input {
+  border-radius: 10px;
 }
 
 /*!

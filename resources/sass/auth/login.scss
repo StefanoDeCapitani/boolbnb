@@ -1,6 +1,4 @@
 .container{
-
-           
             .image-container{
                 width: 800px;
                 height: 600px;
@@ -40,4 +38,25 @@
                     }
                 }
             }
+            
+            :nth-child(2){
+                .bg-login{
+                    background-color: #dee4ec;
+                    padding: 25px 25px;
+                    border-radius: 25px;
+                    height: 400px;
+                    position: relative;
+                    left: 0px;
+                    display: flex;
+                    align-items: center;
+                    width: 525px;
+                }
+
+            }
+
 }
+
+
+
+
+
