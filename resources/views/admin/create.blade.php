@@ -45,7 +45,7 @@
             </div>
             <div class="mb-3">
                 <label for="sq_metres" class="form-label">Metri quadri</label>
-                <input type="number" class="form-control" id="sq_metres" name="sq_metres" value="{{old('sq_metres')}}">>
+                <input type="number" class="form-control" id="sq_metres" name="sq_metres" value="{{old('sq_metres')}}">
                 @error('sq_metres')
                 {{$message}}
                 @enderror
@@ -111,9 +111,9 @@
 
             <div>
                 <label for="visible" class="form-label">visible</label>
-                <input type="radio" id="visible"  value='true'>
+                <input type="radio" name="visible" id="visible" value="1">
 
-                <input type="hidden" name="visible" value="1">
+               
 
             </div>
             
