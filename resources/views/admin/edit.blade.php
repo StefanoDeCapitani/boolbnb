@@ -77,12 +77,7 @@
             <div class="form-group">
                 <label class="form-label">Tag</label>
             
-                {{-- <select name="services[]" class="form-control" multiple>
-                  @foreach($services as $service)
-                  <option value="{{$service->id}}">{{$service->name}}
-                  </option>
-                  @endforeach
-                </select> --}}
+               
 
 
                     {{-- multiple options --}}
@@ -95,9 +90,7 @@
 
               
                 
-                {{-- @if (in_array ($service->id $flat->services())) 
-                    
-                @endif --}}
+          
 
               </div>
             <div class="mb-3">
@@ -138,7 +131,7 @@
 
             </div>
             
-            <button class="btn btn-success mb-3" >Crea</button>
+            <button class="btn btn-success mb-3" >Salva</button>
 
 
         </form>

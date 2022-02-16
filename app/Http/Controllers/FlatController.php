@@ -25,8 +25,14 @@ class FlatController extends Controller
   
     public function show($slug)
     {
+        // $flat = Flat::where('slug',$slug);
+        
         if(Auth::user()){
             $flat = Flat::where('slug',$slug)->first();
+            if(Auth::id() !== $flat->user_id){
+                return abort(403, 'Unauthorized action.');
+            }
+
         }else{
             $flat = Flat::where('slug',$slug)->where("visible", true)->first();
             if($flat === null) {
