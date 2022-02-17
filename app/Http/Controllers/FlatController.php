@@ -29,7 +29,7 @@ class FlatController extends Controller
         
         if(Auth::user()){
             $flat = Flat::where('slug',$slug)->first();
-            if(Auth::id() !== $flat->user_id){
+            if(Auth::id() !== $flat->user_id && $flat->visible === 0){
                 return abort(403, 'Unauthorized action.');
             }
 
