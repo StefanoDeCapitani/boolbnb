@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/handle-flats-form.js": "/js/handle-flats-form.js",
-    "/js/home.js": "/js/home.js"
+    "/js/home.js": "/js/home.js",
+    "/js/vue.js": "/js/vue.js"
 }

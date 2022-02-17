@@ -339,7 +339,7 @@ searchBox.append(searchHtml);
 ttSearchBox.on('tomtom.searchbox.resultsfound', function (data) {
   if (data.data.metadata.triggeredBy === 'submit') {
     var results = data.data.results.fuzzySearch.results[0];
-    document.cookie = 'location=' + JSON.stringify(results);
+    sessionStorage.setItem('location', JSON.stringify(results));
     window.location.href = '/search';
   }
 });
