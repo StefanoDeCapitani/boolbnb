@@ -75,18 +75,20 @@ export default {
         })
     },
     getReachableRange(range){
+      
         services.calculateReachableRange({
             key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
             origin: this.results.position ,
             distanceBudgetInMeters: range,
-        }).then(function(rangeData) {
+        }).then((rangeData)=>{
 
             this.filter.polygon= rangeData.toGeoJson().geometry.coordinates[0];
-
+            
         })
         .catch(function(error) {
             console.error(error);
         });
+        
     },
     applyFilter(event){
 

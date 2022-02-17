@@ -197,11 +197,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      rooms: 1,
-      beds: 1,
-      bathrooms: 1,
-      activeServices: [],
-      range: "",
       filters: {
         rooms: 1,
         beds: 1,
@@ -214,14 +209,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {},
   methods: {
     apply: function apply() {
-      /* this.$emit('applyFilter', {
-          'rooms': this.rooms,
-          'beds': this.beds,
-          'bathrooms': this.bathrooms,
-          'activeServices': this.activeServices,
-          'range': this.range,
-          'polygon': '',
-      }) */
       this.$emit('apply-filter', this.filters);
     }
   }
@@ -367,12 +354,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getReachableRange: function getReachableRange(range) {
+      var _this2 = this;
+
       _tomtom_international_web_sdk_services__WEBPACK_IMPORTED_MODULE_2__["services"].calculateReachableRange({
         key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
         origin: this.results.position,
         distanceBudgetInMeters: range
       }).then(function (rangeData) {
-        this.filter.polygon = rangeData.toGeoJson().geometry.coordinates[0];
+        _this2.filter.polygon = rangeData.toGeoJson().geometry.coordinates[0];
       })["catch"](function (error) {
         console.error(error);
       });
@@ -913,7 +902,7 @@ var render = function () {
                     {
                       on: {
                         click: function ($event) {
-                          _vm.rooms--
+                          _vm.filters.rooms--
                         },
                       },
                     },
@@ -925,18 +914,18 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.rooms,
-                        expression: "rooms",
+                        value: _vm.filters.rooms,
+                        expression: "filters.rooms",
                       },
                     ],
                     attrs: { type: "text", readonly: "" },
-                    domProps: { value: _vm.rooms },
+                    domProps: { value: _vm.filters.rooms },
                     on: {
                       input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.rooms = $event.target.value
+                        _vm.$set(_vm.filters, "rooms", $event.target.value)
                       },
                     },
                   }),
@@ -946,7 +935,7 @@ var render = function () {
                     {
                       on: {
                         click: function ($event) {
-                          _vm.rooms++
+                          _vm.filters.rooms++
                         },
                       },
                     },
@@ -962,7 +951,7 @@ var render = function () {
                     {
                       on: {
                         click: function ($event) {
-                          _vm.beds--
+                          _vm.filters.beds--
                         },
                       },
                     },
@@ -974,18 +963,18 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.beds,
-                        expression: "beds",
+                        value: _vm.filters.beds,
+                        expression: "filters.beds",
                       },
                     ],
                     attrs: { type: "text", readonly: "" },
-                    domProps: { value: _vm.beds },
+                    domProps: { value: _vm.filters.beds },
                     on: {
                       input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.beds = $event.target.value
+                        _vm.$set(_vm.filters, "beds", $event.target.value)
                       },
                     },
                   }),
@@ -995,7 +984,7 @@ var render = function () {
                     {
                       on: {
                         click: function ($event) {
-                          _vm.beds++
+                          _vm.filters.beds++
                         },
                       },
                     },
@@ -1011,7 +1000,7 @@ var render = function () {
                     {
                       on: {
                         click: function ($event) {
-                          _vm.bathrooms--
+                          _vm.filters.bathrooms--
                         },
                       },
                     },
@@ -1023,18 +1012,18 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.bathrooms,
-                        expression: "bathrooms",
+                        value: _vm.filters.bathrooms,
+                        expression: "filters.bathrooms",
                       },
                     ],
                     attrs: { type: "text", readonly: "" },
-                    domProps: { value: _vm.bathrooms },
+                    domProps: { value: _vm.filters.bathrooms },
                     on: {
                       input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.bathrooms = $event.target.value
+                        _vm.$set(_vm.filters, "bathrooms", $event.target.value)
                       },
                     },
                   }),
@@ -1044,7 +1033,7 @@ var render = function () {
                     {
                       on: {
                         click: function ($event) {
-                          _vm.bathrooms++
+                          _vm.filters.bathrooms++
                         },
                       },
                     },
@@ -1065,20 +1054,21 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.activeServices,
-                            expression: "activeServices",
+                            value: _vm.filters.activeServices,
+                            expression: "filters.activeServices",
                           },
                         ],
                         attrs: { id: service.name, type: "checkbox" },
                         domProps: {
                           value: service.id,
-                          checked: Array.isArray(_vm.activeServices)
-                            ? _vm._i(_vm.activeServices, service.id) > -1
-                            : _vm.activeServices,
+                          checked: Array.isArray(_vm.filters.activeServices)
+                            ? _vm._i(_vm.filters.activeServices, service.id) >
+                              -1
+                            : _vm.filters.activeServices,
                         },
                         on: {
                           change: function ($event) {
-                            var $$a = _vm.activeServices,
+                            var $$a = _vm.filters.activeServices,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
@@ -1086,15 +1076,21 @@ var render = function () {
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
-                                  (_vm.activeServices = $$a.concat([$$v]))
+                                  _vm.$set(
+                                    _vm.filters,
+                                    "activeServices",
+                                    $$a.concat([$$v])
+                                  )
                               } else {
                                 $$i > -1 &&
-                                  (_vm.activeServices = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
+                                  _vm.$set(
+                                    _vm.filters,
+                                    "activeServices",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
                               }
                             } else {
-                              _vm.activeServices = $$c
+                              _vm.$set(_vm.filters, "activeServices", $$c)
                             }
                           },
                         },
@@ -1116,8 +1112,8 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.range,
-                          expression: "range",
+                          value: _vm.filters.range,
+                          expression: "filters.range",
                         },
                       ],
                       on: {
@@ -1130,9 +1126,13 @@ var render = function () {
                               var val = "_value" in o ? o._value : o.value
                               return val
                             })
-                          _vm.range = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
+                          _vm.$set(
+                            _vm.filters,
+                            "range",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
                         },
                       },
                     },
@@ -1161,11 +1161,6 @@ var render = function () {
                   {
                     staticClass: "btn btn-secondary",
                     attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.apply()
-                      },
-                    },
                   },
                   [_vm._v("Reset")]
                 ),
@@ -1175,6 +1170,11 @@ var render = function () {
                   {
                     staticClass: "btn btn-primary",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.apply()
+                      },
+                    },
                   },
                   [_vm._v("Applica")]
                 ),
