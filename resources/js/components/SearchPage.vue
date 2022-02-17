@@ -4,35 +4,41 @@
     <div>
         
     </div>
+    <FilterData
+    :services="services"
+    
+    @apply-filter='applyFilter($event)'></FilterData>
     <MyMap></MyMap>
     <FlatsResults> </FlatsResults>
   </div>
 </template>
 
 <script>
-import MyMap from "./MyMap.vue";
-import FlatsResults from "./FlatsResults.vue";
-    import { services } from "@tomtom-international/web-sdk-services";
-    import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
+  import MyMap from "./MyMap.vue";
+  import FlatsResults from "./FlatsResults.vue";
+  import { services } from "@tomtom-international/web-sdk-services";
+  import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
+  import FilterData from './FilterData.vue';
 
 export default {
   name: "SearchPage",
-  components: { MyMap, FlatsResults },
+  props: {
+    services: Array
+  },
+  components: { MyMap, FlatsResults, FilterData },
   data() {
     return {
       results: null,
       flats: [],
-      filter: {
-          polygon : Object.values(this.results.viewport).map(obj=>Object.values(obj)),
-          bathroom: 2 
-      }
+      filter: {polygon: []},
+      
     };
   },
   mounted() {
     // this.position = this.$cookies.get("location")
     this.results = JSON.parse(sessionStorage.getItem("location"));
 
-    console.log(Object.values(this.results.viewport).map(obj=>Object.values(obj)));
+    this.getReachableRange(20000)
 
     let searchBox = this.$refs.searchbox;
 
@@ -68,6 +74,25 @@ export default {
             console.log(resp.data)
         })
     },
+    getReachableRange(range){
+        services.calculateReachableRange({
+            key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
+            origin: this.results.position ,
+            distanceBudgetInMeters: range,
+        }).then(function(rangeData) {
+
+            this.filter.polygon= rangeData.toGeoJson().geometry.coordinates[0];
+
+        })
+        .catch(function(error) {
+            console.error(error);
+        });
+    },
+    applyFilter(event){
+
+        this.filter = event
+        this.getReachableRange(event.range)
+    }
   },
 };
 </script>
