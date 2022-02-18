@@ -346,9 +346,7 @@ __webpack_require__.r(__webpack_exports__);
     callAxios: function callAxios() {
       var _this = this;
 
-      axios.get('/api/search', {
-        params: this.filter
-      }).then(function (resp) {
+      axios.post('/api/search', this.filter).then(function (resp) {
         _this.flats = resp.data;
         console.log(resp.data);
       });
@@ -13823,7 +13821,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\andre\Boolean\Classe-#43\Progetto-finale\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\matte\Desktop\classe43BOOLEAN\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

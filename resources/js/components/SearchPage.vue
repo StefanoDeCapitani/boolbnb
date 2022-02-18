@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     callAxios() {
-        axios.get('/api/search', {params: this.filter}).then((resp)=>{
+        axios.post('/api/search', this.filter).then((resp)=>{
             this.flats = resp.data
             console.log(resp.data)
         })
