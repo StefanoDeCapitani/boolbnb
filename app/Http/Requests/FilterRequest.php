@@ -24,11 +24,11 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'rooms' => 'number|required',
-            'bathrooms'=>'number|required',
-            'beds'=>'number|required',
+            'rooms' => 'numeric|required',
+            'bathrooms'=>'numeric|required',
+            'beds'=>'numeric|required',
             'activeServices'=>'array',
-            'activeServices.*'=>'number',
+            'activeServices.*'=>'numeric',
             'polygon'=>'array|required',
             'polygon.*'=>'array',
         ];

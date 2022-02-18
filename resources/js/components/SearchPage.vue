@@ -83,7 +83,7 @@ export default {
         }).then((rangeData)=>{
 
             this.filter.polygon= rangeData.toGeoJson().geometry.coordinates[0];
-            
+             this.callAxios();
         })
         .catch(function(error) {
             console.error(error);
@@ -94,6 +94,7 @@ export default {
 
         this.filter = event
         this.getReachableRange(event.range)
+       
     }
   },
 };
