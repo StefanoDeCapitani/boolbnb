@@ -20,17 +20,10 @@ class SearchController extends Controller
         $polygon .= $point[0] . ' '. $point[1] . ", ";
         }
         $polygon.= $data["polygon"][0][0] . " " . $data["polygon"][0][1] . "))";
-        $flats = DB::table("flats");
-      
-                
-
-
-       
-
-
+        // $flats = DB::table("flats");
 
             $flats = Flat::query();
-            $flats->whereRaw("MBRContains(ST_GeomFromText(?), ST_GeomFromText(CONCAT('POINT(',lon, ' ',lat, ')')))", [$polygon]);
+            // $flats->whereRaw("MBRContains(ST_GeomFromText(?), ST_GeomFromText(CONCAT('POINT(',lon, ' ',lat, ')')))", [$polygon]);
         
             if($data['bathrooms']){
                 $flats->where('n_bathrooms','>=',$data['bathrooms']);
@@ -47,17 +40,17 @@ class SearchController extends Controller
                     $flats = $flats->whereHas('services', function($query) use ($service) {
                         $query->where('service_id', $service);
                     });
-                }
-              
+                }             
             }
+            $flats = $flats->where('visible', true);
+            $queryS = $flats;
+            $flats = $flats->get();
+            $activeSponsorship = $queryS->whereHas('activeSponsorships', function($q) {
+                $q->orderBy('created_at', 'ASC');
+            })->get();
 
         
-        $flats = $flats->get();
+            return response()->json(['flats'=>$activeSponsorship]);
 
-        // $activeSponsorship = $flats->where('')
-        
-        
-
-        return response()->json($flats);
     }
 }
