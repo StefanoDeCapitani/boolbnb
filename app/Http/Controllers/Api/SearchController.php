@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Flat;
+use App\Service;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FilterRequest;
 use Illuminate\Http\Request;
@@ -13,36 +14,47 @@ class SearchController extends Controller
     public function index(FilterRequest $request){
 
         $data = $request->validated();
-    //     $polygon = "Polygon((";
-    //     foreach($data["polygon"] as $i => $point){
-    //         $polygon .= $point[0] . ' '. $point[1];
-    //         if($i < count($data["polygon"]) -1){
-    //             $polygon .= ", ";
-    //         }
-    //     }
-    //     $polygon.="))";
-    //    $flats = DB::select("SELECT* FROM `flats` WHERE MBRContains(ST_GeomFromText(?), ST_GeomFromText(CONCAT('POINT(`,lon, ' ',lat, `)')))", [$polygon]);
+        
+      $polygon = "POLYGON((";
+        foreach($data["polygon"] as $point){
+        $polygon .= $point[0] . ' '. $point[1] . ", ";
+        }
+        $polygon.= $data["polygon"][0][0] . " " . $data["polygon"][0][1] . "))";
+        $flats = DB::table("flats");
+      
+                
+
+
        
-              $flats = Flat::query();
+
+
+
+            $flats = Flat::query();
+            $flats->whereRaw("MBRContains(ST_GeomFromText(?), ST_GeomFromText(CONCAT('POINT(',lon, ' ',lat, ')')))", [$polygon]);
         
             if($data['bathrooms']){
-                $flats->where('n_bathrooms','>',$data['bathrooms']);
+                $flats->where('n_bathrooms','>=',$data['bathrooms']);
             }
             if($data['beds']){
-                $flats->where('n_beds','>',$data['beds']);
+                $flats->where('n_beds','>=',$data['beds']);
             }
             if($data['rooms']){
-                $flats->where('n_rooms','>',$data['rooms']);
+                $flats->where('n_rooms','>=',$data['rooms']);
             }
-            // if(count($data['activeServices'])){
-            //     $flats->with('services');
-            //     foreach ($data['activeServices'] as $service) {
-            //         $flats->where('service_id',$service);
-            //     }
-            // }
+
+            if(count($data['activeServices'])){
+                foreach ($data['activeServices'] as $service) {
+                    $flats = $flats->whereHas('services', function($query) use ($service) {
+                        $query->where('service_id', $service);
+                    });
+                }
+              
+            }
 
         
         $flats = $flats->get();
+
+        // $activeSponsorship = $flats->where('')
         
         
 
