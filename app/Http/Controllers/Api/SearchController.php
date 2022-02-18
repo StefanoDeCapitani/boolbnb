@@ -23,7 +23,7 @@ class SearchController extends Controller
         // $flats = DB::table("flats");
 
             $flats = Flat::query();
-            // $flats->whereRaw("MBRContains(ST_GeomFromText(?), ST_GeomFromText(CONCAT('POINT(',lon, ' ',lat, ')')))", [$polygon]);
+            $flats->whereRaw("MBRContains(ST_GeomFromText(?), ST_GeomFromText(CONCAT('POINT(',lon, ' ',lat, ')')))", [$polygon]);
         
             if($data['bathrooms']){
                 $flats->where('n_bathrooms','>=',$data['bathrooms']);
@@ -43,13 +43,12 @@ class SearchController extends Controller
                 }             
             }
             $flats = $flats->where('visible', true);
+            $flats->orderByRaw("ST_Distance_Sphere(ST_GeomFromText(CONCAT('POINT(',lon, ' ',lat, ')')), ST_GeomFromText('POINT(? ?)'))", [$data['lat'],$data['lng']]);
             $queryS = $flats;
             $flats = $flats->get();
-            $activeSponsorship = $queryS->whereHas('activeSponsorships', function($q) {
-                $q->orderBy('created_at', 'ASC');
-            })->get();
+            $activeSponsorship = $queryS->get();
 
-        
+
             return response()->json(['flats'=>$activeSponsorship]);
 
     }

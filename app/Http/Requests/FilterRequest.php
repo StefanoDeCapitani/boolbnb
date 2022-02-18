@@ -31,6 +31,8 @@ class FilterRequest extends FormRequest
             'activeServices.*'=>'numeric',
             'polygon'=>'array|required',
             'polygon.*'=>'array',
+            'lat'=>'required|numeric',
+            'lng'=>'required|numeric'
         ];
     }
 }

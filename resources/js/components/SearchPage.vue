@@ -83,7 +83,9 @@ export default {
         }).then((rangeData)=>{
 
             this.filter.polygon= rangeData.toGeoJson().geometry.coordinates[0];
-             this.callAxios();
+            this.filter.lat = this.results.position.lat;
+            this.filter.lng = this.results.position.lng;
+            this.callAxios();
         })
         .catch(function(error) {
             console.error(error);

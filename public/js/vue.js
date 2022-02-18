@@ -360,6 +360,8 @@ __webpack_require__.r(__webpack_exports__);
         distanceBudgetInMeters: range
       }).then(function (rangeData) {
         _this2.filter.polygon = rangeData.toGeoJson().geometry.coordinates[0];
+        _this2.filter.lat = _this2.results.position.lat;
+        _this2.filter.lng = _this2.results.position.lng;
 
         _this2.callAxios();
       })["catch"](function (error) {
