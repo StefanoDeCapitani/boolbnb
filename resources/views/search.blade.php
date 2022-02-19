@@ -4,6 +4,8 @@
 
 @section('links')
     <script src="{{asset('js\vue.js')}}" defer></script>
+    {{-- <link rel="stylesheet" type="text/css" href="maps.css"/> --}}
+    {{-- <script src="maps-web.min.js" ></script> --}}
 @endsection
 
 @section('content')

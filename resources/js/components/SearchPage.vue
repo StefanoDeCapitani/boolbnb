@@ -7,7 +7,9 @@
     <FilterData
     :services="services"
     @apply-filter='applyFilter($event)'></FilterData>
-    <MyMap></MyMap>
+    <MyMap
+    :center="results.position"
+    v-if="results"></MyMap>
     <FlatsResults :flats= flats > </FlatsResults>
   </div>
 </template>
@@ -105,6 +107,18 @@ export default {
        
     }
   },
+
+  /* computed:{
+
+    center(){
+      if (this.results) {
+        
+        return this.results.position
+      }
+
+    }
+
+  } */
 };
 </script>
 
