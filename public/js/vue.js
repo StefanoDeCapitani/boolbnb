@@ -239,40 +239,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FilterData",
   props: {
@@ -301,11 +267,6 @@ __webpack_require__.r(__webpack_exports__);
         activeServices: [],
         range: "20000"
       };
-    },
-    methods: {
-      apply: function apply() {
-        this.$emit('apply-filter', this.filters);
-      }
     }
   }
 });
@@ -1881,18 +1842,18 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "h-100" }, [
+  return _c("div", [
     _c(
       "button",
       {
-        staticClass: "btn btn-primary text-white btn_filter",
+        staticClass: "btn btn-primary",
         attrs: {
           type: "button",
           "data-bs-toggle": "modal",
           "data-bs-target": "#exampleModal",
         },
       },
-      [_vm._v("\nFiltra\n")]
+      [_vm._v("\n        Filtra\n    ")]
     ),
     _vm._v(" "),
     _c(
@@ -1911,7 +1872,7 @@ var render = function () {
           "div",
           { staticClass: "modal-dialog modal-lg modal-fullscreen-sm-down" },
           [
-            _c("div", { staticClass: " modal-content " }, [
+            _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
@@ -1941,7 +1902,7 @@ var render = function () {
                         expression: "filters.rooms",
                       },
                     ],
-                    attrs: { type: "text", readonly: "" },
+                    attrs: { type: "number", readonly: "" },
                     domProps: { value: _vm.filters.rooms },
                     on: {
                       input: function ($event) {
@@ -1990,7 +1951,7 @@ var render = function () {
                         expression: "filters.beds",
                       },
                     ],
-                    attrs: { type: "text", readonly: "" },
+                    attrs: { type: "number", readonly: "" },
                     domProps: { value: _vm.filters.beds },
                     on: {
                       input: function ($event) {
@@ -2039,7 +2000,7 @@ var render = function () {
                         expression: "filters.bathrooms",
                       },
                     ],
-                    attrs: { type: "text", readonly: "" },
+                    attrs: { type: "number", readonly: "" },
                     domProps: { value: _vm.filters.bathrooms },
                     on: {
                       input: function ($event) {
@@ -2122,365 +2083,95 @@ var render = function () {
                   }),
                   0
                 ),
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "modal fade",
-                  attrs: {
-                    id: "exampleModal",
-                    tabindex: "-1",
-                    "aria-labelledby": "exampleModalLabel",
-                    "aria-hidden": "true",
-                  },
-                },
-                [
+                _vm._v(" "),
+                _c("div", [
+                  _c("label", { attrs: { for: "" } }, [
+                    _vm._v("Seleziona raggio di ricerca"),
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "div",
+                    "select",
                     {
-                      staticClass:
-                        "modal-dialog modal-lg modal-fullscreen-sm-down",
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.filters.range,
+                          expression: "filters.range",
+                        },
+                      ],
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.filters,
+                            "range",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                      },
                     },
                     [
-                      _c("div", { staticClass: "modal-content" }, [
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "modal-body" }, [
-                          _c("div", [
-                            _c("label", { attrs: { for: "" } }, [
-                              _vm._v("numero stanze"),
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                on: {
-                                  click: function ($event) {
-                                    _vm.filters.rooms--
-                                  },
-                                },
-                              },
-                              [_vm._v("-")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.filters.rooms,
-                                  expression: "filters.rooms",
-                                },
-                              ],
-                              attrs: { type: "number", readonly: "" },
-                              domProps: { value: _vm.filters.rooms },
-                              on: {
-                                input: function ($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.filters,
-                                    "rooms",
-                                    $event.target.value
-                                  )
-                                },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                on: {
-                                  click: function ($event) {
-                                    _vm.filters.rooms++
-                                  },
-                                },
-                              },
-                              [_vm._v("+")]
-                            ),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("label", { attrs: { for: "" } }, [
-                              _vm._v("numero letti"),
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                on: {
-                                  click: function ($event) {
-                                    _vm.filters.beds--
-                                  },
-                                },
-                              },
-                              [_vm._v("-")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.filters.beds,
-                                  expression: "filters.beds",
-                                },
-                              ],
-                              attrs: { type: "number", readonly: "" },
-                              domProps: { value: _vm.filters.beds },
-                              on: {
-                                input: function ($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.filters,
-                                    "beds",
-                                    $event.target.value
-                                  )
-                                },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                on: {
-                                  click: function ($event) {
-                                    _vm.filters.beds++
-                                  },
-                                },
-                              },
-                              [_vm._v("+")]
-                            ),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("label", { attrs: { for: "" } }, [
-                              _vm._v("numero bagni"),
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                on: {
-                                  click: function ($event) {
-                                    _vm.filters.bathrooms--
-                                  },
-                                },
-                              },
-                              [_vm._v("-")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.filters.bathrooms,
-                                  expression: "filters.bathrooms",
-                                },
-                              ],
-                              attrs: { type: "number", readonly: "" },
-                              domProps: { value: _vm.filters.bathrooms },
-                              on: {
-                                input: function ($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.filters,
-                                    "bathrooms",
-                                    $event.target.value
-                                  )
-                                },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                on: {
-                                  click: function ($event) {
-                                    _vm.filters.bathrooms++
-                                  },
-                                },
-                              },
-                              [_vm._v("+")]
-                            ),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            _vm._l(_vm.services, function (service) {
-                              return _c("div", { key: service.id }, [
-                                _c("label", { attrs: { for: service.name } }, [
-                                  _vm._v(_vm._s(service.name)),
-                                ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.filters.activeServices,
-                                      expression: "filters.activeServices",
-                                    },
-                                  ],
-                                  attrs: { id: service.name, type: "checkbox" },
-                                  domProps: {
-                                    value: service.id,
-                                    checked: Array.isArray(
-                                      _vm.filters.activeServices
-                                    )
-                                      ? _vm._i(
-                                          _vm.filters.activeServices,
-                                          service.id
-                                        ) > -1
-                                      : _vm.filters.activeServices,
-                                  },
-                                  on: {
-                                    change: function ($event) {
-                                      var $$a = _vm.filters.activeServices,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = service.id,
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.filters,
-                                              "activeServices",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.filters,
-                                              "activeServices",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.filters,
-                                          "activeServices",
-                                          $$c
-                                        )
-                                      }
-                                    },
-                                  },
-                                }),
-                              ])
-                            }),
-                            0
-                          ),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("label", { attrs: { for: "" } }, [
-                              _vm._v("Seleziona raggio di ricerca"),
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "select",
-                              {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.filters.range,
-                                    expression: "filters.range",
-                                  },
-                                ],
-                                on: {
-                                  change: function ($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call(
-                                        $event.target.options,
-                                        function (o) {
-                                          return o.selected
-                                        }
-                                      )
-                                      .map(function (o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      _vm.filters,
-                                      "range",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  },
-                                },
-                              },
-                              [
-                                _c("option", { attrs: { value: "10000" } }, [
-                                  _vm._v("10 km"),
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "option",
-                                  { attrs: { value: "20000", selected: "" } },
-                                  [_vm._v("20 km")]
-                                ),
-                                _vm._v(" "),
-                                _c("option", { attrs: { value: "50000" } }, [
-                                  _vm._v("50 km"),
-                                ]),
-                              ]
-                            ),
-                          ]),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "modal-footer" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-secondary",
-                              attrs: { type: "button" },
-                              on: { click: _vm.resetFilters },
-                            },
-                            [
-                              _vm._v(
-                                "\n                        Reset\n                    "
-                              ),
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: {
-                                type: "button",
-                                "data-bs-dismiss": "modal",
-                              },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.apply()
-                                },
-                              },
-                            },
-                            [
-                              _vm._v(
-                                "\n                        Applica\n                    "
-                              ),
-                            ]
-                          ),
-                        ]),
+                      _c("option", { attrs: { value: "10000" } }, [
+                        _vm._v("10 km"),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "20000", selected: "" } },
+                        [_vm._v("20 km")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "50000" } }, [
+                        _vm._v("50 km"),
                       ]),
                     ]
                   ),
-                ]
-              ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button" },
+                    on: { click: _vm.resetFilters },
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Reset\n                    "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.apply()
+                      },
+                    },
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Applica\n                    "
+                    ),
+                  ]
+                ),
+              ]),
             ]),
           ]
         ),
@@ -2489,27 +2180,6 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Filtri")]
-      ),
-      _vm._v(" "),
-      _c("button", {
-        staticClass: "btn-close",
-        attrs: {
-          type: "button",
-          "data-bs-dismiss": "modal",
-          "aria-label": "Close",
-        },
-      }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

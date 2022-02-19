@@ -1,44 +1,13 @@
 <template>
-    <div class="h-100">
-        
-    <button type="button" class="btn btn-primary text-white btn_filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Filtra
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
-        <div class=" modal-content ">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Filtri</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <label for="">numero stanze</label>
-                    <button @click="filters.rooms--" >-</button>
-                    <input type="text" readonly v-model="filters.rooms">
-                    <button @click="filters.rooms++">+</button>
-                </div>
-                <div>
-                    <label for="">numero letti</label>
-                    <button @click="filters.beds--" >-</button>
-                    <input type="text" readonly v-model="filters.beds">
-                    <button @click="filters.beds++">+</button>
-                </div>
-                <div>
-                    <label for="">numero bagni</label>
-                    <button @click="filters.bathrooms--" >-</button>
-                    <input type="text" readonly v-model="filters.bathrooms">
-                    <button @click="filters.bathrooms++">+</button>
-                </div>
-                <div>
-                    <div v-for="service in services" :key="service.id">
-                        <label :for="service.name" >{{ service.name }}</label>
-                        <input :id="service.name" type="checkbox" v-model="filters.activeServices" :value="service.id">
-                    </div>
-                </div>
-        </div>
+    <div>
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+        >
+            Filtra
+        </button>
 
         <!-- Modal -->
         <div
@@ -135,9 +104,6 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
 </template>
 
 <script>
@@ -170,17 +136,8 @@ export default {
                 range: "20000",
             };
         },
-        methods:{
-
-            apply(){
-
-                
-                this.$emit('apply-filter', this.filters)
-            }
-        }
-
-    }
-}
+    },
+};
 </script>
 <style lang="scss">
 
