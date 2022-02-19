@@ -35,36 +35,55 @@ export default {
         },
 
 
-      /* flats(newValue){
+       flats(newValue){
         console.log(newValue)
         if (newValue) {
-          for (flat in newValue) {
         
+          for (let flat of newValue) {
+              console.log(flat)
             this.markers.push(new tt.Marker()
-            .setLngLat([flat.lat, flat.lon])
-            .addTo(map));
+            .setLngLat({lon:flat.lon , lat:flat.lat})
+            .addTo(this.map));
       
           }
           
         }
-        } */     //DA RIVEDERE
+        }   
     },
 
-    mounted(){
+     mounted(){
+
+      this.startMap();
       
-      this.map = tt.map({
+
+    },
+    
+
+    methods:{
+      startMap(){
+        this.map = tt.map({
         key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
         container: 'map',
         center: this.center,
-        zoom: 8
-      });
+        zoom: 10,
+        
+      })
 
+//       if(this.flats.length > 0 ){
 
-    
+//       console.log(this.flats)
+//       new tt.Marker()
+//       .setLngLat([12.497263608239923, 41.90250380717655])
+//       .addTo(map);
+//  }
+      
       
 
-    }
-    
+      //  this.map = Object.freeze(map);
+      }
+    },
+
+   
 }
 </script>
 
