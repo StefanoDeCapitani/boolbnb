@@ -158,7 +158,7 @@ class FlatSeeder extends Seeder
                 'lat' => '41.89462701975429',
                 'lon' => '12.478419746479682',
                 'night_price' => 90,
-                'cover_img' =>"storage/img/casa_funari_nel_cuore_di_una_roma_antica_cover.jpeg",
+                'cover_img' =>"storage/img/casa_funari_nel_cuore_di_una_roma_antica_cover.jpg",
                
             ],
             [ 
