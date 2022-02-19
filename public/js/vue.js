@@ -411,7 +411,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     center: function center(newValue) {
       this.map.flyTo({
         center: newValue,
-        zoom: 8
+        zoom: 10
       });
     },
     flats: function flats(newValue) {
@@ -458,7 +458,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         key: "xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR",
         container: "map",
         center: this.center,
-        zoom: 8,
+        zoom: 10,
         minZoom: 4,
         maxBounds: [[5.7499552751, 35.619987291], [19.4802470232, 48.1153931748]]
       });
@@ -484,11 +484,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tomtom_international_web_sdk_plugin_searchbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tomtom-international/web-sdk-plugin-searchbox */ "./node_modules/@tomtom-international/web-sdk-plugin-searchbox/dist/SearchBox.js");
 /* harmony import */ var _tomtom_international_web_sdk_plugin_searchbox__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tomtom_international_web_sdk_plugin_searchbox__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _FilterData_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FilterData.vue */ "./resources/js/components/FilterData.vue");
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1842,11 +1837,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "h-100" }, [
     _c(
       "button",
       {
-        staticClass: "btn btn-primary",
+        staticClass: "btn btn-primary text-white btn_filter",
         attrs: {
           type: "button",
           "data-bs-toggle": "modal",
@@ -2438,7 +2433,11 @@ var render = function () {
         [
           _vm.results
             ? _c("MyMap", {
-                attrs: { center: _vm.results.position, flats: _vm.flats },
+                attrs: {
+                  center: _vm.results.position,
+                  flats: _vm.flats,
+                  layer: _vm.layer,
+                },
               })
             : _vm._e(),
         ],

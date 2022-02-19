@@ -1,35 +1,30 @@
 <template>
-  <div id="search-page">
-    <div class="d-flex justify-content-center align-items-center searchbar_cont">
-      <div ref="searchbox" class="search_box"></div>
-      
-      <FilterData
-      :services="services"
-      @apply-filter='applyFilter($event)'>
-      </FilterData>
+    <div id="search-page">
+        <div class="d-flex justify-content-center align-items-center searchbar_cont">
+          <div ref="searchbox" class="search_box"></div>
+          <FilterData
+              :services="services"
+              @apply-filter="applyFilter($event)"
+          ></FilterData>
+        </div>
 
+        <div class="row mt-5">
+          <h4>Abbiamo trovato {{ flats.length }} risultati:</h4>
+
+          <div class="col-6">
+            <FlatsResults :flats="flats"> </FlatsResults>
+          </div>
+
+          <div class="col-6">
+            <MyMap
+                :center="results.position"
+                :flats="flats"
+                :layer="layer"
+                v-if="results"
+            ></MyMap>
+          </div>
+        </div>
     </div>
-
-  <div class="row mt-5">
-
-    <h4>Abbiamo trovato {{ flats.length }} risultati:</h4>
-
-    <div class="col-6">
-    <FlatsResults :flats= flats > </FlatsResults>
-    </div>
-
-    <div class="col-6">
-      <MyMap
-        :center="results.position"
-        :flats="flats"
-        v-if="results">
-      </MyMap>
-    </div>
-    
-  </div>
-
-
-  </div>
 </template>
 
 <script>

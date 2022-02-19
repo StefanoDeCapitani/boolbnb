@@ -1,7 +1,7 @@
 <template>
-<div class="" style="position: sticky; top: 200px;">
-  <div id="map" style='width: 100%; height: 600px; border-radius: 10px;'></div>
-</div>
+    <div class="" style="position: sticky; top: 200px;">
+        <div id="map" style='width: 100%; height: 600px; border-radius: 10px;'></div>
+    </div>
 </template>
 
 <script>
@@ -21,7 +21,7 @@ export default {
     },
     watch: {
         center(newValue) {
-            this.map.flyTo({ center: newValue, zoom: 8 });
+            this.map.flyTo({ center: newValue, zoom: 10 });
         },
         flats(newValue) {
             for (let marker of this.markers) {
@@ -47,7 +47,7 @@ export default {
                 key: "xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR",
                 container: "map",
                 center: this.center,
-                zoom: 8,
+                zoom: 10,
                 minZoom: 4,
                 maxBounds: [
                     [5.7499552751, 35.619987291],

@@ -10,7 +10,9 @@
 
 @section('content')
     <div class="search_page_title text-center">
-        <h1 class="my-5">Dove vuoi andare?</h1>
+        <div class="search_page_title text-center">
+            <h1 class="my-5">Dove vuoi andare?</h1>
+        </div>
     </div>
     <search-page :services= '{{ json_encode($services) }}'  ></search-page>
 

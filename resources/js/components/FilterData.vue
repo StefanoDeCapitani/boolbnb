@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="h-100">
         <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary text-white btn_filter"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
         >
