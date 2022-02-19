@@ -317,11 +317,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       map: null,
-      centerMap: this.center
+      markers: []
     };
   },
   props: {
-    center: Object
+    center: Object,
+    flats: Array
   },
   watch: {
     center: function center(newValue) {
@@ -330,9 +331,23 @@ __webpack_require__.r(__webpack_exports__);
         zoom: 8
       });
     }
+    /* flats(newValue){
+      console.log(newValue)
+      if (newValue) {
+        for (flat in newValue) {
+      
+          this.markers.push(new tt.Marker()
+          .setLngLat([flat.lat, flat.lon])
+          .addTo(map));
+    
+        }
+        
+      }
+      } */
+    //DA RIVEDERE
+
   },
   mounted: function mounted() {
-    /* this.centerMap = this.center */
     this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
       key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
       container: 'map',
@@ -360,6 +375,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tomtom_international_web_sdk_plugin_searchbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tomtom-international/web-sdk-plugin-searchbox */ "./node_modules/@tomtom-international/web-sdk-plugin-searchbox/dist/SearchBox.js");
 /* harmony import */ var _tomtom_international_web_sdk_plugin_searchbox__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tomtom_international_web_sdk_plugin_searchbox__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _FilterData_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FilterData.vue */ "./resources/js/components/FilterData.vue");
+//
 //
 //
 //
@@ -1492,7 +1508,9 @@ var render = function () {
       }),
       _vm._v(" "),
       _vm.results
-        ? _c("MyMap", { attrs: { center: _vm.results.position } })
+        ? _c("MyMap", {
+            attrs: { center: _vm.results.position, flats: _vm.flats },
+          })
         : _vm._e(),
       _vm._v(" "),
       _c("FlatsResults", { attrs: { flats: _vm.flats } }),

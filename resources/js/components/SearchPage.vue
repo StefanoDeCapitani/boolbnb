@@ -9,6 +9,7 @@
     @apply-filter='applyFilter($event)'></FilterData>
     <MyMap
     :center="results.position"
+    :flats="flats"
     v-if="results"></MyMap>
     <FlatsResults :flats= flats > </FlatsResults>
   </div>

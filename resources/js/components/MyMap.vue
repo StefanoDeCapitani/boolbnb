@@ -14,37 +14,53 @@ import tt from '@tomtom-international/web-sdk-maps';
 
 export default {
     name: 'MyMap',
+    
     data(){
       return{
         map: null,
-        centerMap: this.center
+        markers: []
       }
     },
-    props: { center: Object },
+    props: { 
+      center: Object,
+      flats: Array 
+      },
     
 
 
 
     watch:{
-
       center(newValue){
         this.map.flyTo( {center: newValue, zoom: 8})
-        }
+        },
+
+
+      /* flats(newValue){
+        console.log(newValue)
+        if (newValue) {
+          for (flat in newValue) {
+        
+            this.markers.push(new tt.Marker()
+            .setLngLat([flat.lat, flat.lon])
+            .addTo(map));
       
-      },
+          }
+          
+        }
+        } */     //DA RIVEDERE
+    },
 
     mounted(){
       
-      /* this.centerMap = this.center */
-
-
       this.map = tt.map({
         key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
-      container: 'map',
-      center: this.center,
-      zoom: 8
-
+        container: 'map',
+        center: this.center,
+        zoom: 8
       });
+
+
+    
       
 
     }
