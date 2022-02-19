@@ -4,67 +4,59 @@
 </div>
 </template>
 
-
 <script>
-
-import tt from '@tomtom-international/web-sdk-maps';
+import tt from "@tomtom-international/web-sdk-maps";
 
 export default {
-    name: 'MyMap',
-    
-    data(){
-      return{
-        map: null,
-        markers: []
-      }
+    name: "MyMap",
+    data() {
+        return {
+            map: null,
+            markers: [],
+        };
     },
-    props: { 
-      center: Object,
-      flats: Array 
-      },
-    
-
-
-
-    watch:{
-      center(newValue){
-        this.map.flyTo( {center: newValue, zoom: 10})
+    props: {
+        center: Object,
+        flats: Array,
+    },
+    watch: {
+        center(newValue) {
+            this.map.flyTo({ center: newValue, zoom: 8 });
         },
-
-
-      /* flats(newValue){
-        console.log(newValue)
-        if (newValue) {
-          for (flat in newValue) {
-        
-            this.markers.push(new tt.Marker()
-            .setLngLat([flat.lat, flat.lon])
-            .addTo(map));
-      
-          }
-          
-        }
-        } */     //DA RIVEDERE
+        flats(newValue) {
+            for (let marker of this.markers) {
+                marker.remove();
+            }
+            if (newValue) {
+                for (let flat of newValue) {
+                    this.markers.push(
+                        new tt.Marker()
+                            .setLngLat({ lon: flat.lon, lat: flat.lat })
+                            .addTo(this.map)
+                    );
+                }
+            }
+        },
     },
-
-    mounted(){
-      
-      this.map = tt.map({
-        key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
-        container: 'map',
-        center: this.center,
-        zoom: 10
-      });
-
-
-    
-      
-
-    }
-    
-}
+    mounted() {
+        this.startMap();
+    },
+    methods: {
+        startMap() {
+            this.map = tt.map({
+                key: "xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR",
+                container: "map",
+                center: this.center,
+                zoom: 8,
+                minZoom: 4,
+                maxBounds: [
+                    [5.7499552751, 35.619987291],
+                    [19.4802470232, 48.1153931748],
+                ],
+            });
+        },
+    },
+};
 </script>
 
-<style lang:"scss">
-
-</style>
+<style></style>
