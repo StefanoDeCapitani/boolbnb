@@ -231,8 +231,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'FlatsResults'
+  name: 'FlatsResults',
+  props: {
+    flats: Array
+  },
+  computed: {
+    activeFlats: function activeFlats() {
+      return this.flats.filter(function (flat) {
+        return flat.active_sponsorships.length;
+      });
+    },
+    notActiveFlats: function notActiveFlats() {
+      return this.flats.filter(function (flat) {
+        return flat.active_sponsorships.length === 0;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -288,7 +329,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -309,14 +349,21 @@ __webpack_require__.r(__webpack_exports__);
       results: null,
       flats: [],
       filter: {
-        polygon: []
+        polygon: [],
+        rooms: 1,
+        beds: 1,
+        bathrooms: 1,
+        activeServices: [],
+        range: "20000"
       }
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     // this.position = this.$cookies.get("location")
     this.results = JSON.parse(sessionStorage.getItem("location"));
-    this.getReachableRange(20000);
+    this.applyFilter(this.filter);
     var searchBox = this.$refs.searchbox;
     var options = {
       searchOptions: {
@@ -336,34 +383,34 @@ __webpack_require__.r(__webpack_exports__);
     ttSearchBox.setValue(this.results.address.freeformAddress);
     ttSearchBox.on("tomtom.searchbox.resultsfound", function (data) {
       if (data.data.metadata.triggeredBy === "submit") {
-        this.results = data.data.results.fuzzySearch.results[0];
-        this.callAxios();
+        _this.results = data.data.results.fuzzySearch.results[0];
+
+        _this.applyFilter(_this.filter);
       }
     });
-    this.callAxios();
   },
   methods: {
     callAxios: function callAxios() {
-      var _this = this;
+      var _this2 = this;
 
       axios.post('/api/search', this.filter).then(function (resp) {
-        _this.flats = resp.data;
+        _this2.flats = resp.data.flats;
         console.log(resp.data);
       });
     },
     getReachableRange: function getReachableRange(range) {
-      var _this2 = this;
+      var _this3 = this;
 
       _tomtom_international_web_sdk_services__WEBPACK_IMPORTED_MODULE_2__["services"].calculateReachableRange({
         key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
         origin: this.results.position,
         distanceBudgetInMeters: range
       }).then(function (rangeData) {
-        _this2.filter.polygon = rangeData.toGeoJson().geometry.coordinates[0];
-        _this2.filter.lat = _this2.results.position.lat;
-        _this2.filter.lng = _this2.results.position.lng;
+        _this3.filter.polygon = rangeData.toGeoJson().geometry.coordinates[0];
+        _this3.filter.lat = _this3.results.position.lat;
+        _this3.filter.lng = _this3.results.position.lng;
 
-        _this2.callAxios();
+        _this3.callAxios();
       })["catch"](function (error) {
         console.error(error);
       });
@@ -1232,18 +1279,86 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "flats-results" } }, [
+  return _c(
+    "div",
+    { attrs: { id: "flats-results" } },
+    [
       _c("h1", [_vm._v("flats")]),
-    ])
-  },
-]
+      _vm._v(" "),
+      _vm._l(_vm.activeFlats, function (flat) {
+        return _c("div", { key: flat.id }, [
+          _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: { src: flat.cover_img, alt: "..." },
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body" },
+              [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(flat.title)),
+                ]),
+                _vm._v(" "),
+                _c("span", [_vm._v("ADV")]),
+                _vm._v(" "),
+                _vm._l(flat.services, function (service) {
+                  return _c("div", { key: service.id }, [
+                    _c("span", { class: service.icon }),
+                  ])
+                }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                ),
+              ],
+              2
+            ),
+          ]),
+        ])
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.notActiveFlats, function (flat) {
+        return _c("div", { key: flat.id }, [
+          _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: { src: flat.cover_img, alt: "..." },
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body" },
+              [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(flat.title)),
+                ]),
+                _vm._v(" "),
+                _vm._l(flat.services, function (service) {
+                  return _c("div", { key: service.id }, [
+                    _c("span", { class: service.icon }),
+                  ])
+                }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                ),
+              ],
+              2
+            ),
+          ]),
+        ])
+      }),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -1315,7 +1430,7 @@ var render = function () {
       _vm._v(" "),
       _c("MyMap"),
       _vm._v(" "),
-      _c("FlatsResults"),
+      _c("FlatsResults", { attrs: { flats: _vm.flats } }),
     ],
     1
   )
@@ -13825,7 +13940,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\matte\Desktop\classe43BOOLEAN\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\andre\Boolean\Classe-#43\Progetto-finale\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

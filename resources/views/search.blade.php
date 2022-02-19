@@ -8,7 +8,7 @@
 
 @section('content')
     <h1>Pagina ricerca</h1>
-    <search-page :services= '{{ json_encode($services) }}'></search-page>
+    <search-page :services= '{{ json_encode($services) }}'  ></search-page>
 
     </div>
 @endsection

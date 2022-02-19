@@ -6,10 +6,9 @@
     </div>
     <FilterData
     :services="services"
-    
     @apply-filter='applyFilter($event)'></FilterData>
     <MyMap></MyMap>
-    <FlatsResults> </FlatsResults>
+    <FlatsResults :flats= flats > </FlatsResults>
   </div>
 </template>
 
@@ -30,7 +29,14 @@ export default {
     return {
       results: null,
       flats: [],
-      filter: {polygon: []},
+      filter: {
+          polygon: [],
+          rooms: 1,
+          beds: 1,
+          bathrooms: 1,
+          activeServices: [],
+          range: "20000",
+        },
       
     };
   },
@@ -38,7 +44,7 @@ export default {
     // this.position = this.$cookies.get("location")
     this.results = JSON.parse(sessionStorage.getItem("location"));
 
-    this.getReachableRange(20000)
+    this.applyFilter(this.filter)
 
     let searchBox = this.$refs.searchbox;
 
@@ -59,18 +65,18 @@ export default {
     searchBox.append(searchHtml);
     ttSearchBox.setValue(this.results.address.freeformAddress)
 
-    ttSearchBox.on("tomtom.searchbox.resultsfound", function (data) {
+    ttSearchBox.on("tomtom.searchbox.resultsfound",  (data)=> {
       if (data.data.metadata.triggeredBy === "submit") {
         this.results = data.data.results.fuzzySearch.results[0];
-        this.callAxios()
+        this.applyFilter(this.filter)
       }
     });
-    this.callAxios();
+    
   },
   methods: {
     callAxios() {
         axios.post('/api/search', this.filter).then((resp)=>{
-            this.flats = resp.data
+            this.flats = resp.data.flats
             console.log(resp.data)
         })
     },

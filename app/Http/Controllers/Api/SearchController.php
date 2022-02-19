@@ -49,7 +49,7 @@ class SearchController extends Controller
           $flats->orderByRaw("ST_Distance_Sphere(ST_GeomFromText(CONCAT('POINT(',lon, ' ',lat, ')')), ST_GeomFromText(?))", [$center]);
           $queryS = $flats;
           $flats = $flats->get();
-          $activeSponsorship = $queryS->get();
+          $activeSponsorship = $queryS->with('activeSponsorships')->with('services')->get();
 
 
           return response()->json(['flats'=>$activeSponsorship]);
