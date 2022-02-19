@@ -1,17 +1,34 @@
 <template>
   <div id="search-page">
-    <div ref="searchbox"></div>
-    <div>
-        
+    <div class="d-flex justify-content-center align-items-center searchbar_cont">
+      <div ref="searchbox" class="search_box"></div>
+      
+      <FilterData
+      :services="services"
+      @apply-filter='applyFilter($event)'>
+      </FilterData>
+
     </div>
-    <FilterData
-    :services="services"
-    @apply-filter='applyFilter($event)'></FilterData>
-    <MyMap
-    :center="results.position"
-    :flats="flats"
-    v-if="results"></MyMap>
+
+  <div class="row mt-5">
+
+    <h4>Abbiamo trovato {{ flats.length }} risultati:</h4>
+
+    <div class="col-6">
     <FlatsResults :flats= flats > </FlatsResults>
+    </div>
+
+    <div class="col-6">
+      <MyMap
+        :center="results.position"
+        :flats="flats"
+        v-if="results">
+      </MyMap>
+    </div>
+    
+  </div>
+
+
   </div>
 </template>
 
@@ -123,5 +140,21 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+
+  .searchbar_cont{
+    height: 45px;
+    .search_box{
+      width: 50%;
+      height: 100%;
+      .tt-search-box{
+        margin-top: 0%;
+        .tt-search-box-input-container{
+          border-radius: 15px 0px 0px 15px;
+        }
+      }
+    }
+  }
+  
+
 </style>

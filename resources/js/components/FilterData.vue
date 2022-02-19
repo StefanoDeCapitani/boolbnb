@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="h-100">
         
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary text-white btn_filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Filtra
     </button>
 
@@ -102,3 +102,27 @@
 
     }
 </script>
+<style lang="scss">
+
+
+.btn_filter{
+    height: 100%;
+    border-radius: 0px 15px 15px 0px;
+    background-color: #001632;
+    padding: 0px 30px;
+    border-color: #001632;
+}
+.btn-primary:active{
+    background-color: #001632!important;
+        border-color: #001632;
+}
+.btn-primary:hover{
+    background-color: #001632!important;
+        border-color: #001632;
+}
+.btn-primary:focus{
+    background-color: #001632!important;
+        border-color: #001632;
+    box-shadow:none;
+}
+</style>

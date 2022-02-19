@@ -1,9 +1,6 @@
 <template>
-<div>
-  <h1>Map</h1>
-  <div id="map" style='width: 500px; height: 500px;'>
-      
-  </div>
+<div class="" style="position: sticky; top: 200px;">
+  <div id="map" style='width: 100%; height: 600px; border-radius: 10px;'></div>
 </div>
 </template>
 
@@ -31,7 +28,7 @@ export default {
 
     watch:{
       center(newValue){
-        this.map.flyTo( {center: newValue, zoom: 8})
+        this.map.flyTo( {center: newValue, zoom: 10})
         },
 
 
@@ -56,7 +53,7 @@ export default {
         key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
         container: 'map',
         center: this.center,
-        zoom: 8
+        zoom: 10
       });
 
 
@@ -68,6 +65,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang:"scss">
 
 </style>
