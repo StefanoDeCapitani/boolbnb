@@ -1,18 +1,21 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+
 
 // Variables
 @import 'variables';
 
 // stile homepage
-@import 'footer';
-@import 'header';
+@import 'partials/footer';
+@import 'partials/header';
+@import 'auth/login';
+@import 'auth/register';
+
+@import '@tomtom-international/web-sdk-plugin-searchbox/dist/SearchBox';
 
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-
+@import '@tomtom-international/web-sdk-maps';
 
 #app{
     min-height: 100vh;
@@ -24,3 +27,4 @@ main{
     /* min-height:calc(100vh - (280px + 70px));  */
     flex-grow: 2;
 }
+

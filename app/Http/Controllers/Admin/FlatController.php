@@ -47,9 +47,9 @@ class FlatController extends Controller
 
     public function store(StoreFlatRequest $request)
     {
-       
+      
         $data = $request->validated();
-     
+        
         $flat = new Flat();
         $flat->fill($data);
         $flat->user_id = Auth::id();
@@ -60,15 +60,19 @@ class FlatController extends Controller
 
       
         $cover_img = Storage::put('public/img',$data['cover_img']);
-        $flat->cover_img = $cover_img;
+        $flat->cover_img =  'storage'. str_replace('public','',$cover_img);
 
         $flat->save();
-        $flat->services()->sync($data["services"]);
+        if ($data['services'][0]) {
+                $services = explode(',',$data['services'][0]);
+                $flat->services()->sync($services);
+            }
     
 
         $images = $data['images'];
         foreach ($images as $image) {
             $path = Storage::put('public/img',$image);
+            $path = 'storage'. str_replace('public','',$path);
             $newImage = new Image();
             $newImage->flat_id = $flat->id;
             $newImage->path = $path;
@@ -81,21 +85,14 @@ class FlatController extends Controller
 
     public function edit(Flat $flat)
     {
-      $services = Service::all();
-      $flatServices = $flat->services()->get()->map(function ($service) {
-        return $service->id;
-    });
+        $services = Service::all();
+        $flatServices = $flat->services()->get()->map(function ($service) {
+            return $service->id;
+        });
 
-    $flatServices=$flatServices->toArray();
-    // $flatServizi = $flat->services()->where('flat_id', $flat->id)->get()->toArray();
+        $flatServices=$flatServices->toArray();
 
-
-   
-     
-    
-      
-
-     return view("admin.edit",compact('services','flat','flatServices'));
+        return view("admin.edit",compact('services','flat','flatServices'));
     }
 
     /**
@@ -109,17 +106,18 @@ class FlatController extends Controller
     {
         $data = $request->validated();
         $cover_img=$flat->cover_img;
+        $data['slug'] = $this->generateSlug($data['title']);
         $flat->update($data);
         
 
-        if($data["cover_img"]){
+        if($request->has('cover_img')){
             Storage::delete($cover_img);
             $cover_img = Storage::put('public/img', $data['cover_img']);
-            $flat->cover_img = $cover_img;
+            $flat->cover_img = 'storage'. str_replace('public','',$cover_img);
             $flat->save();
         }
 
-        if($request->only('images')){
+        if($request->has('images')){
             $oldImages = $flat->images()->get();
             dump($oldImages->toArray());
           
@@ -134,20 +132,24 @@ class FlatController extends Controller
                 $path = Storage::put('public/img',$image);
                 $newImage = new Image();
                 $newImage->flat_id = $flat->id;
-                $newImage->path = $path;
+                $newImage->path = 'storage'. str_replace('public','',$path);
                 $newImage->save();
                
             }
             
-            if ($request->has('services')) {
-                $flat->services()->sync($data["services"]);
-            }
+         
 
         }
 
+        if ($request->has('services')) {
+           
+            if ($data['services'][0]) {
+                $services = explode(',',$data['services'][0]);
+                $flat->services()->sync($services);
+            }
+        }
 
-       
-        
+        return redirect()->route('flats.show',$flat->slug);        
     }
 
     /**

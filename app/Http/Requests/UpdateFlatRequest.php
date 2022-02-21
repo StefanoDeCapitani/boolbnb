@@ -29,7 +29,7 @@ class UpdateFlatRequest extends FormRequest
             'n_beds' => 'required|digits_between:0,2',
             'n_bathrooms' => 'required|digits_between:0,2',
             'sq_metres' => 'required|numeric',
-            'visible' => 'required|boolean',
+            'visible' => 'boolean|required',
             'address' => 'required|string',
             'lat' => 'required|string',
             'lon' => 'required|string',

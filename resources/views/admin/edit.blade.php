@@ -2,21 +2,21 @@
 
 @section('title-page', 'Home page')
 
-@section('content')
+
 
     
-@endsection
+
 @section('links')
 <script src="{{asset("js\handle-flats-form.js")}}" defer></script>
 @endsection
 @section('content')
 
-    <div class="container">
-        @foreach($errors->all() as $error)
-            {{$error}}
-        
-        @endforeach
-    
+<div class="row d-flex position-relative">
+    <div class="col-5 position-absolute " >
+        <img class="w-100" style="border-radius:11px" src="https://images-na.ssl-images-amazon.com/images/I/81elkt8KPjL._AC_SL1500_.jpg"  alt="">
+
+    </div>
+    <div class="col-9 ms-auto p-5 mt-5 mb-5 " style="background-color: #DEE4EC; border-radius:11px ; z-index:2">
         <form   id="create-form-try" action="{{route("admin.flats.update", $flat->slug)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -27,6 +27,7 @@
                     {{$message}}  
                 @enderror
             </div>
+            <div class="d-flex " style="justify-content: space-between">
             <div class="mb-3">
                 <label for="n_rooms" class="form-label">Numero stanze</label>
                 <input type="number" class="form-control" id="n_rooms" name="n_rooms" value="{{$flat->n_rooms}}">
@@ -50,10 +51,11 @@
             </div>
             <div class="mb-3">
                 <label for="sq_metres" class="form-label">Metri quadri</label>
-                <input type="number" class="form-control" id="sq_metres" name="sq_metres" value="{{$flat->sq_metres}}">>
+                <input type="number" class="form-control" id="sq_metres" name="sq_metres" value="{{$flat->sq_metres}}">
                 @error('sq_metres')
                 {{$message}}
                 @enderror
+            </div>
             </div>
            
             <div class="mb-3">
@@ -77,27 +79,37 @@
             <div class="form-group">
                 <label class="form-label">Tag</label>
             
-                {{-- <select name="services[]" class="form-control" multiple>
-                  @foreach($services as $service)
-                  <option value="{{$service->id}}">{{$service->name}}
-                  </option>
-                  @endforeach
-                </select> --}}
+               
 
 
                     {{-- multiple options --}}
-                <select name="services[]" class="form-control" multiple>
+                {{-- <select name="services[]" class="form-control" multiple>
                     @foreach($services as $service)
                  <option value="{{$service->id}}" {{in_array($service->id, $flatServices) ? 'selected': ''}}>{{$service->name}}</option>
                     @endforeach
-                 </select>
+                 </select> --}}
+
+                 <div class="mb-3">
+                    <label for="service">Servizi:</label><br>
+                     <div class="d-flex" style="justify-content: space-between">
+                         @foreach ($services as $service)
+                         <div>
+                             <input type="checkbox" class="" id="service" name="service" value="{{$service->id}}"  {{in_array($service->id, $flatServices) ? 'checked': ''}}>
+                             <label for="service" class="form-label">{{$service->name}}</label>
+                             @error('services')
+                             {{$message}}
+                             @enderror
+     
+                         </div>
+                         @endforeach
+                     </div>
+                 </div>
+                 <input id="services" type="hidden" name="services[]" value="" >
                  
 
               
                 
-                {{-- @if (in_array ($service->id $flat->services())) 
-                    
-                @endif --}}
+          
 
               </div>
             <div class="mb-3">
@@ -131,15 +143,15 @@
                 @enderror
             </div>
 
-            <div>
-                <label for="visible" class="form-label">visible</label>
-                <input type="radio" id="visible"  value='true'>
+            
 
-                <input type="hidden" name="visible" value="1">
-
+            <div class="form-check form-switch">
+                <label class="form-check-label" for="visible" >Visibile</label>
+                <input type="hidden" id="visible" value="0">
+                <input  class="form-check-input" type="checkbox" id="visible" {{ $flat->visible ? "checked" : "" }} name="visible" value="1">
             </div>
             
-            <button class="btn btn-success mb-3" >Crea</button>
+            <button class="btn btn-success mb-3" >Salva</button>
 
 
         </form>
