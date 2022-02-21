@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FlatController@index');
 Route::get('/flats/{slug}','FlatController@show')->name('flats.show');
 Route::resource('flats.messages', "FlatMessageController")->shallow()->only(["index", "store"]);
+Route::get('/search', 'SearchController@index')->name('search');
 
 
 Route::namespace('Admin')

@@ -3,12 +3,21 @@
 
 @section('title-page', 'Home page')
 
+@section('links')
+<script src="{{asset("js\home.js")}}" defer></script>
+@endsection
+
 @section('content')
 
     
     <div class="container">
 
         <h2 class="pb-4">Appartamenti in evidenza</h2>
+
+        <div id="search-box" class="mb-4">
+
+        </div>
+
        <div class="row ">
         @foreach ($flatsSponsered as $flat)
         

@@ -147,6 +147,7 @@
 
             <div class="form-check form-switch">
                 <label class="form-check-label" for="visible" >Visibile</label>
+                <input type="hidden" id="visible" value="0">
                 <input  class="form-check-input" type="checkbox" id="visible" {{ $flat->visible ? "checked" : "" }} name="visible" value="1">
             </div>
             

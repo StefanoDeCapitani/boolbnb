@@ -52,6 +52,47 @@ class ImageSeeder extends Seeder
             [ 
                 "flat_id" => 5,
                 "path" => "storage/img/san_giorgio_flat_intero_alloggio_unita_in_affitto2.jpg"
+            ],
+            [ 'flat_id'=> 6, 
+               'path' => 'storage/img/amazing_roma_lux1.jpg '
+            ], 
+            
+            [ 'flat_id'=> 6, 
+               'path' => 'storage/img/amazing_roma_lux2.jpg '
+            ], 
+            [ 'flat_id'=> 7, 
+            'path' => 'storage/img/roma_alloggio.jpg'
+            ],
+            [ 'flat_id'=> 7, 
+            'path' => 'storage/img/romaaa_alll.jpg'
+            ],  
+            [
+              'flat_id'=>8,
+              'path' =>'storage/img/principe_amedeo_2.jpeg', 
+            ],
+            [ 
+                'flat_id'=>9, 
+                'path' => 'storage/img/bruno_domus_trastevere_1.jpeg'
+            ],
+            [
+                'flat_id'=>9, 
+                'path' =>'storage/img/bruno_domus_trastevere_2.jpeg'
+            ],
+            [
+                'flat_id'=>10, 
+                'path' =>'storage/img/nuova_camera_vicino_al_colosseo_termini_turchese_1.jpeg'
+            ],
+            [
+                'flat_id'=>10, 
+                'path' =>'storage/img/nuova_camera_vicino_al_colosseo_termini_turchese_2.jpeg'
+            ],
+            [
+                'flat_id'=>11, 
+                'path' =>'storage/img/casa_funari_nel_cuore_di_una_roma_antica_1.jpg'
+            ],
+            [
+                'flat_id'=>11, 
+                'path' =>'storage/img/casa_funari_nel_cuore_di_una_roma_antica_2.jpg'
             ]
         ];
 
