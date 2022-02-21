@@ -13,7 +13,7 @@ class StoreFlatRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,12 +29,15 @@ class StoreFlatRequest extends FormRequest
             'n_beds' => 'required|digits_between:0,2',
             'n_bathrooms' => 'required|digits_between:0,2',
             'sq_metres' => 'required|numeric',
-            'visible' => 'required|boolean',
+            'visible' => 'boolean',
             'address' => 'required|string',
             'lat' => 'required|string',
             'lon' => 'required|string',
-            'night_price' => 'required|string',
+            'night_price' => 'required|numeric',
             'cover_img' => 'required|mimes:jpeg,jpg,png',
+            'services'=>'array',
+            'images'=>'array',
+            'images.*'=>'mimes:jpeg,jpg,png'
 
         ];
     }

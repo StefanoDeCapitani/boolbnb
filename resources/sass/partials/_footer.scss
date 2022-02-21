@@ -1,0 +1,33 @@
+#prova{
+    color: red;
+}
+
+.bg_color{
+
+    /* min-height: 280px; */
+    background-color: #DEE4EC;
+    ul{
+        padding: 0px;
+        list-style: none;
+        li{
+            a{
+                color: black;
+                text-decoration: none;
+            } 
+        }
+    }
+    .logo_cont{
+        display: flex;
+        justify-content: center;
+        img{
+            max-width: 230px;
+            object-fit: cover;
+
+            
+        }
+    }
+
+    .footer_bar{
+        color: #9aa3af;
+    }
+}

@@ -20,14 +20,15 @@ class CreateFlatsTable extends Migration
             $table->unsignedTinyInteger("n_rooms");
             $table->unsignedTinyInteger("n_beds");
             $table->unsignedTinyInteger("n_bathrooms");
-            $table->string("sq_metres");
-            $table->boolean("visible");
+            $table->integer("sq_metres");
+            $table->boolean("visible")->default(false);
             $table->string("address");
             $table->string("lat");
             $table->string("lon");
-            $table->string("night_price");
+            $table->decimal("night_price");
             $table->string("cover_img");
             $table->string('slug');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

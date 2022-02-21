@@ -1,102 +1,22 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('title-page', 'Home page')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset("css/app.css") }}">
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+@section('content')
 
-            .full-height {
-                height: 100vh;
-            }
+    <div class="container text-center">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <button class="btn btn-primary">Eccoci</button>
-                <div class="title m-b-md">
-                    Laravel
-                    @dump($flats)
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+        <p>Lorem ipsum dolor sit amet consectetur, adipiscing elit himenaeos litora platea condimentum, 
+            fusce malesuada a molestie. Fermentum inceptos bibendum suspendisse ligula phasellus 
+            scelerisque vulputate est sagittis lacus, turpis potenti quisque tincidunt fames ultrices 
+            nam fringilla neque, leo ad tempor class auctor egestas blandit cursus quis. Pretium commodo
+             ridiculus lobortis tristique aptent habitasse senectus cras convallis libero, viverra rutrum
+              aliquet ornare ut dis accumsan in. Ultricies ullamcorper praesent elementum enim donec 
+              himenaeos malesuada quis purus libero, metus sociis massa nunc magna vel sociosqu eget 
+              suscipit mollis, nostra vehicula consequat interdum tincidunt in placerat lobortis neque.
+               Dictumst augue nostra risus tempus nascetur, urna lacus et orci cum quisque, conubia a 
+               leo faucibus. Placerat pellentesque sed libero egestas rutrum nulla taciti porttitor, 
+               est vitae nam ultrices leo litora aenean, magna at justo sapien tristique non platea.</p>
+    </div>
+    
+@endsection

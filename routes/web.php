@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FlatMessageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FlatController@index');
-Route::post('/flats/{slug}/images', 'FlatController@storeImages')->name('admin.flats.storeimages');
+Route::get('/flats/{slug}','FlatController@show')->name('flats.show');
+Route::resource('flats.messages', "FlatMessageController")->shallow()->only(["index", "store"]);
+Route::get('/search', 'SearchController@index')->name('search');
+
+
+Route::namespace('Admin')
+->middleware('auth')
+->prefix('admin')
+->name('admin.')
+->group( function(){
+    Route::resource("flats","FlatController");
+});
+
+
+// Route::post('/flats/{slug}/images', 'FlatController@storeImages')->name('admin.flats.storeimages');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

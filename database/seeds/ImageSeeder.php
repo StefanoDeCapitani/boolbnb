@@ -15,43 +15,84 @@ class ImageSeeder extends Seeder
         $images = [
             [ 
                 "flat_id" => 1,
-                "path" => asset("storage/img/Intero alloggio unità in affitto - Host Katja - Interhome Group1.jpg")
+                "path" => "storage/img/intero_alloggio_unita_in_affitto.jpg"
             ],
             [ 
                 "flat_id" => 1,
-                "path" => asset("storage/img/Intero alloggio unità in affitto - Host Katja - Interhome Group2e.jpg")
+                "path" => "storage/img/intero_alloggio_unita_in_affitto2.jpg"
             ],
             [ 
                 "flat_id" => 3,
-                "path" => asset("storage/img/La terrazza con vista del castello.jpg")
+                "path" =>"storage/img/la_terrazza_con_vista_del_castello.jpg"
             ],
             [ 
                 "flat_id" => 3,
-                "path" => asset("storage/img/La terrazza con vista del castello2.jpg")
+                "path" => "storage/img/la_terrazza_con_vista_del_castello2.jpg"
             ],
             [ 
                 "flat_id" => 4,
-                "path" => asset("storage/img/Luxury Apartment Villa Le Rose with pool1.jpg")
+                "path" => "storage/img/luxury_apartment_villa_le_rose_with_pool1.jpg"
             ],
             [ 
                 "flat_id" => 4,
-                "path" => asset("storage/img/Luxury Apartment Villa Le Rose with pool2.jpg")
+                "path" => "storage/img/luxury_apartment_villa_le_rose_with_pool2.jpg"
             ],
             [ 
                 "flat_id" => 2,
-                "path" => asset("storage/img/Mirò loft romantico nel cuore di Roma2.jpg")
+                "path" =>"storage/img/miro_loft_romantico_nel_cuore_di_roma1.jpg"
             ],
             [ 
                 "flat_id" => 2,
-                "path" => asset("storage/img/MiròloftromanticonelcuorediRoma.jpg")
+                "path" => "storage/img/miro_loft_romantico_nel_cuore_di_roma2.jpg"
             ],
             [ 
                 "flat_id" => 5,
-                "path" => asset("storage/img/San Giorgio Flat Intero alloggio unità in affitto.jpg")
+                "path" => "storage/img/san_giorgio_flat_intero_alloggio_unita_in_affitto.jpg"
             ],
             [ 
                 "flat_id" => 5,
-                "path" => asset("storage/img/San Giorgio Flat Intero alloggio.jpg")
+                "path" => "storage/img/san_giorgio_flat_intero_alloggio_unita_in_affitto2.jpg"
+            ],
+            [ 'flat_id'=> 6, 
+               'path' => 'storage/img/amazing_roma_lux1.jpg '
+            ], 
+            
+            [ 'flat_id'=> 6, 
+               'path' => 'storage/img/amazing_roma_lux2.jpg '
+            ], 
+            [ 'flat_id'=> 7, 
+            'path' => 'storage/img/roma_alloggio.jpg'
+            ],
+            [ 'flat_id'=> 7, 
+            'path' => 'storage/img/romaaa_alll.jpg'
+            ],  
+            [
+              'flat_id'=>8,
+              'path' =>'storage/img/principe_amedeo_2.jpeg', 
+            ],
+            [ 
+                'flat_id'=>9, 
+                'path' => 'storage/img/bruno_domus_trastevere_1.jpeg'
+            ],
+            [
+                'flat_id'=>9, 
+                'path' =>'storage/img/bruno_domus_trastevere_2.jpeg'
+            ],
+            [
+                'flat_id'=>10, 
+                'path' =>'storage/img/nuova_camera_vicino_al_colosseo_termini_turchese_1.jpeg'
+            ],
+            [
+                'flat_id'=>10, 
+                'path' =>'storage/img/nuova_camera_vicino_al_colosseo_termini_turchese_2.jpeg'
+            ],
+            [
+                'flat_id'=>11, 
+                'path' =>'storage/img/casa_funari_nel_cuore_di_una_roma_antica_1.jpg'
+            ],
+            [
+                'flat_id'=>11, 
+                'path' =>'storage/img/casa_funari_nel_cuore_di_una_roma_antica_2.jpg'
             ]
         ];
 

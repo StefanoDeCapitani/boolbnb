@@ -4,17 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Flat extends Model
 {
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'title', 'n_rooms', 'n_beds', 'n_bathrooms', 'sq_meters', 'visible', 'address', 'lat', 'lon', 'night_price', 'cover_img', 'slug'
+        'title', 'n_rooms', 'n_beds', 'n_bathrooms', 'sq_metres', 'visible', 'address', 'lat', 'lon', 'night_price', 'cover_img', 'slug'
     ];
+    public function getRouteKeyName()
+    {
+    return 'slug'; 
+    }
+
 
     public function user(){
         return $this->belongsTo('App\User');

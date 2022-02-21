@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    protected $fillable = ['text', 'flat_id', 'email'];
+    protected $fillable = ['name', 'text', 'flat_id', 'email'];
 
-    public function flats(){
+    public function flat(){
         return $this->belongsTo('App\Flat');
     }
 }
