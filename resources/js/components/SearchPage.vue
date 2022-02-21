@@ -19,7 +19,6 @@
             <MyMap
                 :center="results.position"
                 :flats="flats"
-                :layer="layer"
                 v-if="results"
             ></MyMap>
           </div>
