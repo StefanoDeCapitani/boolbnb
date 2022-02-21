@@ -27,6 +27,10 @@ Route::namespace('Admin')
 ->name('admin.')
 ->group( function(){
     Route::resource("flats","FlatController");
+    Route::get('/flats/{slug}/analytics', 'AnalyticsController@index')->name('analytics');
+    Route::get('/flats/{slug}/sponsorship', 'FlatSponsorshipController@create')->name('sponsorship');
+    Route::post('/flats/{slug}/sponsorship', 'FlatSponsorshipController@store')->name('sponsorship.store');
+
 });
 
 
