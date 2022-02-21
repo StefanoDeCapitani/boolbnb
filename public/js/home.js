@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -346,7 +346,7 @@ ttSearchBox.on('tomtom.searchbox.resultsfound', function (data) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 17:
 /*!************************************!*\
   !*** multi ./resources/js/home.js ***!
   \************************************/
