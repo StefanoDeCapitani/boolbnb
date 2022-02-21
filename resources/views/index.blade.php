@@ -23,27 +23,24 @@
             @endforeach
         </div>
 
-
-
-        <div>
-            <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
+       
+        <div class="col-md-8 col-md-offset-2">
             <div id="dropin-container"></div>
-            <button id="submit-button" class="button button--small button--green">Purchase</button>
-        </div>
+            <button id="submit-button">Request payment method</button>
+            </div>
 
-
-        <script>
+        <script type="application/javascript">
             var button = document.querySelector('#submit-button');
             // client_token
             braintree.dropin.create({
                 authorization: "{{ Braintree_ClientToken::generate() }}",
-                container: '#dropin - container'
+                container: '#dropin-container'
             }, function(createErr, instance) {
                 button.addEventListener('click', function() {
                     instance.requestPaymentMethod(function(err, payload) {
 
                         //rotta da configurare
-                        $.get('{{ route('payment.make') }}', {
+                        $.get('', {
                             payload
                         }, function(response) {
                             if (response.success) {
@@ -56,14 +53,6 @@
                 });
             });
         </script>
-
-
-
-
-
-
-
-
 
     </div>
 

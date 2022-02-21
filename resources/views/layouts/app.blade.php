@@ -19,12 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     {{-- braintree --}}
-   {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
-     --}}
+    
 
      <!-- includes jQuery -->
-<script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
