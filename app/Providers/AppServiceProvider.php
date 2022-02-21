@@ -1,9 +1,15 @@
 <?php
 
 namespace App\Providers;
-
+use Braintree\Configuration;
 use Illuminate\Support\ServiceProvider;
-/* use App\Providers\Braintree_Configuration; */
+
+/* 
+
+use required\brain
+use Illuminate\Support\ServiceProvider; */
+/* use Braintree_Configuration; */
+
 /* require_once 'PATH_TO_BRAINTREE/lib/Braintree.php'; */
 
 class AppServiceProvider extends ServiceProvider
@@ -26,9 +32,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         
-        /* \Braintree_Configuration::environment(env('BRAINTREE_ENV'));
-        \Braintree_Configuration::merchantId(env('BRAINTREE_MERCHANT_ID'));
-        \Braintree_Configuration::publicKey(env('BRAINTREE_PUBLIC_KEY'));
-        \Braintree_Configuration::privateKey(env('BRAINTREE_PRIVATE_KEY')); */
+       Configuration::environment(env('BRAINTREE_ENV'));
+       Configuration::environment(env('BRAINTREE_ENV'));
+       Configuration::merchantId(env('BRAINTREE_MERCHANT_ID'));
+       Configuration::publicKey(env('BRAINTREE_PUBLIC_KEY'));
+       Configuration::privateKey(env('BRAINTREE_PRIVATE_KEY'));
     }
 }
