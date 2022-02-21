@@ -28,7 +28,7 @@
             <a class="m-3 btn btn-primary" href="{{route("flats.messages.index",$flat->slug)}}">Messaggi</a>
             </div>
             <div class="text-center">
-                <a href="">Sponsorizza</a>
+                <a href="{{ route('admin.sponsorship', $flat->slug) }}">Sponsorizza</a>
             </div>
             <div class="text-center">
                 <a href="">Statistiche</a>

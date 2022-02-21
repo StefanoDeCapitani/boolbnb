@@ -2,6 +2,12 @@
 
 @section('title-page', 'Sponsorship')
 
+@section('links')
+<script src="{{ asset('js\payment.js') }}" defer></script>
+<script src="https://js.braintreegateway.com/web/dropin/1.33.0/js/dropin.min.js"></script>
+
+@endsection
+
 @section('content')
 
 <h1>Sponsorship</h1>  
@@ -25,6 +31,16 @@
 
 
     </form>
+    <hr>
+
+
+        <!-- Step one: add an empty container to your page -->
+        <div id="dropin-container"></div>
+
+        
+        <script type="text/javascript">
+        // call `braintree.dropin.create` code here
+        </script>
 
 
 
