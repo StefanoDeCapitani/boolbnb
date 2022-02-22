@@ -12,7 +12,8 @@
             <div class="panel panel-default">  
                 <div class="panel-heading">Dashboard</div>  
                 <div class="panel-body">  
-                    <canvas id="canvas" height="280" width="600" data-messages='@json($messageChart)' data-views='@json($viewsChart)'></canvas>  
+                    <canvas id="analyticsPerMonth" height="280" width="600" data-messages='@json($messagesMonthly)' data-views='@json($viewsMonthly)'></canvas>  
+                    <canvas id="analyticsPerYear" height="280" width="600" data-messages='@json($messagesYearly)' data-views='@json($viewsYearly)'></canvas>
                 </div>  
             </div>  
         </div>  
