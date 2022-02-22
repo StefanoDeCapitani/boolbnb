@@ -23669,27 +23669,31 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 var canvas = document.getElementById('canvas');
-var messages = canvas.dataset.messages;
-var views = canvas.dataset.views;
-console.log(messages);
+var messages = JSON.parse(canvas.dataset.messages);
+var views = JSON.parse(canvas.dataset.views);
+console.log(Object.keys(views));
 
 window.onload = function () {
   var ctx = document.getElementById("canvas").getContext("2d");
   window.myBar = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](ctx, {
-    type: 'bar',
-    // horizontalBar, pie, line 
+    type: 'line',
     data: {
-      labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
       datasets: [{
+        type: 'line',
         label: 'views',
-        data: [124049012, 193847819, 283747829, 12731432, 26312, 351361]
-      }]
+        data: Object.values(views)
+      }, {
+        type: 'bar',
+        label: 'Messaggi',
+        data: Object.values(messages)
+      }],
+      labels: Object.keys(messages)
     },
     options: {
       elements: {
         rectangle: {
           borderWidth: 2,
-          borderColor: 'rgb(0, 255, 0)',
+          borderColor: 'rgb(80, 255, 0)',
           borderSkipped: 'bottom'
         }
       },
@@ -23701,8 +23705,6 @@ window.onload = function () {
     }
   });
 };
-
-console.log(ctx);
 
 /***/ }),
 
