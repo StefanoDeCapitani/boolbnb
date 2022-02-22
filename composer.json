@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "barryvdh/laravel-debugbar": "^3.6",
+        "braintree/braintree_php": "^6.6",
         "fakerphp/faker": "^1.19",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",

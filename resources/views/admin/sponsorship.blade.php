@@ -17,7 +17,7 @@
     @endforeach
 
 
-    <form action="{{route("admin.sponsorship.store", $slug ='intero-alloggio-unita-in-affitto-host-katja-interhome-group')}}" method="POST">
+    {{-- <form action="{{route("admin.sponsorship.store", $slug ='intero-alloggio-unita-in-affitto-host-katja-interhome-group')}}" method="POST">
         @csrf
 
         <select name="sponsorship" id="" >
@@ -30,18 +30,27 @@
         <button class="btn btn_primary" type="submit"> Acquista</button>
 
 
-    </form>
+
+    </form> --}}
     <hr>
 
-
-        <!-- Step one: add an empty container to your page -->
-        <div id="dropin-container"></div>
-
+    @if(session('message'))
+        {{session('message')}}
+    @endif
+        <form id="payment-form" action="{{ route('admin.sponsorship.store', $slug) }}" method="post" >
+            <div id='token' data-clienttoken='{{ $clientToken }}'></div>
+            @csrf
+            <!-- Putting the empty container you plan to pass to
+            `braintree.dropin.create` inside a form will make layout and flow
+            easier to manage -->
+            <div id="dropin-container"></div>
+            <input type="submit" />
+            <input type="hidden" id="nonce" name="payment_method_nonce"/>
+        </form>
         
         <script type="text/javascript">
-        // call `braintree.dropin.create` code here
+        // call braintree.dropin.create code here
         </script>
-
 
 
 @endsection
