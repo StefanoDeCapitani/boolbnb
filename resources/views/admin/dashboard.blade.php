@@ -39,7 +39,7 @@
                 {{-- @dump($flat->activeSponsorships()->first()) --}}
             </div>
             <div class="text-center">
-                <a href="">Statistiche</a>
+                <a href="{{route('admin.analytics', $flat->slug)}}">Statistiche</a>
             </div>
             {{-- <a class="btn btn-success" href="{{route("admin.sponsorships.create",$flat->slug)}}">Sponsorizza</a> --}}
             
