@@ -131,6 +131,7 @@
             
             <div class="mb-3">
                 <input name="cover_img" type="file" value="{{$flat->cover_img}}">
+                
                 @error('cover_img')
                 {{$message}}
                 @enderror

@@ -353,7 +353,7 @@ ttSearchBox.on('tomtom.searchbox.resultsfound', function (data) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\mauri\Documents\Boolean\Progetto finale\boolbnb\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! C:\Users\matte\Desktop\classe43BOOLEAN\boolbnb\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })

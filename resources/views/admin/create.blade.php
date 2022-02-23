@@ -107,14 +107,20 @@
             </div>
             
             <div class="mb-3">
-                <input name="cover_img" type="file" value="{{old('cover_img')}}">
+                <input id="inp" name="cover_img" type="file" value="{{old('cover_img')}}">
+                <div id="imagePreview">
+                    <img style="width: 60px" id="immagine" src="" alt="Image Previw">
+                </div>
                 @error('cover_img')
                 {{$message}}
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <input name="images[]" type="file" multiple value="{{old('images[]')}}">
+            <div id="container-input-paths" class="mb-3">
+                <input id="file-input" name="images[]" type="file" multiple value="{{old('images[]')}}">
+                <label for="file-input">
+                    <i class="fas fa-upload"></i>Choose Path
+                </label>
                 @error('images')
                 {{$message}}
                 @enderror

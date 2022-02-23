@@ -71,6 +71,23 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   box-shadow: none !important;
 }
 
+#container-input-paths input[type=file] {
+  display: none;
+}
+
+#container-input-paths label {
+  display: block;
+  position: relative;
+  background-color: #025bee;
+  color: white;
+  text-align: center;
+  margin: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30%;
+  padding: 10px;
+}
+
 .container .image-container {
   width: 800px;
   height: 600px;
