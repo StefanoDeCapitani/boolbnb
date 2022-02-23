@@ -1,32 +1,28 @@
-
-
 // Variables
-@import 'variables';
+@import "variables";
 
 // stile homepage
-@import 'partials/footer';
-@import 'partials/header';
+@import "partials/footer";
+@import "partials/header";
 @import 'partials/input';
-@import 'auth/login';
-@import 'auth/register';
+@import "auth/login";
+@import "auth/register";
+@import "auth/analytics";
 
-
-@import '@tomtom-international/web-sdk-plugin-searchbox/dist/SearchBox';
-
+@import "@tomtom-international/web-sdk-plugin-searchbox/dist/SearchBox";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
-@import '@tomtom-international/web-sdk-maps';
+@import "@tomtom-international/web-sdk-maps";
 
-#app{
+#app {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-main{
+main {
     /* min-height:calc(100vh - (280px + 70px));  */
     flex-grow: 2;
 }
-
