@@ -1,0 +1,17 @@
+#messages{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .card{
+        padding: 50px;
+        border-radius: 25px;
+        border: 1px solid #001632!important;
+        
+        .card-body{
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            padding: 10px;
+
+        }
+    }
+}

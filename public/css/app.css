@@ -71,6 +71,99 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   box-shadow: none !important;
 }
 
+.GuestSponsoredCard {
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.GuestSponsoredCard .TextCard {
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  background-color: #00163281;
+  top: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.Hero_GuestPage {
+  max-width: 1200px;
+  overflow: hidden;
+  max-height: 458px;
+  border-radius: 25px;
+  margin: auto;
+}
+
+.Hero_GuestPage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
+.recommendedPlaces {
+  position: relative;
+}
+
+.recommendedPlaces .RecomenText {
+  color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: 600;
+  background-color: #00163281;
+  top: 0;
+  display: flex;
+  bottom: -10px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.recommendedPlaces {
+  overflow: hidden;
+  border-radius: 25px;
+  height: 100%;
+}
+
+.recommendedPlaces img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.recommendedPlaces:hover .RecomenText {
+  opacity: 1;
+}
+
+.tt-search-box {
+  overflow: hidden !important;
+  border-radius: 25px !important;
+  margin: auto;
+  width: 50%;
+}
+
+.tt-search-box .tt-search-box-input-container {
+  border-radius: 25px !important;
+}
+
+.GuestSponsoredCard:hover .TextCard {
+  opacity: 1;
+}
+
 .container .image-container {
   width: 800px;
   height: 600px;
@@ -83,8 +176,8 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 50% 30%;
-     object-position: 50% 30%;
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 
 .container .bg-login {
@@ -188,8 +281,22 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   border-radius: 10px;
 }
 
-.chart-description {
-  font-size: 0.9rem;
+#messages {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#messages .card {
+  padding: 50px;
+  border-radius: 25px;
+  border: 1px solid #001632 !important;
+}
+
+#messages .card .card-body {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .tt-icon-searchbox-ic_map_poi_--- {

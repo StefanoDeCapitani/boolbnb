@@ -27,7 +27,7 @@
                 <div class=" recommendedPlaces">
                     <img src="\storage\img\venezia.jpg" alt="">
                     <h2 class="RecomenText">
-                        Nome
+                        Venezia
                     </h2>
                 </div>
             </div>
@@ -35,14 +35,14 @@
                 <div class=" recommendedPlaces">
                     <img src="\storage\img\pisa.jpg" alt="">
                     <h2 class="RecomenText">
-                        Nome
+                        Pisa
                     </h2>
                 </div>
             </div><div class="col-12 p-2 col-md-6 col-lg-2">
                 <div class=" recommendedPlaces">
                     <img src="\storage\img\roma.jpg" alt="">
                     <h2 class="RecomenText">
-                        Nome
+                        Roma
                     </h2>
                 </div>
             </div><div class="col-12 p-2 col-md-6 col-lg-2">
@@ -50,7 +50,7 @@
                     <img src="\storage\img\sicilia.jpg" alt="">
 
                     <h2 class="RecomenText">
-                        Nome
+                        Sicilia
                     </h2>
                 </div>
             </div>
