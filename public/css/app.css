@@ -188,6 +188,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   border-radius: 10px;
 }
 
+.chart-description {
+  font-size: 0.9rem;
+}
+
 .tt-icon-searchbox-ic_map_poi_--- {
   background-image: url("data:image/svg+xml;charset%3DUS-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M12.75%2012.548v.952a.75.75%200%200%201-1.5%200v-.952A1.498%201.498%200%200%201%2012%209.75a1.5%201.5%200%200%201%20.75%202.798zm6-8.798v16.5H16.5V3.75h2.25zm-11.25%200v16.5H5.25V3.75H7.5zm3.75%2013.5v3H9v-3h2.25zm3.75%200v3h-2.25v-3H15zm0-9v7.5H9v-7.5h6zm0-4.5v3h-2.25v-3H15zm-3.75%200v3H9v-3h2.25z%22%20opacity%3D%22.25%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: no-repeat;
