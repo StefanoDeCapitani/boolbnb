@@ -16,16 +16,20 @@ class FlatSponsorshipController extends Controller
         $clientToken = $braintree->clientToken()->generate();
         return view('admin.sponsorship', compact('sponsorData', 'slug', 'clientToken'));
     }
-    public function store(Request $request){
-        $sponsorValue= $request->only('sponsorship');
-        $slug = $request->route('slug');
+    public function store(Request $request, $slug){
+        $sponsorPlan= $request->only('plan');
+        // $slug = $request->route('slug');
         $flat= Flat::where('slug', $slug)->first();
-        $sponsorship= Sponsorship::findOrFail(1);
-        
+        $sponsorship= Sponsorship::where('name', $sponsorPlan)->first();
+
+        if ($flat->activeSponsorships()->first()) {
+            return  back()->with('error', 'Appartamento già sponsorizzato' );
+        }
+
         $nonceFromTheClient = $request->payment_method_nonce;
         $braintree = config('braintree');
         $result = $braintree->transaction()->sale([
-            'amount' => '10.00',
+            'amount' => $sponsorship->price,
             'paymentMethodNonce' => $nonceFromTheClient,
             'options' => [
             'submitForSettlement' => True
@@ -34,7 +38,7 @@ class FlatSponsorshipController extends Controller
 
         if ($result->success) {
             $transactionId = $result->transaction->id;
-            $flat->sponsorships()->attach(1, ['expiration_date'=> Carbon::now()->addDays(2), 'payment_id'=> $transactionId ]);
+            $flat->sponsorships()->attach($sponsorship->id, ['expiration_date'=> Carbon::now()->addHour($sponsorship->duration), 'payment_id'=> $transactionId ]);
     
             return back()->with('message', 'Transazione avvenuta con successo');
         } else {
@@ -42,7 +46,7 @@ class FlatSponsorshipController extends Controller
             foreach ($result->errors->deepAll() as $error) {
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
             }
-            return back()->withErrors('Errore');
+            return back()->withErrors('error', $errorString);
         }
         return  redirect()->route('admin.sponsorship', $slug)->with('message','Ottimo');
     }

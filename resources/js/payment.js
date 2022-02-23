@@ -1,4 +1,19 @@
 
+const basic = document.getElementById('basic');
+const advanced = document.getElementById('advanced');
+const elite = document.getElementById('elite');
+
+const inputHiddenPlan = document.getElementById('plan') 
+basic.addEventListener('click', addPlanToForm);
+advanced.addEventListener('click', addPlanToForm);
+elite.addEventListener('click', addPlanToForm);
+
+
+function addPlanToForm(event) {
+  const namePlan = event.target.attributes.id.nodeValue
+  // console.log(event.target.attributes.id.nodeValue)
+  inputHiddenPlan.value= namePlan
+}
 
 const form = document.getElementById('payment-form');
 let clientToken = document.getElementById('token').dataset.clienttoken
@@ -30,7 +45,3 @@ braintree.dropin.create({
   });
 
 });
-
-
-
-

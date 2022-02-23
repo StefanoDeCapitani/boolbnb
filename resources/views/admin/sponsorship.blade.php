@@ -10,33 +10,18 @@
 
 @section('content')
 
+@if(session('message'))
+<div class="alert alert-success" role="alert">
+  {{session('message')}}
+</div>
+@endif
+@if (session('error'))
+<div class="alert alert-danger" role="alert">
+  {{session('error')}}
+</div>
+@endif
+
 <h1>Sponsorship</h1>  
-
-    @foreach ($sponsorData as $plan)
-        <h2>{{$plan->name}}</h2>
-    @endforeach
-
-
-    {{-- <form action="{{route("admin.sponsorship.store", $slug ='intero-alloggio-unita-in-affitto-host-katja-interhome-group')}}" method="POST">
-        @csrf
-
-        <select name="sponsorship" id="" >
-
-            @foreach ($sponsorData as $plan)  
-            <option value="{{$plan->id}}">{{$plan->name}}</option>
-            @endforeach
-
-        </select>
-        <button class="btn btn_primary" type="submit"> Acquista</button>
-
-
-
-    </form> --}}
-
-    @if(session('message'))
-    {{session('message')}}
-    @endif
-
     @foreach ($sponsorData as $plan)  
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -64,9 +49,11 @@
                             <!-- Putting the empty container you plan to pass to
                             `braintree.dropin.create` inside a form will make layout and flow
                             easier to manage -->
-                            <div id="dropin-container"></div>
+                            <div id="dropin-container">
+                            </div>
                             <input type="submit" />
                             <input type="hidden" id="nonce" name="payment_method_nonce"/>
+                            <input type="hidden" id="plan" name="plan"/>
                         </form>
                         
                         <script type="text/javascript">
