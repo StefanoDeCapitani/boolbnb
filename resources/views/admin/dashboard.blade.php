@@ -28,7 +28,15 @@
             <a class="m-3 btn btn-primary" href="{{route("flats.messages.index",$flat->slug)}}">Messaggi</a>
             </div>
             <div class="text-center">
-                <a href="">Sponsorizza</a>
+                @if (!$flat->activeSponsorships()->first())
+                <a href="{{ route('admin.sponsorship', $flat->slug) }}">Sponsorizza</a>
+                @else 
+                <div>
+                    Appartamento sponsorizzato
+                </div>
+                @endif
+                
+                {{-- @dump($flat->activeSponsorships()->first()) --}}
             </div>
             <div class="text-center">
                 <a href="">Statistiche</a>

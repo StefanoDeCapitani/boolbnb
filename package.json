@@ -25,6 +25,7 @@
         "@popperjs/core": "^2.11.2",
         "@tomtom-international/web-sdk-maps": "^6.18.0",
         "@tomtom-international/web-sdk-plugin-searchbox": "^3.1.12",
-        "@tomtom-international/web-sdk-services": "^6.18.0"
+        "@tomtom-international/web-sdk-services": "^6.18.0",
+        "braintree": "^3.10.0"
     }
 }

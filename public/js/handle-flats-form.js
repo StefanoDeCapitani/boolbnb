@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -139,14 +139,14 @@ form.addEventListener("submit", function (event) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!*************************************************!*\
   !*** multi ./resources/js/handle-flats-form.js ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\andre\Boolean\Classe-#43\Progetto-finale\boolbnb\resources\js\handle-flats-form.js */"./resources/js/handle-flats-form.js");
+module.exports = __webpack_require__(/*! C:\Users\mauri\Documents\Boolean\Progetto finale\boolbnb\resources\js\handle-flats-form.js */"./resources/js/handle-flats-form.js");
 
 
 /***/ })
