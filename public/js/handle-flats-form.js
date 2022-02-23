@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -139,7 +139,7 @@ form.addEventListener("submit", function (event) {
 
 /***/ }),
 
-/***/ 16:
+/***/ 2:
 /*!*************************************************!*\
   !*** multi ./resources/js/handle-flats-form.js ***!
   \*************************************************/
