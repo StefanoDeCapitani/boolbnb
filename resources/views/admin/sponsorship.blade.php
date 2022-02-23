@@ -30,12 +30,12 @@
 
                     <div class="py-4">
                         <h5 class="card-text">Prezzo</h5>
-                        <p class="card-text">{{ $plan->price }}</p>
+                        <p class="card-text">{{ $plan->price }}€</p>
                     </div>
 
                     <div class="py-4">
                         <h5 class="card-text">Durata</h5>
-                        <p class="card-text">{{ $plan->duration }}</p>
+                        <p class="card-text">{{ $plan->duration }}ore</p>
                     </div>
                     <button id="{{ $plan->name }}" type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">

@@ -189,7 +189,8 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .cardSponsorship {
-  background-color: #001632;
+  background: #FE6E96;
+  background: linear-gradient(to bottom right, #fc5584, #fdad5c);
   color: white;
   border-radius: 25px;
   overflow: hidden;
@@ -205,13 +206,30 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 
 .cardSponsorship .btn-primary:hover {
   color: #edf7ff;
-  background-color: #001632;
-  border-color: #0354be;
+  background-color: #fdad5c;
+  border-color: #FE6E96;
 }
 
-.cardSponsorship:hover {
-  background-color: #bad1f0;
-  color: #001632;
+.cardSponsorship:first-child {
+  background: #1D55A9;
+  background: linear-gradient(to bottom right, #1D55A9, #f55dae);
+}
+
+.cardSponsorship:first-child .btn-primary:hover {
+  color: #edf7ff;
+  background-color: #1D55A9;
+  border-color: #f55dae;
+}
+
+.cardSponsorship:nth-child(3) {
+  background: #015E6E;
+  background: linear-gradient(to bottom right, #015E6E, #01DFC1);
+}
+
+.cardSponsorship:nth-child(3) .btn-primary:hover {
+  color: #edf7ff;
+  background-color: #015E6E;
+  border-color: #01DFC1;
 }
 
 .tt-icon-searchbox-ic_map_poi_--- {
