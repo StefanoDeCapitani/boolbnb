@@ -73,6 +73,6 @@ class AnalyticsController extends Controller
         $viewsYearly = View::select(DB::raw("COUNT(flat_id) as y, year(created_at) as x"))->where('flat_id',$flat->id)->whereYear('created_at', ">",Carbon::now()->year - 5)->groupBy(DB::raw("x"))->orderBy('x')->get()->toArray();
         $viewsYearly = $this->formatYearlyDataChart($viewsYearly);
 
-        return view('admin.analytics', compact('messagesMonthly','messagesYearly','viewsMonthly','viewsYearly'));
+        return view('admin.analytics', compact('flat', 'messagesMonthly','messagesYearly','viewsMonthly','viewsYearly'));
     }
 }

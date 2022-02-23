@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/charts.js": "/js/charts.js",
     "/js/handle-flats-form.js": "/js/handle-flats-form.js",
     "/js/home.js": "/js/home.js",
     "/js/payment.js": "/js/payment.js",
