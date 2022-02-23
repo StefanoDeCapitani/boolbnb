@@ -1,0 +1,101 @@
+.GuestSponsoredCard{
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .TextCard{
+        color: white;
+        font-weight: bold;
+        opacity: 0;
+        position: absolute;
+        text-align: center;
+        background-color: #00163281;
+        top: 0;
+        bottom: 0;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    };
+}
+.Hero_GuestPage{
+    max-width: 1200px;
+    overflow: hidden;
+    max-height: 458px;
+    border-radius: 25px;
+    margin: auto;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+
+    }
+}
+
+.recommendedPlaces{
+    position: relative;
+    
+    .RecomenText{
+        color: white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-weight: 600;
+        background-color: #00163281;
+        top: 0;
+        display: flex;
+        bottom: -10px;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+    }
+}
+
+.recommendedPlaces{
+    overflow: hidden;
+    border-radius: 25px;
+    height: 100%;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.recommendedPlaces{
+    &:hover{
+        .RecomenText{
+            opacity: 1;
+        }
+    }
+}
+
+
+
+.tt-search-box{
+    overflow: hidden!important;
+    border-radius: 25px!important;
+    margin:auto;
+    width: 50%;
+
+    .tt-search-box-input-container{
+         border-radius: 25px!important;
+    }
+
+}
+
+.GuestSponsoredCard{
+    &:hover{
+        .TextCard{
+            opacity: 1;
+        }
+    }
+       
+   
+}
