@@ -1,0 +1,30 @@
+.cardSponsorship{
+    background-color: #001632;
+    color: white;
+    border-radius: 25px;
+    overflow: hidden;
+    text-align: center;
+
+
+    .btn-primary {
+        color: #001632;
+        background-color: #ffffff;
+        border-color: #edf7ff;
+        border-radius: 15px;
+    }
+
+    .btn-primary:hover {
+        color: #edf7ff;
+        background-color: #001632;
+        border-color: #0354be;
+    }
+}
+
+.cardSponsorship{
+    &:hover{
+        background-color: #bad1f0;
+        color: #001632;
+    }
+}
+
+
