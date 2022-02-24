@@ -68,13 +68,30 @@
  
     @endforeach
 
-    <div class="card col-lg-7 col-12 mb-3">
-        <h5 class="mb-4">titolo</h5>
-        <h6 class="mb-4">creato il</h6>
-        <div class="card-body">
-          <p class="card-text">bottoni</p>
+
+
+    @foreach ($flats as $flat)
+        <div id="flats">
+
+            <div class="card col-lg-9 col-12 mb-3">
+                <div class="row">
+                    <div class="col-3">
+                        <a href="{{route("flats.show",$flat->slug)}}">
+                            <img src="{{asset($flat->cover_img)}}" style="width: 100%;border-radius: 13px;" alt="">
+                        </a>
+                    </div>
+                    <div class="col-9">
+                        <h5 class="mb-4">{{$flat->title}}</h5>
+                        <h6 class="mb-4">creato il</h6>
+                        <div class="card-body">
+                        <p class="card-text">bottoni</p>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
         </div>
-      </div>
+    @endforeach
 
 
     
