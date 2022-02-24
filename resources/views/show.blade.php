@@ -33,13 +33,14 @@
 
             <div class="col-3 ">
 
-                @foreach ($flat->images as $image)
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                            @foreach ($flat->images as $image)
                             <div class="carousel-item @if ($loop->first) active @endif ">
                                 <img src="{{ asset($image->path) }}" class="d-block w-100" alt="...">
                             </div>
 
+                            @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                             data-bs-slide="prev">
@@ -54,7 +55,6 @@
                     </div>
                     {{-- <img src="{{asset($image->path)}}" style="border-radius:11px; width:100% " alt=""> --}}
             </div>
-            @endforeach
         </div>
 
         {{-- servizzi --}}
