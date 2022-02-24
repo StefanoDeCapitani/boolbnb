@@ -18,3 +18,31 @@
         padding: 10px;
     }
 }
+
+
+#container-input-cover{
+    position: relative;
+    display: inline-block;
+
+    input[type="file"]{
+        display: none;
+    }
+
+    label{
+        display: block;
+        position: relative;
+        border: 1px solid black;
+        padding: 25px;
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        display: none;
+    
+    }
+
+}

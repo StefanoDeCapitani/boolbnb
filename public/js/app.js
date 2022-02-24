@@ -10318,6 +10318,24 @@ process.umask = function() { return 0; };
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var inpFile = document.getElementById('inp');
+var imageCont = document.getElementById('imagePreview');
+var immagine = document.getElementById('immagine');
+inpFile.addEventListener('change', function () {
+  var file = this.files[0];
+  console.log(file);
+
+  if (file) {
+    var reader = new FileReader();
+    console.log(reader);
+    reader.addEventListener('load', function () {
+      immagine.setAttribute('src', this.result);
+      immagine.setAttribute('class', 'd-block');
+    });
+    reader.readAsDataURL(file);
+  }
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -10382,8 +10400,8 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/stefanodecapitani/Documents/Progetto Finale/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/stefanodecapitani/Documents/Progetto Finale/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\matte\Desktop\classe43BOOLEAN\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\matte\Desktop\classe43BOOLEAN\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

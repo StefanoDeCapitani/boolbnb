@@ -106,10 +106,13 @@
                 <input type="hidden" class="form-control" id="lng" name="lon"  value="{{old('lon')}}">
             </div>
             
-            <div class="mb-3">
+            <div id="container-input-cover" class="mb-3">
+               
                 <input id="inp" name="cover_img" type="file" value="{{old('cover_img')}}">
+                <label for="inp"><i class="fa fa-plus"></i> ScegliFile</label>
+               
                 <div id="imagePreview">
-                    <img style="width: 60px" id="immagine" src="" alt="Image Previw">
+                    <img  id="immagine" src="" alt="Image Previw">
                 </div>
                 @error('cover_img')
                 {{$message}}
