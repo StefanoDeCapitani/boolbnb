@@ -14966,6 +14966,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SearchPage_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/SearchPage.vue */ "./resources/js/components/SearchPage.vue");
+/* harmony import */ var _components_MyMap_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/MyMap.vue */ "./resources/js/components/MyMap.vue");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -14978,6 +14979,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -14987,7 +14989,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 var app = new Vue({
   el: '#app',
   components: {
-    SearchPage: _components_SearchPage_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    SearchPage: _components_SearchPage_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MyMap: _components_MyMap_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -15000,7 +15003,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/stefanodecapitani/Documents/Progetto Finale/boolbnb/resources/js/vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! D:\Boolean#43\Esercitazioni\ProgettoFinale\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })
