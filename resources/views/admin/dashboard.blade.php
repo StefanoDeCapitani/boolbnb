@@ -22,10 +22,10 @@
 
             <div class="position-absolute col-4" style="transform: translate(0, -50%);top: 50%;left: 0; z-index:2">
                 <a href="{{route("flats.show",$flat->slug)}}">
-                   <img src="{{asset($flat->cover_img)}}" style="width: 100%;border-radius: 13px;" alt="">
+                   <img src="{{asset($flat->cover_img)}}" style="width: 60%;border-radius: 13px;" alt="">
                 </a>
             </div>
-            <div class="col-9 ms-auto d-flex-column justify-content-center align-items-center border border-primary postion-relative" style="padding: 150px;border-radius: 13px;" >
+            <div class="col-7 flat_container ms-auto d-flex-column justify-content-center align-items-center border postion-relative" >
     
                 <div class="text-center">
                     <h2 style="overflow-wrap: break-word;">{{$flat->title}}</h2>
