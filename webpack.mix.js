@@ -18,4 +18,6 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/home.js", "public/js")
     .js("resources/js/vue.js", "public/js")
     .js("resources/js/charts.js", "public/js")
+    .js("resources/js/create.js", "public/js")
+    .js("resources/js/edit.js", "public/js")
     .sass("resources/sass/app.scss", "public/css");

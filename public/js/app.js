@@ -10318,24 +10318,6 @@ process.umask = function() { return 0; };
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var inpFile = document.getElementById('inp');
-var imageCont = document.getElementById('imagePreview');
-var immagine = document.getElementById('immagine');
-inpFile.addEventListener('change', function () {
-  var file = this.files[0];
-  console.log(file);
-
-  if (file) {
-    var reader = new FileReader();
-    console.log(reader);
-    reader.addEventListener('load', function () {
-      immagine.setAttribute('src', this.result);
-      immagine.setAttribute('class', 'd-block');
-    });
-    reader.readAsDataURL(file);
-  }
-});
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

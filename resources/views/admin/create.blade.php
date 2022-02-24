@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('links')
 <script src="{{asset("js\handle-flats-form.js")}}" defer></script>
+<script src="{{asset("js\create.js")}}" defer></script>
 @endsection
 
 @section('title-page', 'Aggiungi appartamento')
@@ -15,6 +16,20 @@
       <div class="col-9 ms-auto p-5 mt-5 mb-5 " style="background-color: #DEE4EC; border-radius:11px ; z-index:2">
         <form id="create-form-try" action="{{route("admin.flats.store")}}" method="POST" enctype="multipart/form-data">
             @csrf
+
+            <div id="container-input-cover" class="mb-3">
+               
+                <input id="inp" name="cover_img" type="file" value="{{old('cover_img')}}">
+                <label for="inp"><i class="fa fa-plus"></i> Copertina Flat</label>
+               
+                <div id="imagePreview">
+                    <img  id="immagine" src="" alt="Image Previw">
+                    <div id="i-box"><i class="fa-solid fa-minus"></i></div>
+                </div>
+                @error('cover_img')
+                {{$message}}
+                @enderror
+            </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}" >
@@ -106,24 +121,18 @@
                 <input type="hidden" class="form-control" id="lng" name="lon"  value="{{old('lon')}}">
             </div>
             
-            <div id="container-input-cover" class="mb-3">
-               
-                <input id="inp" name="cover_img" type="file" value="{{old('cover_img')}}">
-                <label for="inp"><i class="fa fa-plus"></i> ScegliFile</label>
-               
-                <div id="imagePreview">
-                    <img  id="immagine" src="" alt="Image Previw">
-                </div>
-                @error('cover_img')
-                {{$message}}
-                @enderror
-            </div>
+         
 
             <div id="container-input-paths" class="mb-3">
                 <input id="file-input" name="images[]" type="file" multiple value="{{old('images[]')}}">
                 <label for="file-input">
                     <i class="fas fa-upload"></i>Choose Path
                 </label>
+
+                <p id="num-of-files">No Files Chosen</p>
+                <div id="images" class="row">
+
+                </div>
                 @error('images')
                 {{$message}}
                 @enderror

@@ -8,6 +8,7 @@
 
 @section('links')
 <script src="{{asset("js\handle-flats-form.js")}}" defer></script>
+<script src="{{asset('js\edit.js')}}" defer></script>
 @endsection
 @section('content')
 
@@ -17,7 +18,7 @@
 
     </div>
     <div class="col-9 ms-auto p-5 mt-5 mb-5 " style="background-color: #DEE4EC; border-radius:11px ; z-index:2">
-        <form   id="create-form-try" action="{{route("admin.flats.update", $flat->slug)}}" method="POST" enctype="multipart/form-data">
+        <form  id="create-form-try" action="{{route("admin.flats.update", $flat->slug)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -128,10 +129,24 @@
               
                 <input type="hidden" class="form-control" id="lng" name="lon"  value="{{$flat->lon}}">
             </div>
-            
+{{--             
             <div class="mb-3">
                 <input name="cover_img" type="file" value="{{$flat->cover_img}}">
                 
+                @error('cover_img')
+                {{$message}}
+                @enderror
+            </div> --}}
+
+            <div id="container-input-cover" class="mb-3">
+               
+                <input id="inp" name="cover_img" type="file" value="{{$flat->cover_img}}" data-valueinp='@json($flat->cover_img)'>
+                <label for="inp"><i class="fa fa-plus"></i> Copertina Flat</label>
+               
+                <div id="imagePreview">
+                    <img  id="immagine" src="" alt="Image Previw">
+                    <div id="i-box"><i class="fa-solid fa-minus"></i></div>
+                </div>
                 @error('cover_img')
                 {{$message}}
                 @enderror
