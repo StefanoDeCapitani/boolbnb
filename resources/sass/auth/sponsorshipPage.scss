@@ -1,0 +1,46 @@
+.cardSponsorship{
+    background: #FE6E96;
+    background: linear-gradient(to bottom right, #fc5584, #fdad5c);   
+    color: white;
+    border-radius: 25px;
+    overflow: hidden;
+    text-align: center;
+
+
+    .btn-primary {
+        color: #001632;
+        background-color: #ffffff;
+        border-color: #edf7ff;
+        border-radius: 15px;
+    }
+
+    .btn-primary:hover {
+        color: #edf7ff;
+        background-color: #fdad5c;
+        border-color: #FE6E96;
+    }
+}
+
+
+.cardSponsorship:first-child {
+    background: #1D55A9;
+    background: linear-gradient(to bottom right, #1D55A9, #f55dae); 
+    .btn-primary:hover {
+        color: #edf7ff;
+        background-color: #1D55A9;
+        border-color: #f55dae;
+    }  
+}
+
+
+.cardSponsorship:nth-child(3){
+    background: #015E6E;
+    background: linear-gradient(to bottom right, #015E6E, #01DFC1); 
+    .btn-primary:hover {
+        color: #edf7ff;
+        background-color: #015E6E;
+        border-color: #01DFC1;
+    }  
+}
+
+
