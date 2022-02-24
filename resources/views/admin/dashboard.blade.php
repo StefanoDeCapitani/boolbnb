@@ -1,11 +1,18 @@
 @extends('layouts.app')
 
-@section('title-page', 'Home page')
+@section('title-page', 'Dashboard')
 
 @section('content')
 
-<h1>Dashboard</h1>  
-<a class="btn btn-secondary" href="{{route("admin.flats.create")}}">Crea Nuovo</a>
+<h1 class="text-center my-5">Ciao 
+    @if (Auth::User()->name)
+        {{Auth::User()->name}}
+    @else
+        {{Auth::User()->email}}
+    @endif
+</h1>  
+<h2 class="text-center my-5">Ecco i tuoi Appartamenti</h2>  
+<a class="btn btn-primary btn_add text-white" href="{{route("admin.flats.create")}}">Aggiungi un appartamento</a>
 
     
     @foreach ($flats as $flat)

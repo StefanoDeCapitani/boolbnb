@@ -71,6 +71,14 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   box-shadow: none !important;
 }
 
+.btn_add {
+  border-radius: 15px !important;
+  background-color: #001632 !important;
+  padding: 0px 30px !important;
+  border-color: #001632 !important;
+  color: white;
+}
+
 .container .image-container {
   width: 800px;
   height: 600px;
