@@ -4,8 +4,10 @@
 
 @section('content')
 
-<h1 class="mb-2">Messaggi dell'appartamento:</h1>
-<h2 class="mb-5">{{$flat_title}}</h2>
+<div class="title-text">
+  <h1 class="mb-2">Messaggi dell'appartamento:</h1>
+  <h2 class="mb-5">{{$flat_title}}</h2>
+</div>
 <div id="messages">
 @foreach ($messages as $message)
 <div class="card col-lg-7 col-12 mb-3">

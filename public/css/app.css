@@ -281,6 +281,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   border-radius: 10px;
 }
 
+.title-text {
+  text-align: center;
+}
+
 #messages {
   display: flex;
   align-items: center;
