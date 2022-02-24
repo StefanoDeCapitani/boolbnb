@@ -8,7 +8,9 @@
     .card{
         padding: 50px;
         border-radius: 25px;
-        border: 1px solid #001632!important;
+        border: none;
+        /* border: 1px solid #001632!important; */
+        box-shadow: 0px 3px 8px 0px #dee4ec;
         
         .card-body{
             background-color: #f7f7f7;
