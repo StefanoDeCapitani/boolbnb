@@ -73,15 +73,59 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 
 .btn_add {
   border-radius: 20px !important;
+  padding: 5px 10px !important;
   background-color: #001632 !important;
-  padding: 10px 15px !important;
-  border-color: #001632 !important;
   color: white;
+}
+
+.p_sponsor {
+  padding: 3px 10px !important;
+  background-color: #001632 !important;
+}
+
+.btn-delete {
+  background-color: #BA0101 !important;
+}
+
+.btn-edit {
+  background-color: #FFD600 !important;
+}
+
+.btn-analytics {
+  background-color: #AABAD0 !important;
+}
+
+.btn-message {
+  background-color: #00367D !important;
 }
 
 .flat_container {
   padding: 50px 60px;
   border-radius: 13px;
+}
+
+#flats {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#flats .card {
+  padding: 30px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 3px 8px 0px #dee4ec;
+}
+
+#flats .card a {
+  text-decoration: none;
+  color: black;
+}
+
+#flats .card .card-body {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .container .image-container {
