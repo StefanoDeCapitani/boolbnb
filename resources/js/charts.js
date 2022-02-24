@@ -18,23 +18,27 @@ window.onload = function () {
                     type: "line",
                     label: "views",
                     data: Object.values(viewsMonth),
+                    borderColor: "#04df6c",
+                    backgroundColor: "#04df6c",
                 },
                 {
                     type: "bar",
                     label: "Messaggi",
                     data: Object.values(messagesMonth),
+                    borderColor: "#51698a",
+                    backgroundColor: "#51698a",
                 },
             ],
             labels: Object.keys(messagesMonth),
         },
         options: {
-            elements: {
+            /* elements: {
                 rectangle: {
                     borderWidth: 2,
                     borderColor: "rgb(80, 255, 0)",
                     borderSkipped: "bottom",
                 },
-            },
+            }, */
             responsive: true,
             title: {
                 display: true,
@@ -51,23 +55,27 @@ window.onload = function () {
                     type: "line",
                     label: "views",
                     data: Object.values(viewsYear),
+                    borderColor: "#04df6c",
+                    backgroundColor: "#04df6c",
                 },
                 {
                     type: "bar",
                     label: "Messaggi",
                     data: Object.values(messagesYear),
+                    borderColor: "#51698a",
+                    backgroundColor: "#51698a",
                 },
             ],
             labels: Object.keys(messagesYear),
         },
         options: {
-            elements: {
+            /* elements: {
                 rectangle: {
                     borderWidth: 2,
-                    borderColor: "rgb(80, 255, 0)",
+                    borderColor: "#011632",
                     borderSkipped: "bottom",
                 },
-            },
+            }, */
             responsive: true,
             title: {
                 display: true,
