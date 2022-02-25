@@ -152,8 +152,24 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <input name="images[]" type="file" multiple >
+                @error('images')
+                {{$message}}
+                @enderror
+            </div> --}}
+          
+
+            <div id="container-input-paths" class="mb-3">
+                <input id="file-input" name="images[]" type="file" multiple value="{{old('images[]')}}"  data-multipleimg='@json($flat->images)'>
+                <label for="file-input">
+                    <i class="fas fa-upload"></i>Choose Path
+                </label>
+
+                <p id="num-of-files">No Files Chosen</p>
+                <div id="images" class="row">
+
+                </div>
                 @error('images')
                 {{$message}}
                 @enderror
