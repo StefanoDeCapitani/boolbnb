@@ -64,7 +64,7 @@
 
         {{-- Sezione degli appartamenti in evidenza --}}
         <h5 class="pb-4  pt-5 text-center">Appartamenti in evidenza</h5>
-        <div class="row ">
+        <div class="row justify-content-center">
         @foreach ($flatsSponsered as $flat)
         
         <div class="col-12 p-2 col-md-6 col-lg-3">

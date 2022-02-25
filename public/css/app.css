@@ -167,20 +167,25 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   opacity: 1;
 }
 
-.container .image-container {
+.GuestSponsoredCard .TextCard .btn-primary {
+  background-color: #001632;
+  border: 1px solid #0335777e;
+  color: white;
+  border-radius: 15px;
+}
+
+.container .image-container.login {
   width: 800px;
   height: 600px;
   overflow: hidden;
   border-radius: 25px;
 }
 
-.container .image-container img {
+.container .image-container.login img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
 }
 
 .container .bg-login {

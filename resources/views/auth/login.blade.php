@@ -5,7 +5,7 @@
 
     <div class="d-none d-lg-block ">
         <div class="d-flex align-items-center">
-            <div class="image-container">
+            <div class="image-container login">
                 <img src="{{ asset('logo/ian-keefe-OgcJIKRnRC8-unsplash.jpg')}}"alt="">
             </div>
             
