@@ -70,6 +70,7 @@
 
 .recommendedPlaces{
     &:hover{
+        cursor: pointer;
         .RecomenText{
             opacity: 1;
         }

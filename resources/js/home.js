@@ -28,3 +28,21 @@ ttSearchBox.on('tomtom.searchbox.resultsfound', function(data) {
     }
     
 });
+
+let cards = document.getElementsByClassName('recommendedPlaces');
+console.log(cards);
+for (let index = 0; index < cards.length; index++) {
+    const i = index
+    cards[index].addEventListener('click', function() {
+        const city = cards[index].getElementsByClassName('RecomenText')[0].innerText
+        // console.log(city);
+        services.fuzzySearch({
+            key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
+            query: city
+          }).then(function(data){
+           const results = data.results[0]
+            sessionStorage.setItem('location', JSON.stringify(results))
+            window.location.href='/search'
+          });
+    })
+}

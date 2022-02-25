@@ -47,10 +47,10 @@
                 </div>
             </div><div class="col-12 p-2 col-md-6 col-lg-2">
                 <div class=" recommendedPlaces">
-                    <img src="\storage\img\sicilia.jpg" alt="">
+                    <img src="\storage\img\cagliari.jpg" alt="">
 
                     <h2 class="RecomenText">
-                        Sicilia
+                        Cagliari
                     </h2>
                 </div>
             </div>

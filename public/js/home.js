@@ -343,6 +343,28 @@ ttSearchBox.on('tomtom.searchbox.resultsfound', function (data) {
     window.location.href = '/search';
   }
 });
+var cards = document.getElementsByClassName('recommendedPlaces');
+console.log(cards);
+
+var _loop = function _loop(index) {
+  var i = index;
+  cards[index].addEventListener('click', function () {
+    var city = cards[index].getElementsByClassName('RecomenText')[0].innerText; // console.log(city);
+
+    _tomtom_international_web_sdk_services__WEBPACK_IMPORTED_MODULE_0__["services"].fuzzySearch({
+      key: 'xBR8QUT6VbrPi6uqGXoWGBZbcR4mSfgR',
+      query: city
+    }).then(function (data) {
+      var results = data.results[0];
+      sessionStorage.setItem('location', JSON.stringify(results));
+      window.location.href = '/search';
+    });
+  });
+};
+
+for (var index = 0; index < cards.length; index++) {
+  _loop(index);
+}
 
 /***/ }),
 
@@ -353,7 +375,7 @@ ttSearchBox.on('tomtom.searchbox.resultsfound', function (data) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean#43\Esercitazioni\ProgettoFinale\boolbnb\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! C:\Users\mauri\Documents\Boolean\Progetto finale\boolbnb\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })
