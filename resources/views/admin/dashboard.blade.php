@@ -134,7 +134,7 @@
                         
                         {{-- bottoni --}}
                         <div class="card-body d-flex justify-content-around mt-5">
-                            <a href="{{route("flats.messages.index",$flat->slug)}}"><button class="btn btn_add p_sponsor btn-message text-white"><small>Messaggi</small> </button></a>
+                            <a href="{{route("flats.messages.index",$flat->slug)}}"><button class="btn btn_add p_sponsor btn-message text-white"><small>Messaggi</small> </button></a>BOTTONI DA MODIFICARE
                             <a href="{{route('admin.analytics', $flat->slug)}}"><button class="btn btn_add p_sponsor btn-analytics text-white"><small>Statistiche</small> </button></a>
                             <a href="{{route("admin.flats.edit",$flat->slug)}}"><button class="btn btn_add p_sponsor btn-edit"><small>Modifica</small> </button></a>
 
