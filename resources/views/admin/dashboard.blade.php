@@ -52,7 +52,7 @@
             </div>
     </div>
     @endforeach --}}
-    @if(json_encode($flats) === '[]')
+    @if($flats->count() === 0)
 
         <div class="text-center my-4">
             <h1>Ops... non hai aggiunto nessun appartamento</h1>
