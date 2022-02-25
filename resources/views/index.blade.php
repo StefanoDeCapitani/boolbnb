@@ -13,9 +13,13 @@
     <div class="container">
         {{-- search bar --}}
         <h2 class=" text-center">Dove vuoi andare</h2>
-        <div id="search-box" class="mb-4">
-        </div>
+      
 
+<div class="homePage row justify-content-center">
+
+    <div id="search-box" class="mb-4 col-12 col-md-6 ">
+    </div>
+</div>
         {{-- hero --}}
         <div class="Hero_GuestPage pb-4">
             <img src="\storage\img\montagna.jpg" alt="">

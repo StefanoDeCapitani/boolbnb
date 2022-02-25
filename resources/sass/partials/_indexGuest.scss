@@ -77,20 +77,23 @@
     }
 }
 
+.homePage{
 
-
-.tt-search-box{
-    overflow: hidden!important;
-    border-radius: 25px!important;
-    margin:auto;
-    width: 50%;
-
-    .tt-search-box-input-container{
-         border-radius: 25px!important;
+    #search-box{
+    
+        .tt-search-box{
+            overflow: hidden!important;
+            border-radius: 25px!important;
+            margin:auto;
+           
+        
+            .tt-search-box-input-container{
+                 border-radius: 25px!important;
+            }
+        
+        }
     }
-
 }
-
 .GuestSponsoredCard{
     &:hover{
         .TextCard{

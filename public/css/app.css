@@ -153,14 +153,13 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   opacity: 1;
 }
 
-.tt-search-box {
+.homePage #search-box .tt-search-box {
   overflow: hidden !important;
   border-radius: 25px !important;
   margin: auto;
-  width: 50%;
 }
 
-.tt-search-box .tt-search-box-input-container {
+.homePage #search-box .tt-search-box .tt-search-box-input-container {
   border-radius: 25px !important;
 }
 
