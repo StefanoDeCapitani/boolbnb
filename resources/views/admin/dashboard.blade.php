@@ -138,7 +138,11 @@
         </div>
     @endforeach
     
-    @endif
-
+        <div class="d-flex justify-content-center">
+            <span>
+                {{ $flats->links() }}
+            </span>
+        </div>
     
+    @endif
     @endsection

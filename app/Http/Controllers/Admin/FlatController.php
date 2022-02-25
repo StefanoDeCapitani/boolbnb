@@ -33,7 +33,7 @@ class FlatController extends Controller
     public function index()
     {
 
-        $flats = Flat::where('user_id', '=', Auth::id())->with('activeSponsorships')->get();
+        $flats = Flat::where('user_id', '=', Auth::id())->with('activeSponsorships')->paginate(3);
 
         return view('admin.dashboard', compact('flats'));
     }
