@@ -184,6 +184,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   background-color: #BA0101 !important;
 }
 
+.trash_icon {
+  color: #BA0101 !important;
+}
+
 .btn-edit {
   background-color: #FFD600 !important;
 }

@@ -82,9 +82,44 @@
                         </a>
                     </div>
                     <div class="col-9">
-                        <a href="{{route("flats.show",$flat->slug)}}">
-                            <h5 class="mb-4">{{$flat->title}}</h5>
-                        </a>
+                        <div class="row">
+                            {{-- Titolo appartamento --}}
+                            <div class="col-10">
+                                <a href="{{route("flats.show",$flat->slug)}}">
+                                    <h5 class="mb-4">{{$flat->title}}</h5>
+                                </a>
+                            </div>
+
+                            {{-- Bottone elimina appartamento --}}
+                            <div class="col-2 text-end">
+                                
+                                <i data-bs-toggle="modal" data-bs-target="#exampleModal" class="fa-solid fa-trash-can fs-4 trash_icon"></i>
+                                
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <h5>Sei sicuro di voler Eliminare definitivamente l'annuncio?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn_add p_sponsor btn-analytics text-white" data-bs-dismiss="modal">Close</button>
+                                        <form class="" action="{{route("admin.flats.destroy",$flat->slug)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn_add p_sponsor btn-delete text-white">Elimina</button>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <p class="mb-1">Creato il {{ $flat->created_at->format('d-m-Y') }}</p>
                         <div class="mb-2">
                             @if (!$flat->activeSponsorships()->first())
@@ -103,31 +138,7 @@
                             <a href="{{route('admin.analytics', $flat->slug)}}"><button class="btn btn_add p_sponsor btn-analytics text-white"><small>Statistiche</small> </button></a>
                             <a href="{{route("admin.flats.edit",$flat->slug)}}"><button class="btn btn_add p_sponsor btn-edit"><small>Modifica</small> </button></a>
 
-                            <button type="button" class="btn  btn_add p_sponsor btn-delete text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Elimina
-                            </button>
                             
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body text-center">
-                                    <h5>Sei sicuro di voler Eliminare definitivamente l'annuncio?</h5>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn_add p_sponsor btn-analytics text-white" data-bs-dismiss="modal">Close</button>
-                                    <form class="" action="{{route("admin.flats.destroy",$flat->slug)}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn_add p_sponsor btn-delete text-white">Elimina</button>
-                                    </form>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
                             
 
 
