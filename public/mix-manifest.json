@@ -1,9 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/js/charts.js": "/js/charts.js",
     "/js/handle-flats-form.js": "/js/handle-flats-form.js",
     "/js/home.js": "/js/home.js",
+    "/js/mapshow.js": "/js/mapshow.js",
     "/js/payment.js": "/js/payment.js",
-    "/js/vue.js": "/js/vue.js",
-    "/css/app.css": "/css/app.css"
+    "/js/vue.js": "/js/vue.js"
 }

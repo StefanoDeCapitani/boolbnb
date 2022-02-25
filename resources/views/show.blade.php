@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('links')
+<script src="{{asset('js\mapshow.js')}}" defer></script>
+
+@endsection
 
 @section('title-page', 'Home page')
 
@@ -111,6 +115,16 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="row justify-content-center  py-5">
+            <div id="map" style="height: 500px" class="col-10 my-1 col-lg-12" data-lat="{{$flat->lat}}" data-lon="{{$flat->lon}}">
+              
+            </div>
+
+            
+
+          
         </div>
 
     </div>
