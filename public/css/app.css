@@ -142,6 +142,18 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   color: white;
 }
 
+@media screen and (max-width: 420px) {
+  #container-input-paths label {
+    font-size: small;
+    padding: 5px;
+    width: 50%;
+  }
+
+  #container-input-paths label i {
+    margin-right: 5px;
+  }
+}
+
 .container .image-container {
   width: 800px;
   height: 600px;
