@@ -11,7 +11,12 @@
 <div id="messages">
 @foreach ($messages as $message)
 <div class="card col-lg-7 col-12 mb-3">
-    <h5 class="mb-4">Da:{{$message->name}}</h5>
+
+    <div class="row">
+      <h5 class="col-6 mb-4 d-inline">Da:{{$message->name}}</h5>
+      <small class="col-6 text-end"> {{ $message_received->toFormattedDateString() }} alle {{ $message_received->format('H:i') }}</small>
+    </div>
+
     <h6 class="mb-4">Email: {{$message->email}}</h6>
     <div class="card-body">
       <p class="card-text">{{$message->text}}</p>
