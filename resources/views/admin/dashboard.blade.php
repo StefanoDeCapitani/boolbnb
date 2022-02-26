@@ -4,54 +4,13 @@
 
 @section('content')
 
-<h1 class="text-center my-5">Ciao 
+<h1 class="text-center my-2 my-lg-5">Ciao 
     @if (Auth::User()->name)
         {{Auth::User()->name}}
     @else
         {{Auth::User()->email}}
     @endif
 </h1>    
-
-
-    {{-- @foreach ($flats as $flat)
-    <div class="row d-flex position-relative mb-5">
-            <div class="position-absolute col-4" style="transform: translate(0, -50%);top: 50%;left: 0; z-index:2">
-                <a href="{{route("flats.show",$flat->slug)}}">
-                    <img src="{{asset($flat->cover_img)}}" style="width: 60%;border-radius: 13px;" alt="">
-                </a>
-            </div>
-            <div class="col-7 flat_container ms-auto d-flex-column justify-content-center align-items-center border postion-relative" >
-    
-                <div class="text-center">
-                    <h2 style="overflow-wrap: break-word;">{{$flat->title}}</h2>
-                </div>
-                <div class="w-100 d-flex justify-content-center ">
-                <a class=" m-3 btn btn-primary" href="{{route("admin.flats.edit",$flat->slug)}}">Modifica</a>
-                <a class="m-3 btn btn-primary" href="{{route("flats.messages.index",$flat->slug)}}">Messaggi</a>
-                </div>
-                <div class="text-center">
-                    @if (!$flat->activeSponsorships()->first())
-                    <a href="{{ route('admin.sponsorship', $flat->slug) }}">Sponsorizza</a>
-                    @else 
-                    <div>
-                        Appartamento sponsorizzato
-                    </div>
-                    @endif
-                </div>
-                <div class="text-center">
-                    <a href="{{route('admin.analytics', $flat->slug)}}">Statistiche</a>
-                </div>
-                <form class="" action="{{route("admin.flats.destroy",$flat->slug)}}" style="position: absolute; top: 10px;right: 10px;" method="post">
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-danger">x</button>
-                </form>
-                <div class="position-absolute  " style="bottom: 10px; right:10px">
-                    <p class="m-0">Visite: {{ $flat->views->count() }}</p>
-                </div>
-            </div>
-    </div>
-    @endforeach --}}
     @if($flats->count() === 0)
 
         <div class="text-center my-4">
@@ -61,12 +20,15 @@
 
     @else
 
-    <div class="row justify-content-center mb-4">
-        <div class="col-9">
-            <div class="row">
-                <div class="col-6"><h3 class="text-start d-inline">I tuoi Appartamenti:</h3></div>
-                <div class="col-6 text-end"><a class="btn btn_add text-white " href="{{route("admin.flats.create")}}">Aggiungi un appartamento</a></div>
-                
+    <div class="row justify-content-center my-4">
+        <div class="col-lg-9 co-sm-12 ">
+            <div class="row flex-lg-row-reverse  text-lg-start text-sm-center ">
+                <div class="col-lg-6 col-sm-12 text-lg-end text-center my-4 my-lg-0">
+                    <a class="btn btn_add text-white " href="{{route("admin.flats.create")}}">Aggiungi un appartamento</a>
+                </div>
+                <div class="col-lg-6 col-sm-12 text-lg-start text-center">
+                    <h3 class=" d-inline">I tuoi Appartamenti:</h3>
+                </div>
             </div>
         </div>
     </div>  
@@ -74,18 +36,18 @@
     @foreach ($flats as $flat)
     <div id="flats">
         
-        <div class="card col-lg-9 col-12 mb-5">
+        <div class="card col-lg-9 col-xs-12 mb-5">
             <div class="row align-items-center">
-                    <div class="col-3">
+                    <div class="col-lg-3 col-xs-10">
                         <a href="{{route("flats.show",$flat->slug)}}">
                             <img src="{{asset($flat->cover_img)}}" style="width: 100%;border-radius: 13px;" alt="">
                         </a>
                     </div>
-                    <div class="col-9">
+                    <div class="col-lg-9 col-xs-12 my-4 my-lg-0">
                         <div class="row">
                             {{-- Titolo appartamento --}}
-                            <div class="col-10">
-                                <a href="{{route("flats.show",$flat->slug)}}">
+                            <div class="col-10 ">
+                                <a class="text-start" href="{{route("flats.show",$flat->slug)}}">
                                     <h5 class="mb-4">{{$flat->title}}</h5>
                                 </a>
                             </div>
@@ -113,7 +75,7 @@
                                             @method('delete')
                                             <button class="btn btn_add btn-delete text-white m-4">Elimina</button>
                                         </form>
-                                   {{--  </div> --}}
+                                    {{--  </div> --}}
                                     </div>
                                 </div>
                                 </div>
@@ -134,14 +96,9 @@
                         
                         {{-- bottoni --}}
                         <div class="card-body d-flex justify-content-around mt-5">
-                            <a href="{{route("flats.messages.index",$flat->slug)}}">Messaggi <i class="fa-solid fa-message"></i></a>
-                            <a href="{{route('admin.analytics', $flat->slug)}}">Statistiche <i class="fa-solid fa-chart-column"></i></a>
-                            <a href="{{route("admin.flats.edit",$flat->slug)}}">Modifica <i class="fa-solid fa-pen"></i></a>
-
-                            
-                            
-
-
+                            <a href="{{route("flats.messages.index",$flat->slug)}}">Messaggi <i class="fa-solid fa-message d-none d-sm-block"></i></a>
+                            <a href="{{route('admin.analytics', $flat->slug)}}">Statistiche <i class="fa-solid fa-chart-column d-none d-sm-block"></i></a>
+                            <a href="{{route("admin.flats.edit",$flat->slug)}}">Modifica <i class="fa-solid fa-pen d-none d-sm-block"></i></a>
                         </div>
                     </div>
                 </div>

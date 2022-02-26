@@ -58,6 +58,13 @@
         a{
             text-decoration: none;
             color: black;
+            text-align: center;
+        }
+        .modal{
+            .modal-dialog{
+                top: 50%!important;
+                transform: translateY(-50%)!important;
+            }
         }
         
         .card-body{
