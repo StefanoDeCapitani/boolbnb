@@ -96,11 +96,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .Hero_GuestPage {
-  max-width: 1200px;
-  overflow: hidden;
-  max-height: 458px;
-  border-radius: 25px;
-  margin: auto;
+  height: 80vh;
 }
 
 .Hero_GuestPage img {
@@ -108,8 +104,13 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.Hero_GuestPage::before {
+  content: "";
+  background-color: red;
 }
 
 .recommendedPlaces {
@@ -151,6 +152,22 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 
 .recommendedPlaces:hover .RecomenText {
   opacity: 1;
+}
+
+.homePage {
+  position: absolute;
+  bottom: 15vh;
+  right: 0;
+  left: 0;
+  /* display: flex; */
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.homePage h1,
+.homePage .h1 {
+  font-weight: bolder;
+  color: white;
 }
 
 .homePage #search-box .tt-search-box {

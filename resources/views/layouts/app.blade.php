@@ -30,7 +30,7 @@
 
         @include('partials.header')
 
-        <main class="py-5 mb-4 container">
+        <main class="mb-4">
             @yield('content')
         </main>
         
