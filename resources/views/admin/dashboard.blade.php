@@ -96,9 +96,9 @@
                         
                         {{-- bottoni --}}
                         <div class="card-body d-flex justify-content-around mt-5">
-                            <a href="{{route("flats.messages.index",$flat->slug)}}">Messaggi <i class="fa-solid fa-message d-none d-sm-block"></i></a>
-                            <a href="{{route('admin.analytics', $flat->slug)}}">Statistiche <i class="fa-solid fa-chart-column d-none d-sm-block"></i></a>
-                            <a href="{{route("admin.flats.edit",$flat->slug)}}">Modifica <i class="fa-solid fa-pen d-none d-sm-block"></i></a>
+                            <a href="{{route("flats.messages.index",$flat->slug)}}">Messaggi <i class="fa-solid fa-message d-none d-sm-inline"></i></a>
+                            <a href="{{route('admin.analytics', $flat->slug)}}">Statistiche <i class="fa-solid fa-chart-column d-none d-sm-inline"></i></a>
+                            <a href="{{route("admin.flats.edit",$flat->slug)}}">Modifica <i class="fa-solid fa-pen d-none d-sm-inline"></i></a>
                         </div>
                     </div>
                 </div>
