@@ -173,31 +173,34 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   padding: 5px 10px !important;
   background-color: #001632 !important;
   color: white;
+  box-shadow: 0px 2px 6px 0px #96a2b8;
 }
 
 .p_sponsor {
   padding: 3px 10px !important;
-  background-color: #001632 !important;
-}
-
-.btn-delete {
-  background-color: #BA0101 !important;
-}
-
-.trash_icon {
-  color: #BA0101 !important;
-}
-
-.btn-edit {
-  background-color: #FFD600 !important;
+  background: #4776E6;
+  background: linear-gradient(to right, #8E54E9, #4776E6);
 }
 
 .btn-analytics {
   background-color: #AABAD0 !important;
 }
 
-.btn-message {
-  background-color: #00367D !important;
+.icon-delete {
+  color: #BA0101 !important;
+}
+
+.btn-delete {
+  background-color: #BA0101 !important;
+}
+
+.card-body a {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+
+.card-body a i {
+  padding-left: 10px;
 }
 
 .flat_container {

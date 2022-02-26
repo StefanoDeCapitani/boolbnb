@@ -64,7 +64,7 @@
     <div class="row justify-content-center mb-4">
         <div class="col-9">
             <div class="row">
-                <div class="col-6"><h3 class="text-start d-inline">Ecco i tuoi Appartamenti:</h3></div>
+                <div class="col-6"><h3 class="text-start d-inline">I tuoi Appartamenti:</h3></div>
                 <div class="col-6 text-end"><a class="btn btn_add text-white " href="{{route("admin.flats.create")}}">Aggiungi un appartamento</a></div>
                 
             </div>
@@ -93,7 +93,7 @@
                             {{-- Bottone elimina appartamento --}}
                             <div class="col-2 text-end">
                                 
-                                <i data-bs-toggle="modal" data-bs-target="#exampleModal" class="fa-solid fa-trash-can fs-4 trash_icon"></i>
+                                <i data-bs-toggle="modal" data-bs-target="#exampleModal" class="fa-solid fa-square-xmark fs-4 icon-delete trash_icon"></i>
                                 
                                 
                                 <!-- Modal -->
@@ -106,14 +106,14 @@
                                     <div class="modal-body text-center">
                                         <h5>Sei sicuro di voler Eliminare definitivamente l'annuncio?</h5>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn_add p_sponsor btn-analytics text-white" data-bs-dismiss="modal">Close</button>
-                                        <form class="" action="{{route("admin.flats.destroy",$flat->slug)}}" method="post">
+                                    {{-- <div class="modal-footer"> --}}
+                                        {{-- <button type="button" class="btn btn_add btn-analytics text-white" data-bs-dismiss="modal">Close</button> --}}
+                                        <form class="text-center" action="{{route("admin.flats.destroy",$flat->slug)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button class="btn btn_add p_sponsor btn-delete text-white">Elimina</button>
+                                            <button class="btn btn_add btn-delete text-white m-4">Elimina</button>
                                         </form>
-                                    </div>
+                                   {{--  </div> --}}
                                     </div>
                                 </div>
                                 </div>
@@ -126,7 +126,7 @@
                             <span class="pe-3">Dai un boost al tuo annuncio </span><a href="{{ route('admin.sponsorship', $flat->slug) }}"><button class="btn btn_add p_sponsor text-white"><small>Sponsorizza</small> </button> </a>
                             @else 
                             <div>
-                                Sponsorizzazione attiva
+                                Sponsorizzazione attiva  
                             </div>
                             @endif
                             
@@ -134,9 +134,9 @@
                         
                         {{-- bottoni --}}
                         <div class="card-body d-flex justify-content-around mt-5">
-                            <a href="{{route("flats.messages.index",$flat->slug)}}"><button class="btn btn_add p_sponsor btn-message text-white"><small>Messaggi</small> </button></a>BOTTONI DA MODIFICARE
-                            <a href="{{route('admin.analytics', $flat->slug)}}"><button class="btn btn_add p_sponsor btn-analytics text-white"><small>Statistiche</small> </button></a>
-                            <a href="{{route("admin.flats.edit",$flat->slug)}}"><button class="btn btn_add p_sponsor btn-edit"><small>Modifica</small> </button></a>
+                            <a href="{{route("flats.messages.index",$flat->slug)}}">Messaggi <i class="fa-solid fa-message"></i></a>
+                            <a href="{{route('admin.analytics', $flat->slug)}}">Statistiche <i class="fa-solid fa-chart-column"></i></a>
+                            <a href="{{route("admin.flats.edit",$flat->slug)}}">Modifica <i class="fa-solid fa-pen"></i></a>
 
                             
                             
