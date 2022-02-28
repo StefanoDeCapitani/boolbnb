@@ -58,13 +58,14 @@ class ServiceSeeder extends Seeder
                 "icon" =>"fas fa-coffee",
             ],
             [
-                "name" => "Accesso rapido StackOverflow",
+                "name" => "StackOverflow",
                 "icon" => "fab fa-stack-overflow",
             ],
             [
-                "name" => "TV",
+                "name" => "Monitor",
                 "icon" => "fas fa-tv",
             ],
+            
         ];
 
         foreach($services as $service){

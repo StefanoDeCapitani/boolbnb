@@ -10,16 +10,16 @@
 
     <div class="mb-3">
         {{-- search bar --}}
-
-
-        <div class="homePage row justify-content-center">
-            <h1 class=" text-center">Che il viaggio abbia inizio</h1>
-            <div id="search-box" class=" col-12 col-md-6 ">
-            </div>
-        </div>
+        
+        
         {{-- hero --}}
         <div class="Hero_GuestPage pb-4">
-
+            <div class="homePage row justify-content-center">
+                <h1 class=" text-center">Che il viaggio abbia inizio</h1>
+                <div id="search-box" class=" col-12 col-md-6 " >
+                </div>
+            </div>
+            
         </div>
     </div>
     <div class="container">
