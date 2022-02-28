@@ -464,6 +464,12 @@ __webpack_require__.r(__webpack_exports__);
         return flat.active_sponsorships.length === 0;
       });
     }
+  },
+  methods: {
+    redirect: function redirect(slug) {
+      var url = window.location.href = "/flats/".concat(slug);
+      return url;
+    }
   }
 });
 
@@ -739,7 +745,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_spacing {\n  padding-bottom: 20px;\n  /* box-shadow: 0px 0px 20px 0px #e2e2e2!important; */\n}\n.card_spacing .card {\n  padding: 20px;\n  border: none;\n  border-radius: 10px;\n}\n.card_spacing .card .card-title {\n  margin-bottom: 0;\n  padding: 10px 0px;\n}\n.card_spacing .card .card-body {\n  padding: 0px 16px;\n}\n.card_spacing .card .card-img-top {\n  width: 280px;\n  border-radius: 15px;\n}\n@media screen and (max-width: 768px) {\n.card_spacing .card .card-img-top {\n    width: 100%;\n}\n}", ""]);
+exports.push([module.i, ".card_spacing {\n  padding-bottom: 20px;\n  /* box-shadow: 0px 0px 20px 0px #e2e2e2!important; */\n}\n.card_spacing .card {\n  padding: 20px;\n  border: none;\n  border-radius: 10px;\n  cursor: pointer;\n}\n.card_spacing .card .card-title {\n  margin-bottom: 0;\n  padding: 10px 0px;\n}\n.card_spacing .card .card-body {\n  padding: 0px 16px;\n}\n.card_spacing .card .card-img-top {\n  width: 280px;\n  border-radius: 15px;\n}\n@media screen and (max-width: 768px) {\n.card_spacing .card .card-img-top {\n    width: 100%;\n}\n}", ""]);
 
 // exports
 
@@ -2431,107 +2437,135 @@ var render = function () {
     [
       _vm._l(_vm.activeFlats, function (flat) {
         return _c("div", { key: flat.id, staticClass: "card_spacing" }, [
-          _c("div", { staticClass: "card flex-md-row flex-column" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: { src: flat.cover_img, alt: "..." },
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-body d-inline" },
-              [
-                _c("span", { staticClass: "badge bg-warning text-dark my-1" }, [
-                  _vm._v("In Evidenza"),
-                ]),
-                _vm._v(" "),
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(flat.title)),
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("Servizi:")]),
-                _vm._v(" "),
-                _vm._l(flat.services, function (service) {
-                  return _c("span", { key: service.id }, [
-                    _c("span", { staticClass: "px-2", class: service.icon }),
-                  ])
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_bathrooms) + " Bagni"),
+          _c(
+            "div",
+            {
+              staticClass: "card flex-md-row flex-column",
+              on: {
+                click: function ($event) {
+                  return _vm.redirect(flat.slug)
+                },
+              },
+            },
+            [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: { src: flat.cover_img, alt: "..." },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-body d-inline" },
+                [
+                  _c(
+                    "span",
+                    { staticClass: "badge bg-warning text-dark my-1" },
+                    [_vm._v("In Evidenza")]
+                  ),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(flat.title)),
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_beds) + " Letti"),
+                  _c("span", [_vm._v("Servizi:")]),
+                  _vm._v(" "),
+                  _vm._l(flat.services, function (service) {
+                    return _c("span", { key: service.id }, [
+                      _c("span", { staticClass: "px-2", class: service.icon }),
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_bathrooms) + " Bagni"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_beds) + " Letti"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_rooms) + " Camere"),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_rooms) + " Camere"),
+                  _c("div", { staticClass: "py-2" }, [
+                    _c("span", [
+                      _c("span", { staticClass: "fa-solid fa-location-dot" }),
+                      _vm._v(
+                        "\n                        " + _vm._s(flat.address)
+                      ),
+                    ]),
                   ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "py-2" }, [
-                  _c("span", [
-                    _c("span", { staticClass: "fa-solid fa-location-dot" }),
-                    _vm._v("\n                        " + _vm._s(flat.address)),
-                  ]),
-                ]),
-              ],
-              2
-            ),
-          ]),
+                ],
+                2
+              ),
+            ]
+          ),
         ])
       }),
       _vm._v(" "),
       _vm._l(_vm.notActiveFlats, function (flat) {
         return _c("div", { key: flat.id, staticClass: "card_spacing" }, [
-          _c("div", { staticClass: "card flex-md-row flex-column" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: { src: flat.cover_img, alt: "..." },
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-body d-inline" },
-              [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(flat.title)),
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("Servizi:")]),
-                _vm._v(" "),
-                _vm._l(flat.services, function (service) {
-                  return _c("span", { key: service.id }, [
-                    _c("span", { staticClass: "px-2", class: service.icon }),
-                  ])
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_bathrooms) + " Bagni"),
+          _c(
+            "div",
+            {
+              staticClass: "card flex-md-row flex-column",
+              on: {
+                click: function ($event) {
+                  return _vm.redirect(flat.slug)
+                },
+              },
+            },
+            [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: { src: flat.cover_img, alt: "..." },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-body d-inline" },
+                [
+                  _c("h5", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(flat.title)),
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_beds) + " Letti"),
+                  _c("span", [_vm._v("Servizi:")]),
+                  _vm._v(" "),
+                  _vm._l(flat.services, function (service) {
+                    return _c("span", { key: service.id }, [
+                      _c("span", { staticClass: "px-2", class: service.icon }),
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_bathrooms) + " Bagni"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_beds) + " Letti"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_rooms) + " Camere"),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_rooms) + " Camere"),
+                  _c("div", { staticClass: "py-2" }, [
+                    _c("span", [
+                      _c("span", { staticClass: "fa-solid fa-location-dot" }),
+                      _vm._v(
+                        "\n                        " + _vm._s(flat.address)
+                      ),
+                    ]),
                   ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "py-2" }, [
-                  _c("span", [
-                    _c("span", { staticClass: "fa-solid fa-location-dot" }),
-                    _vm._v("\n                        " + _vm._s(flat.address)),
-                  ]),
-                ]),
-              ],
-              2
-            ),
-          ]),
+                ],
+                2
+              ),
+            ]
+          ),
         ])
       }),
     ],
@@ -15228,7 +15262,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean#43\Esercitazioni\ProgettoFinale\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\mauri\Documents\Boolean\Progetto finale\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

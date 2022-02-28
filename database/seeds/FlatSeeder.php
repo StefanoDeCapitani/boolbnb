@@ -116,7 +116,6 @@ class FlatSeeder extends Seeder
                 'cover_img' =>"storage/img/amazing_roma_lux.jpg"
 
             ],
-
             [  
                 'user_id'=>2,
                'title' => "Stanza privata in appartamento - Host: Helen", 
@@ -146,6 +145,7 @@ class FlatSeeder extends Seeder
                 'cover_img' =>"storage/img/nuova_camera_vicino_al_colosseo_termini_turchese_cover.jpeg",
             
             ],
+            // appartamento 10 casa funari
             [
                 'user_id' => 1,
                 'title' => 'Casa Funari, nel cuore di una Roma antica',
@@ -174,7 +174,133 @@ class FlatSeeder extends Seeder
                 'sq_meters' => 100,
                 'visible' => true,
                 'night_price' => 150
-            ]
+            ],
+            [ 
+               'title' => "Historic center Campo dei Fiori",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 1,
+               'n_beds' => 1,
+               'lat'=> '41.89259109595948', 
+               'lon' => ' 12.47509126415321',
+                'address' => 'Via Arenula, 41, 00186 Roma RM',  
+                'cover_img' => 'storage/img/historic_campo_dei_fiori_cover.jpg', 
+                'user_id' => 2, 
+                'sq_meters' => 60,
+                'visible' => true,
+                'night_price' => 56
+            ],
+            [ 
+               'title' => "Trevi Luxury Apartment",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 1,
+               'n_beds' => 1,
+               'lat'=> '41.90031060959034', 
+               'lon' => '12.4819361725756',
+                'address' => 'Via Santa Maria in Via, 26, 00187 Roma RM',  
+                'cover_img' => 'storage/img/trevi_luxury_apartment_cover.jpg', 
+                'user_id' => 2, 
+                'sq_meters' => 70,
+                'visible' => true,
+                'night_price' => 60
+            ],
+            [ 
+               'title' => "Angel's love",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 1,
+               'n_beds' => 1,
+               'lat'=> '41.900413247844085', 
+               'lon' => '12.467280533254884',
+                'address' => 'Vicolo della Campanella, 16, 00186 Roma RM',  
+                'cover_img' => 'storage/img/angels_love_cover.jpg', 
+                'user_id' => 2, 
+                'sq_meters' => 50,
+                'visible' => true,
+                'night_price' => 59
+            ],
+            [ 
+               'title' => "Holidays Suites Navona -3",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 1,
+               'n_beds' => 2,
+               'lat'=> '41.89948819577085', 
+               'lon' => '12.47207289893885',
+                'address' => "Via di Santa Maria dell'Anima, 00186 Roma RM",  
+                'cover_img' => 'storage/img/holiday_suite_navona_cover.jpg', 
+                'user_id' => 2, 
+                'sq_meters' => 30,
+                'visible' => true,
+                'night_price' => 97
+            ],
+            [ 
+               'title' => "Fortuna Apartment Trastevere II",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 1,
+               'n_beds' => 2,
+               'lat'=> '41.88886624016033', 
+               'lon' => '12.474826835384631',
+                'address' => "Via di Monte Fiore, 15, 00153 Roma RM",  
+                'cover_img' => 'storage/img/fortuna_apartment_cover.jpg', 
+                'user_id' => 2, 
+                'sq_meters' => 40,
+                'visible' => true,
+                'night_price' => 87
+            ],
+            [ 
+               'title' => "Primavera al Colosseo",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 1,
+               'n_beds' => 2,
+               'lat'=> '41.89195300875546', 
+               'lon' => '12.50216896482262',
+                'address' => "Via Merulana, 83, 00185 Roma RM",  
+                'cover_img' => 'storage/img/primavera_al_colosseo_cover.jpg', 
+                'user_id' => 1, 
+                'sq_meters' => 60,
+                'visible' => true,
+                'night_price' => 50
+            ],
+            [ 
+               'title' => "Appartamento con Terrazza Roma Est Circelli House",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 2,
+               'n_beds' => 3,
+               'lat'=> '41.94326114279241', 
+               'lon' => '12.580000913624811',
+                'address' => "Via Fossombrone, 95-51, 00156 Roma RM",  
+                'cover_img' => 'storage/img/terrazza_roma_est_circelli_cover.jpg', 
+                'user_id' => 1, 
+                'sq_meters' => 60,
+                'visible' => true,
+                'night_price' => 90
+            ],
+            [ 
+               'title' => "Eur- Perfetto per una Coppia",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 1,
+               'n_beds' => 2,
+               'lat'=> '41.78892618964554', 
+               'lon' => '12.442988260514007',
+                'address' => "Via Carlo Avolio, 61, 00128 Roma RM",  
+                'cover_img' => 'storage/img/eur_perfetto_per_coppia_cover.jpg', 
+                'user_id' => 1, 
+                'sq_meters' => 100,
+                'visible' => true,
+                'night_price' => 43
+            ],
+            [ 
+               'title' => "Attico centralissimo vista mare a mezz’ora da Roma",
+               'n_bathrooms' => 1, 
+               'n_rooms' => 1,
+               'n_beds' => 2,
+               'lat'=> '41.62438616663468', 
+               'lon' => '12.462078633817523',
+                'address' => "Viale Italia, 37, 00040 Torvaianica RM",  
+                'cover_img' => 'storage/img/eur_perfetto_per_coppia_cover.jpg', 
+                'user_id' => 1, 
+                'sq_meters' => 100,
+                'visible' => true,
+                'night_price' => 80
+            ],
 
 
         ];
