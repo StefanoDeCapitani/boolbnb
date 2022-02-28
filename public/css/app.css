@@ -96,7 +96,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .Hero_GuestPage {
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0) 10%, rgba(0, 0, 0, 0.336)), url(/images/montagna.jpg?b12e3731c1b325c8597fee1fc8a5de85);
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0) 10%, rgba(0, 0, 0, 0.336)), url(/images/montagna.jpg?71a7cc13e5977cc363e023d22a934d32);
   background-size: cover;
   height: 90vh;
   background-position: center;
