@@ -34,6 +34,10 @@
   color: #9aa3af;
 }
 
+.bg_color .footer-end a {
+  color: #001632;
+}
+
 nav {
   height: 70px;
   border-bottom: 1px solid #DEE4EC;
@@ -149,6 +153,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   bottom: 40%;
   right: 0;
   left: 0;
+  width: 100%;
   align-items: center;
 }
 
@@ -177,6 +182,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   border: 1px solid #0335777e;
   color: white;
   border-radius: 15px;
+}
+
+.chiSiamo {
+  line-height: 1.8;
 }
 
 .btn_add {
@@ -451,7 +460,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .heroImg {
-  width: 80%;
+  height: 70vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
 
 .tt-icon-searchbox-ic_map_poi_--- {

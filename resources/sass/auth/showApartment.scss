@@ -14,8 +14,10 @@
 
 .pad-x{
     padding: 0 20px;
-
 }
 .heroImg{
-    width: 80%;
+    height: 70vh;
+    object-fit: cover;
+    width: 100%;
 }
+

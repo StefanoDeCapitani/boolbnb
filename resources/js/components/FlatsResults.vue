@@ -131,7 +131,7 @@ export default {
         }
         .card-img-top {
             width: 280px;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             border-radius: 15px;
         }

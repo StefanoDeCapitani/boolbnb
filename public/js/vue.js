@@ -739,7 +739,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_spacing {\n  padding-bottom: 20px;\n  /* box-shadow: 0px 0px 20px 0px #e2e2e2!important; */\n}\n.card_spacing .card {\n  padding: 20px;\n  border: none;\n  border-radius: 10px;\n}\n.card_spacing .card .card-title {\n  margin-bottom: 0;\n  padding: 10px 0px;\n}\n.card_spacing .card .card-body {\n  padding: 0px 16px;\n}\n.card_spacing .card .card-img-top {\n  width: 280px;\n  border-radius: 15px;\n}\n@media screen and (max-width: 768px) {\n.card_spacing .card .card-img-top {\n    width: 100%;\n}\n}", ""]);
+exports.push([module.i, ".card_spacing {\n  padding-bottom: 20px;\n  /* box-shadow: 0px 0px 20px 0px #e2e2e2!important; */\n}\n.card_spacing .card {\n  padding: 20px;\n  border: none;\n  border-radius: 10px;\n}\n.card_spacing .card .card-title {\n  margin-bottom: 0;\n  padding: 10px 0px;\n}\n.card_spacing .card .card-body {\n  padding: 0px 16px;\n}\n.card_spacing .card .card-img-top {\n  width: 280px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 15px;\n}\n@media screen and (max-width: 768px) {\n.card_spacing .card .card-img-top {\n    width: 100%;\n}\n}", ""]);
 
 // exports
 

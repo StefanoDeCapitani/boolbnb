@@ -84,7 +84,7 @@
     bottom: 40%;
     right: 0;
     left: 0;
-   
+    width: 100%;
     align-items: center;
 
     #search-box{
@@ -121,4 +121,9 @@
     }
        
    
+}
+
+
+.chiSiamo{
+    line-height:1.8;
 }

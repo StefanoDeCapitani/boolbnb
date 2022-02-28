@@ -15,18 +15,18 @@ class MessageSeeder extends Seeder
     {
 
 
-        for ($i=0; $i < 40; $i++) {    
+        for ($i=0; $i < 1000; $i++) {    
             $message = new Message();
-            $message->flat_id= rand(1, 11);
+            $message->flat_id= rand(1, 19);
             $message->name = $faker->name();
             $message->text= $faker->realText();
             $message->email= $faker->email();
             $message->created_at= $faker->dateTimeBetween($startDate = '-4 years', $endDate = 'now', $timezone = null );
             $message->save();
         }
-        for ($i=0; $i < 40; $i++) {    
+        for ($i=0; $i < 200; $i++) {    
             $message = new Message();
-            $message->flat_id= rand(1, 11);
+            $message->flat_id= rand(1, 19);
             $message->name = $faker->name();
             $message->text= $faker->realText();
             $message->email= $faker->email();
