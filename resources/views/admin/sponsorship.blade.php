@@ -58,7 +58,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="payment-form" action="{{ route('admin.sponsorship.store', $slug) }}" method="post">
+                        <form id="payment-form" action="{{ route('admin.sponsorship.store', $slug) }}" method="post" class="pb-3">
                             <div id='token' data-clienttoken='{{ $clientToken }}'></div>
                             @csrf
                             <!-- Putting the empty container you plan to pass to
@@ -66,7 +66,7 @@
                                         easier to manage -->
                             <div id="dropin-container">
                             </div>
-                            <input type="submit" />
+                            <input type="submit" class="btn btn-primary" />
                             <input type="hidden" id="nonce" name="payment_method_nonce" />
                             <input type="hidden" id="plan" name="plan" />
                         </form>
@@ -75,10 +75,6 @@
                             // call braintree.dropin.create code here
                         </script>
     
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
