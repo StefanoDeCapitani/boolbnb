@@ -38,7 +38,7 @@
                         <div class="carousel-inner">
                             @foreach ($flat->images as $image)
                                 <div class="carousel-item @if ($loop->first) active @endif ">
-                                    <img src="{{ asset($image->path) }}" class="d-block w-100 imgCarousel" alt="...">
+                                    <img src="{{ asset($image->path) }}" class="d-block w-100  imgCarousel" style="height:300px" alt="...">
                                 </div>
                             @endforeach
                         </div>
