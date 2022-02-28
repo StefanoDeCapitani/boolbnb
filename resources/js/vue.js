@@ -13,6 +13,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 import SearchPage from './components/SearchPage.vue';
+import MyMap from "./components/MyMap.vue";
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -22,5 +23,5 @@ import SearchPage from './components/SearchPage.vue';
 
 const app = new Vue({
     el: '#app',
-    components: {SearchPage}
+    components: {SearchPage, MyMap}
 });

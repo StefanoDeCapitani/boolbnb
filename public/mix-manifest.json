@@ -4,6 +4,7 @@
     "/js/charts.js": "/js/charts.js",
     "/js/handle-flats-form.js": "/js/handle-flats-form.js",
     "/js/home.js": "/js/home.js",
+    "/js/mapshow.js": "/js/mapshow.js",
     "/js/payment.js": "/js/payment.js",
     "/js/vue.js": "/js/vue.js"
 }
