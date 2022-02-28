@@ -179,6 +179,77 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   border-radius: 15px;
 }
 
+
+.btn_add {
+  border-radius: 20px !important;
+  padding: 5px 10px !important;
+  background-color: #001632 !important;
+  color: white;
+  box-shadow: 0px 2px 6px 0px #96a2b8;
+}
+
+.p_sponsor {
+  padding: 3px 10px !important;
+  background: #4776E6;
+  background: linear-gradient(to right, #8E54E9, #4776E6);
+}
+
+.btn-analytics {
+  background-color: #AABAD0 !important;
+}
+
+.icon-delete {
+  color: #BA0101 !important;
+}
+
+.btn-delete {
+  background-color: #BA0101 !important;
+}
+
+.card-body a {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+
+.card-body a i {
+  padding-left: 10px;
+}
+
+.flat_container {
+  padding: 50px 60px;
+  border-radius: 13px;
+}
+
+#flats {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#flats .card {
+  padding: 30px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 3px 8px 0px #dee4ec;
+}
+
+#flats .card a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+#flats .card .modal .modal-dialog {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+#flats .card .card-body {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px;
+}
+
 .container .image-container.login {
   width: 800px;
   height: 600px;

@@ -13,8 +13,9 @@ class FlatMessageController extends Controller
     {
         $messages = $flat->messages;
         $flat_title = $flat->title;
+        $message_received = $flat->created_at;
 
-        return view("messages", compact("messages", "flat_title"));
+        return view("messages", compact("messages", "flat_title", 'message_received'));
     }
 
     public function store(StoreFlatMessageRequest $request, Flat $flat)

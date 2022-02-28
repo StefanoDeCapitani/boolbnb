@@ -11,13 +11,16 @@
 
         <!-- Modal -->
         <div
-            class="modal fade"
+            class="modal"
             id="exampleModal"
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
         >
-            <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+            <div
+                id="filter-modal"
+                class="modal-dialog modal-lg modal-fullscreen-lg-down"
+            >
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">
@@ -31,69 +34,162 @@
                         ></button>
                     </div>
                     <div class="modal-body">
-                        <div>
-                            <label for="">numero stanze</label>
-                            <button @click="filters.rooms--">-</button>
-                            <input
-                                type="number"
-                                readonly
-                                v-model="filters.rooms"
-                            />
-                            <button @click="filters.rooms++">+</button>
-                        </div>
-                        <div>
-                            <label for="">numero letti</label>
-                            <button @click="filters.beds--">-</button>
-                            <input
-                                type="number"
-                                readonly
-                                v-model="filters.beds"
-                            />
-                            <button @click="filters.beds++">+</button>
-                        </div>
-                        <div>
-                            <label for="">numero bagni</label>
-                            <button @click="filters.bathrooms--">-</button>
-                            <input
-                                type="number"
-                                readonly
-                                v-model="filters.bathrooms"
-                            />
-                            <button @click="filters.bathrooms++">+</button>
-                        </div>
-                        <div>
-                            <div v-for="service in services" :key="service.id">
-                                <label :for="service.name">{{
-                                    service.name
-                                }}</label>
-                                <input
-                                    :id="service.name"
-                                    type="checkbox"
-                                    v-model="filters.activeServices"
-                                    :value="service.id"
-                                />
+                        <div class="numeric-filters">
+                            <div class="mb-4 d-flex align-items-center">
+                                <label class="me-4" for=""
+                                    >Seleziona raggio di ricerca:
+                                </label>
+                                <select
+                                    class="form-select"
+                                    v-model="filters.range"
+                                >
+                                    <option value="10000">10 km</option>
+                                    <option value="20000" selected>
+                                        20 km
+                                    </option>
+                                    <option value="50000">50 km</option>
+                                </select>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div
+                                    class="input-group w-50 increment-decrement"
+                                >
+                                    <button
+                                        class="input-group-text"
+                                        @click="
+                                            filters.rooms > 1
+                                                ? filters.rooms--
+                                                : filters.rooms
+                                        "
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        min="1"
+                                        max="10"
+                                        readonly
+                                        :value="filters.rooms"
+                                    />
+                                    <button
+                                        class="input-group-text"
+                                        @click="
+                                            filters.rooms < 10
+                                                ? filters.rooms++
+                                                : filters.rooms
+                                        "
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <label class="ms-4" for="">stanze</label>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div
+                                    class="input-group w-50 increment-decrement"
+                                >
+                                    <button
+                                        class="input-group-text"
+                                        @click="
+                                            filters.beds > 1
+                                                ? filters.beds--
+                                                : filters.beds
+                                        "
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        min="1"
+                                        max="10"
+                                        readonly
+                                        :value="filters.beds"
+                                    />
+                                    <button
+                                        class="input-group-text"
+                                        @click="
+                                            filters.beds < 10
+                                                ? filters.beds++
+                                                : filters.beds
+                                        "
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <label class="ms-4" for="">letti</label>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div
+                                    class="input-group w-50 increment-decrement"
+                                >
+                                    <button
+                                        class="input-group-text"
+                                        @click="
+                                            filters.bathrooms > 1
+                                                ? filters.bathrooms--
+                                                : filters.bathrooms
+                                        "
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        min="1"
+                                        max="10"
+                                        readonly
+                                        :value="filters.bathrooms"
+                                    />
+                                    <button
+                                        class="input-group-text"
+                                        @click="
+                                            filters.bathrooms < 10
+                                                ? filters.bathrooms++
+                                                : filters.bathrooms
+                                        "
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <label class="ms-4" for="">bagni</label>
                             </div>
                         </div>
                         <div>
-                            <label for="">Seleziona raggio di ricerca</label>
-                            <select v-model="filters.range">
-                                <option value="10000">10 km</option>
-                                <option value="20000" selected>20 km</option>
-                                <option value="50000">50 km</option>
-                            </select>
+                            <label for="" class="mb-3"
+                                >Seleziona uno o più servizi:</label
+                            >
+                            <div class="services">
+                                <div
+                                    v-for="service in services"
+                                    :key="service.id"
+                                >
+                                    <label :for="service.name">
+                                        <input
+                                            class="me-2"
+                                            :id="service.name"
+                                            type="checkbox"
+                                            v-model="filters.activeServices"
+                                            :value="service.id"
+                                        /><i :class="service.icon"></i>
+                                        {{ service.name }}</label
+                                    >
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button
                             type="button"
-                            class="btn btn-secondary"
+                            class="btn btn-reset"
                             @click="resetFilters"
                         >
                             Reset
                         </button>
                         <button
                             type="button"
-                            class="btn btn-primary"
+                            class="btn btn-apply"
                             data-bs-dismiss="modal"
                             @click="apply()"
                         >
@@ -140,26 +236,76 @@ export default {
 };
 </script>
 <style lang="scss">
+#filter-modal {
+    height: min-content;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    border-radius: 20px !important;
+    overflow: hidden;
+}
 
+.modal-body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
 
-.btn_filter{
+@media screen and(max-width: 768px) {
+    .modal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.form-select {
+    width: 35%;
+    min-width: 90px;
+}
+
+.increment-decrement {
+    max-width: 190px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+}
+
+.btn-apply {
+    background-color: #001632;
+    border-radius: 20px !important;
+    color: white;
+    padding: 7px 20px;
+}
+
+.btn-reset {
+    border-radius: 20px !important;
+    background-color: #dee4ec;
+    color: #001632;
+}
+
+.btn_filter {
     height: 100%;
     border-radius: 0px 15px 15px 0px;
     background-color: #001632;
     padding: 0px 30px;
     border-color: #001632;
 }
-.btn-primary:active{
-    background-color: #001632!important;
-        border-color: #001632;
+.btn-primary:active {
+    background-color: #001632 !important;
+    border-color: #001632;
 }
-.btn-primary:hover{
-    background-color: #001632!important;
-        border-color: #001632;
+.btn-primary:hover {
+    background-color: #001632 !important;
+    border-color: #001632;
 }
-.btn-primary:focus{
-    background-color: #001632!important;
-        border-color: #001632;
-    box-shadow:none;
+.btn-primary:focus {
+    background-color: #001632 !important;
+    border-color: #001632;
+    box-shadow: none;
 }
 </style>

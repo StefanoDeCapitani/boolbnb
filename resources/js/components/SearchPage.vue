@@ -1,27 +1,27 @@
 <template>
     <div id="search-page">
-        <div class="d-flex justify-content-center align-items-center searchbar_cont">
-          <div ref="searchbox" class="search_box"></div>
-          <FilterData
-              :services="services"
-              @apply-filter="applyFilter($event)"
-          ></FilterData>
+        <div
+            class="d-flex justify-content-center align-items-center searchbar_cont"
+        >
+            <div ref="searchbox" class="search_box"></div>
+            <FilterData
+                :services="services"
+                @apply-filter="applyFilter($event)"
+            ></FilterData>
         </div>
+        <h4 class="mt-5">Abbiamo trovato {{ flats.length }} risultati:</h4>
+        <div class="row flats-container d-flex flex-column-reverse">
+            <div class="col-12 col-xl-6 flats-column">
+                <FlatsResults :flats="flats"> </FlatsResults>
+            </div>
 
-        <div class="row mt-5">
-          <h4>Abbiamo trovato {{ flats.length }} risultati:</h4>
-
-          <div class="col-6">
-            <FlatsResults :flats="flats"> </FlatsResults>
-          </div>
-
-          <div class="col-6">
-            <MyMap
-                :center="results.position"
-                :flats="flats"
-                v-if="results"
-            ></MyMap>
-          </div>
+            <div class="col-12 col-xl-6">
+                <MyMap
+                    :center="results.position"
+                    :flats="flats"
+                    v-if="results"
+                ></MyMap>
+            </div>
         </div>
     </div>
 </template>
@@ -123,20 +123,56 @@ export default {
 </script>
 
 <style lang="scss">
-
-  .searchbar_cont{
+.searchbar_cont {
     height: 45px;
-    .search_box{
-      width: 50%;
-      height: 100%;
-      .tt-search-box{
-        margin-top: 0%;
-        .tt-search-box-input-container{
-          border-radius: 15px 0px 0px 15px;
+    .search_box {
+        width: 50%;
+        height: 100%;
+        @media screen and (max-width: 768px) {
+            width: 90%;
         }
-      }
+        .tt-search-box {
+            margin-top: 0% !important;
+            .tt-search-box-input-container {
+                border-radius: 15px 0px 0px 15px;
+            }
+        }
     }
-  }
-  
+}
 
+@media screen and(min-width: 1200px) {
+    .flats-container {
+        height: 700px;
+        overflow: hidden;
+        .flats-column {
+            height: 100%;
+            overflow: scroll;
+        }
+        /*Scrollbar style*/
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 0;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #adadad5d;
+            border-radius: 5px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgba(110, 110, 110, 0.5);
+            border-radius: 5px;
+            box-shadow: 0 0 0 1px inset #adadad;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(85, 85, 85, 0.418);
+        }
+    }
+}
 </style>

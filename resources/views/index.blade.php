@@ -38,7 +38,7 @@
                 <div class=" recommendedPlaces">
                     <img src="\storage\img\pisa.jpg" alt="">
                     <h2 class="RecomenText">
-                        Pisa
+                        Firenze
                     </h2>
                 </div>
             </div>
