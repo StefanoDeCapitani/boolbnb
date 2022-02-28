@@ -20,9 +20,13 @@
 
 
 //stile pagina show
-@import "auth/showApartment.scss";
 
-@import "@tomtom-international/web-sdk-plugin-searchbox/dist/SearchBox";
+
+@import 'partials/input';
+
+@import "auth/analytics";
+
+
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";

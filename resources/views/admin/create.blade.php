@@ -1,20 +1,35 @@
 @extends('layouts.app')
 @section('links')
 <script src="{{asset("js\handle-flats-form.js")}}" defer></script>
+<script src="{{asset("js\create.js")}}" defer></script>
 @endsection
 
 @section('title-page', 'Aggiungi appartamento')
 
 @section('content')
     <div class="row d-flex position-relative">
-        <div class="col-5 position-absolute " >
+        <div class=" d-none d-lg-inline-block col-lg-5 position-absolute " >
             <img class="w-100" style="border-radius:11px" src="https://images-na.ssl-images-amazon.com/images/I/81elkt8KPjL._AC_SL1500_.jpg"  alt="">
 
         </div>
     
-      <div class="col-9 ms-auto p-5 mt-5 mb-5 " style="background-color: #DEE4EC; border-radius:11px ; z-index:2">
+      <div class="col-12 col-lg-9 ms-auto p-5 mt-5 mb-5 " style="background-color: #DEE4EC; border-radius:11px ; z-index:2">
         <form id="create-form-try" action="{{route("admin.flats.store")}}" method="POST" enctype="multipart/form-data">
             @csrf
+
+            <div id="container-input-cover" class="mb-3">
+               
+                <input id="inp" name="cover_img" type="file" value="{{old('cover_img')}}">
+                <label for="inp"><i class="fa fa-plus"></i> Copertina Flat</label>
+               
+                <div id="imagePreview">
+                    <img  id="immagine" src="" alt="Image Previw">
+                    <div id="i-box"><i class="fa-solid fa-minus"></i></div>
+                </div>
+                @error('cover_img')
+                {{$message}}
+                @enderror
+            </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}" >
@@ -22,7 +37,7 @@
                     {{$message}}  
                 @enderror
             </div>
-            <div class="d-flex " style="justify-content: space-between">
+            <div class="d-flex flex-wrap row-cols-2" style="justify-content: space-between">
             <div class="mb-3">
                 <label for="n_rooms" class="form-label">Numero stanze</label>
                 <input type="number" class="form-control" id="n_rooms" name="n_rooms" value="{{old('n_rooms')}}">
@@ -62,9 +77,9 @@
                 @enderror
             </div>
             
-            <div class="mb-3">
+            <div class="mb-3 ">
                <label for="service">Servizi:</label><br>
-                <div class="d-flex" style="justify-content: space-between">
+                <div class="d-flex flex-column flex-lg-row flex-wrap gap-4 mt-2" style="justify-content: center">
                     @foreach ($services as $service)
                     <div>
                         <input type="checkbox" class="" id="service" name="service" value="{{$service->id}}">
@@ -106,15 +121,18 @@
                 <input type="hidden" class="form-control" id="lng" name="lon"  value="{{old('lon')}}">
             </div>
             
-            <div class="mb-3">
-                <input name="cover_img" type="file" value="{{old('cover_img')}}">
-                @error('cover_img')
-                {{$message}}
-                @enderror
-            </div>
+         
 
-            <div class="mb-3">
-                <input name="images[]" type="file" multiple value="{{old('images[]')}}">
+            <div id="container-input-paths" class="mb-3">
+                <input id="file-input" name="images[]" type="file" multiple value="{{old('images[]')}}">
+                <label for="file-input">
+                    <i class="fas fa-upload"></i>Choose Path
+                </label>
+
+                <p id="num-of-files">No Files Chosen</p>
+                <div id="images" class="row">
+
+                </div>
                 @error('images')
                 {{$message}}
                 @enderror

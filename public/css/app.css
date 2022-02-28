@@ -129,6 +129,35 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .recommendedPlaces img {
+}
+#container-input-paths input[type=file] {
+  display: none;
+}
+
+#container-input-paths label {
+  display: block;
+  position: relative;
+  background-color: #025bee;
+  color: white;
+  text-align: center;
+  margin: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30%;
+  padding: 10px;
+}
+
+#container-input-paths #images {
+  display: flex;
+  justify-content: center;
+}
+
+#container-input-paths #images figure {
+  height: 200px;
+}
+
+#container-input-paths #images figure img {
+  vertical-align: middle;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -251,6 +280,57 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .container .image-container.login {
+}
+#container-input-cover {
+  position: relative;
+  display: inline-block;
+}
+
+#container-input-cover input[type=file] {
+  display: none;
+}
+
+#container-input-cover label {
+  display: block;
+  position: relative;
+  border: 1px dotted white;
+  cursor: pointer;
+  padding: 25px;
+}
+
+#container-input-cover img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+#container-input-cover #i-box {
+  position: absolute;
+  top: -2px;
+  right: 6px;
+}
+
+#container-input-cover #i-box i {
+  color: white;
+}
+
+@media screen and (max-width: 420px) {
+  #container-input-paths label {
+    font-size: small;
+    padding: 5px;
+    width: 50%;
+  }
+
+  #container-input-paths label i {
+    margin-right: 5px;
+  }
+}
+
+.container .image-container {
   width: 800px;
   height: 600px;
   overflow: hidden;
