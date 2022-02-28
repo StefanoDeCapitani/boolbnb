@@ -96,7 +96,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .Hero_GuestPage {
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0) 10%, rgba(0, 0, 0, 0.336)), url(/images/montagna.jpg?b12e3731c1b325c8597fee1fc8a5de85);
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0) 10%, rgba(0, 0, 0, 0.336)), url(/images/Assistenza.jpg?cc67107d3714f5a7a845c162e3345af6);
   background-size: cover;
   height: 90vh;
   background-position: center;
@@ -177,6 +177,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   border: 1px solid #0335777e;
   color: white;
   border-radius: 15px;
+}
+
+.chiSiamo {
+  line-height: 1.8;
 }
 
 .btn_add {
@@ -451,7 +455,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .heroImg {
-  width: 80%;
+  height: 70vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
 
 .tt-icon-searchbox-ic_map_poi_--- {
