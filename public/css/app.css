@@ -96,20 +96,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .Hero_GuestPage {
-  max-width: 1200px;
-  overflow: hidden;
-  max-height: 458px;
-  border-radius: 25px;
-  margin: auto;
-}
-
-.Hero_GuestPage img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0) 10%, rgba(0, 0, 0, 0.336)), url(/images/montagna.jpg?b12e3731c1b325c8597fee1fc8a5de85);
+  background-size: cover;
+  height: 90vh;
+  background-position: center;
 }
 
 .recommendedPlaces {
@@ -153,14 +143,28 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   opacity: 1;
 }
 
-.tt-search-box {
+.homePage {
+  position: absolute;
+  transform: translateY(50%);
+  bottom: 40%;
+  right: 0;
+  left: 0;
+  align-items: center;
+}
+
+.homePage h1,
+.homePage .h1 {
+  font-weight: bold;
+  color: white;
+}
+
+.homePage #search-box .tt-search-box {
   overflow: hidden !important;
   border-radius: 25px !important;
   margin: auto;
-  width: 50%;
 }
 
-.tt-search-box .tt-search-box-input-container {
+.homePage #search-box .tt-search-box .tt-search-box-input-container {
   border-radius: 25px !important;
 }
 
@@ -168,20 +172,25 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   opacity: 1;
 }
 
-.container .image-container {
+.GuestSponsoredCard .TextCard .btn-primary {
+  background-color: #001632;
+  border: 1px solid #0335777e;
+  color: white;
+  border-radius: 15px;
+}
+
+.container .image-container.login {
   width: 800px;
   height: 600px;
   overflow: hidden;
   border-radius: 25px;
 }
 
-.container .image-container img {
+.container .image-container.login img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
 }
 
 .container .bg-login {

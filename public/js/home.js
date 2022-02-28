@@ -375,7 +375,7 @@ for (var index = 0; index < cards.length; index++) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\mauri\Documents\Boolean\Progetto finale\boolbnb\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! D:\Boolean#43\Esercitazioni\ProgettoFinale\boolbnb\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })
