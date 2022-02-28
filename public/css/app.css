@@ -96,21 +96,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .Hero_GuestPage {
-  height: 80vh;
-}
-
-.Hero_GuestPage img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-
-.Hero_GuestPage::before {
-  content: "";
-  background-color: red;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0) 10%, rgba(0, 0, 0, 0.336)), url(/images/montagna.jpg?b12e3731c1b325c8597fee1fc8a5de85);
+  background-size: cover;
+  height: 90vh;
+  background-position: center;
 }
 
 .recommendedPlaces {
@@ -156,17 +145,15 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 
 .homePage {
   position: absolute;
-  bottom: 15vh;
+  bottom: 0;
   right: 0;
   left: 0;
-  /* display: flex; */
-  /* justify-content: center; */
   align-items: center;
 }
 
 .homePage h1,
 .homePage .h1 {
-  font-weight: bolder;
+  font-weight: bold;
   color: white;
 }
 

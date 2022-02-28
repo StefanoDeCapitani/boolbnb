@@ -13,13 +13,13 @@
         
         
         <div class="homePage row justify-content-center">
-            <h2 class=" text-center">Dove vuoi andare</h2>
+            <h1 class=" text-center">Che il viaggio abbia inizio</h1>
             <div id="search-box" class=" col-12 col-md-6 " >
             </div>
         </div>
         {{-- hero --}}
         <div class="Hero_GuestPage pb-4">
-            <img src="\storage\img\montagna.jpg" alt="">
+            
         </div>
     </div>
     <div class="container">
