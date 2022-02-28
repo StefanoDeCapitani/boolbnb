@@ -1,5 +1,5 @@
 <template>
-    <div id="search-page " class='container py-5 mt-4'>
+    <div id="search-page " class="container py-5 mt-4">
         <div
             class="d-flex justify-content-center align-items-center searchbar_cont"
         >
@@ -12,12 +12,17 @@
         <h4 class="mt-5">Abbiamo trovato {{ flats.length }} risultati:</h4>
         <div class="row flats-container d-flex flex-column-reverse">
             <div class="col-12 col-xl-6 flats-column">
-                <FlatsResults :flats="flats"> </FlatsResults>
+                <FlatsResults
+                    :flats="flats"
+                    @flat-activated="activeFlatPosition = $event"
+                >
+                </FlatsResults>
             </div>
 
             <div class="col-12 col-xl-6">
                 <MyMap
                     :center="results.position"
+                    :active-flat-position="activeFlatPosition"
                     :flats="flats"
                     v-if="results"
                 ></MyMap>
@@ -42,6 +47,7 @@ export default {
     data() {
         return {
             results: null,
+            activeFlatPosition: null,
             flats: [],
             filter: {
                 polygon: [],
