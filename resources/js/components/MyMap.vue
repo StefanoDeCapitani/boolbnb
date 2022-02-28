@@ -1,6 +1,6 @@
 <template>
-    <div class="" style="position: sticky; top: 200px;">
-        <div id="map" style='width: 100%; height: 600px; border-radius: 10px;'></div>
+    <div>
+        <div id="map" class="map"></div>
     </div>
 </template>
 
@@ -59,4 +59,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.map {
+    width: 100%;
+    height: 700px;
+    border-radius: 10px;
+}
+
+@media screen and(max-width: 1199px) {
+    .map {
+        height: 300px;
+        margin-bottom: 1rem;
+    }
+}
+</style>

@@ -13,7 +13,7 @@
     <div class="container">
         {{-- search bar --}}
         <h2 class=" text-center">Dove vuoi andare</h2>
-        <div id="search-box" class="mb-4">
+        <div id="search-box" class="home-search-box mb-4">
         </div>
 
         {{-- hero --}}
