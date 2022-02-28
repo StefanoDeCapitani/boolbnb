@@ -1,5 +1,5 @@
 <template>
-    <div id="search-page">
+    <div id="search-page " class='container py-5 mt-4'>
         <div
             class="d-flex justify-content-center align-items-center searchbar_cont"
         >

@@ -1,21 +1,22 @@
 @extends('layouts.app')
 @section('links')
-<script src="{{asset('js\mapshow.js')}}" defer></script>
+    <script src="{{ asset('js\mapshow.js') }}" defer></script>
 
 @endsection
 
 @section('title-page', 'Home page')
 
 @section('content')
+<div class="container py-5 mt-4">
 
-<div class="row justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-12 col-lg-10 ">
 
-   
-       
+
+
             {{-- titolo appartamento --}}
             @if (session('message'))
-            <div class="alert alert-success">{{ session('message') }}</div>
+                <div class="alert alert-success">{{ session('message') }}</div>
             @endif
             <div class="text-center mb-3 mt-5">
                 <h1>{{ $flat->title }}</h1>
@@ -24,10 +25,10 @@
             <div class="text-center  my-5">
                 <img class="heroImg" src="{{ asset($flat->cover_img) }}" style=" border-radius:25px" alt="">
             </div>
-            
-       
-        
-   
+
+
+
+
 
 
             {{-- slider / servizzi --}}
@@ -38,7 +39,8 @@
                         <div class="carousel-inner">
                             @foreach ($flat->images as $image)
                                 <div class="carousel-item @if ($loop->first) active @endif ">
-                                    <img src="{{ asset($image->path) }}" class="d-block w-100  imgCarousel" style="height:300px" alt="...">
+                                    <img src="{{ asset($image->path) }}" class="d-block w-100  imgCarousel"
+                                        style="height:300px" alt="...">
                                 </div>
                             @endforeach
                         </div>
@@ -85,7 +87,7 @@
                             <label for="name" class="form-label">Nome</label>
                             <input type="text " style=" border-radius: 15px" class="form-control" id="name" name="name"
                                 value="{{ old('name') }}" style="
-                                border-radius: 15px">
+                                    border-radius: 15px">
                             @error('name')
                                 {{ $message }}
                             @enderror
@@ -118,15 +120,17 @@
         </div>
 
         <div class="row justify-content-center  py-5">
-            <div id="map" style="height: 500px" class="col-10 my-1 col-lg-12" data-lat="{{$flat->lat}}" data-lon="{{$flat->lon}}">
-              
+            <div id="map" style="height: 500px" class="col-10 my-1 col-lg-12" data-lat="{{ $flat->lat }}"
+                data-lon="{{ $flat->lon }}">
+
             </div>
 
-            
 
-          
+
+
         </div>
 
     </div>
+</div>
 
 @endsection

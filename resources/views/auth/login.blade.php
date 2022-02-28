@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-5 mt-4">
 
     <div class="d-none d-lg-block ">
         <div class="d-flex align-items-center">
