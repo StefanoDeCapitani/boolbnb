@@ -177,6 +177,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   left: 0;
   width: 100%;
   align-items: center;
+  margin: 0 !important;
 }
 
 .homePage h1,

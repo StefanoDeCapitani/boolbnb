@@ -6,12 +6,12 @@
     position:relative ;
     /* min-height: 280px; */
     /* background-image: #dee4eced, url(./storage/app/public/img/montagna.jpg); */
-    background-image:  linear-gradient(#dee4eced, #dee4eced), url("public/images/pat.jpg"); 
+    background-image:  linear-gradient(#dee4eced, #dee4eced), url(./storage/app/public/img/pat.jpg); 
     background-repeat: repeat;
     background-size: contain;
     
     
-       
+    
         ul{
             padding: 0px;
             list-style: none;

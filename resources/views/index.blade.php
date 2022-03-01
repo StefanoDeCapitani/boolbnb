@@ -27,7 +27,7 @@
         <div class="my-5">
             <h3 class="pb-5  pt-5 text-center">Non sai dove andare?</h3>
             {{-- luoghi consigliati --}}
-            <div class="row justify-content-center pb-4">
+            <div class="row gap-2 justify-content-center pb-4">
                 <div class=" col-12 p-2 col-md-6 col-lg-2">
                     <div class=" recommendedPlaces">
                         <img src="\storage\img\venezia.jpg" alt="">
