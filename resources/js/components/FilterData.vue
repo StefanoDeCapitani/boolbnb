@@ -294,6 +294,7 @@ export default {
     background-color: #001632;
     padding: 0px 30px;
     border-color: #001632;
+    box-shadow: 0px 3px 8px 0px #dee4ec !important;
 }
 .btn-primary:active {
     background-color: #001632 !important;

@@ -9,13 +9,13 @@
 @endsection
 
 @section('content')
-    <div class="container py-5 mt-4">
+    <div class="container py-3">
 
-        <div class="search_page_title text-center">
+        {{-- <div class="search_page_title text-center">
             <div class="search_page_title text-center">
                 <h1 class="my-2">Dove vuoi andare?</h1>
             </div>
-        </div>
+        </div> --}}
         <search-page :services='{{ json_encode($services) }}'></search-page>
     
         </div>

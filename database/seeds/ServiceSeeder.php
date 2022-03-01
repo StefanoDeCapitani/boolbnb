@@ -30,7 +30,7 @@ class ServiceSeeder extends Seeder
                 "icon" => "fa-solid fa-fire-flame-curved",
             ],
             [
-                "name" => "Paperella Boolean",
+                "name" => "Paperella",
                 "icon" => "fa-brands fa-earlybirds",
             ],
             [
@@ -50,11 +50,11 @@ class ServiceSeeder extends Seeder
                 "icon" => "fas fa-gamepad",
             ],
             [
-                "name" => "Portatile per codice",
+                "name" => "Portatile",
                 "icon" => "fas fa-laptop-code",
             ],
             [
-                "name" => "Caffè sempre disponibile",
+                "name" => "Caffè",
                 "icon" =>"fas fa-coffee",
             ],
             [

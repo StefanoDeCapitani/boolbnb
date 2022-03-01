@@ -9,6 +9,7 @@
             <div
                 class="card flex-md-row flex-column"
                 :class="{ active: activeFlat === flat.id }"
+                :id="activeFlat === flat.id ? 'active' : ''"
                 @click="setActiveFlat($event, flat)"
             >
                 <img :src="flat.cover_img" class="card-img-top" alt="..." />
@@ -44,6 +45,7 @@
             <div
                 class="card flex-md-row flex-column"
                 :class="{ active: activeFlat === flat.id }"
+                :id="activeFlat === flat.id ? 'active' : ''"
                 @click="setActiveFlat($event, flat)"
             >
                 <img :src="flat.cover_img" class="card-img-top" alt="..." />
@@ -76,11 +78,11 @@
 <script>
 export default {
     name: "FlatsResults",
-    props: { flats: Array },
+    props: { flats: Array, clickedFlatId: Number },
     data() {
         return {
             activeFlatPosition: {},
-            activeFlat: -1,
+            activeFlat: null,
         };
     },
     computed: {
@@ -107,6 +109,17 @@ export default {
             this.$emit("flat-activated", this.activeFlatPosition);
         },
     },
+    watch: {
+        clickedFlatId(newValue) {
+            this.activeFlat = newValue;
+            this.$nextTick(() => {
+                document.getElementById("active").scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                });
+            });
+        },
+    },
 };
 </script>
 
@@ -128,8 +141,10 @@ export default {
         }
         .card-body {
             padding: 0px 16px;
+            flex-grow: 0;
         }
         .card-img-top {
+            flex-shrink: 0;
             width: 280px;
             height: 250px;
             object-fit: cover;
@@ -138,6 +153,9 @@ export default {
         @media screen and (max-width: 768px) {
             .card-img-top {
                 width: 100%;
+            }
+            .btn--show {
+                margin: 0.5rem;
             }
         }
         .btn--show {
