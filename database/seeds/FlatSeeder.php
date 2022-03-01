@@ -83,7 +83,6 @@ class FlatSeeder extends Seeder
                 'address' => 'Via dei Velluti 26/r, Firenze',
                 'lat' => '43.766890',
                 'lon' => '11.250010',
-                'lon' => '11.250010',
                 'night_price' => 90,
                 'cover_img' => "storage/img/cover_image_san_giorgio_flat.jpg"
             ],
@@ -368,7 +367,7 @@ class FlatSeeder extends Seeder
                 'n_beds' => 2,
                 'n_bathrooms' => 1, 
                 'sq_meters' => 60, 
-                'visible' => false, 
+                'visible' => true, 
                 'address' =>  'Via Malta, 1, 09124 Cagliari CA', 
                 'lat' => '39.21731544821689', 
                 'lon' => '9.1103949820268', 
@@ -383,7 +382,7 @@ class FlatSeeder extends Seeder
                 'n_beds' => 4,
                 'n_bathrooms' => 2, 
                 'sq_meters' => 100, 
-                'visible' => false, 
+                'visible' => true, 
                 'address' =>  "Via Sant'Efisio, 14, 09124 Cagliari CA", 
                 'lat' => '39.22088258764394', 
                 'lon' => '9.112908317178302', 
@@ -397,7 +396,7 @@ class FlatSeeder extends Seeder
                 'n_beds' => 2,
                 'n_bathrooms' => 2, 
                 'sq_meters' => 150, 
-                'visible' => false, 
+                'visible' => true, 
                 'address' =>  "Via Francesco Crispi, 13, 09124 Cagliari CA", 
                 'lat' => '39.215746101952554', 
                 'lon' => '9.110789224356322', 
@@ -411,7 +410,7 @@ class FlatSeeder extends Seeder
                 'n_beds' => 3,
                 'n_bathrooms' => 2, 
                 'sq_meters' => 100, 
-                'visible' => false, 
+                'visible' => true, 
                 'address' =>  "Piazza dell' Indipendenza, 09124 Cagliari CA", 
                 'lat' => '39.22244521922635', 
                 'lon' => '9.116947538317095', 
@@ -469,10 +468,10 @@ class FlatSeeder extends Seeder
                 'sq_meters' => 70,
                 'visible' => true,
                 'address' =>  'Via Aurelio Nicolodi, 2, 50131 Firenze FI',
-                'lat' => '43.785698246201044,',
+                'lat' => '43.785698246201044',
                 'lon' => '11.286894482905343',
                 'night_price' => 59,
-                'cover_img' =>"storage/img/coverLasta.jpg"
+                'cover_img' =>"storage/img/coverLasta.jpeg"
              ],
             [
                 'user_id' => 1,
@@ -484,9 +483,9 @@ class FlatSeeder extends Seeder
                 'visible' => true,
                 'address' =>  'Via Antonio Vivaldi, 20080 Basiglio MI',
                 'lat' => '45.366698',
-                'lon' => ' 9.155786',
+                'lon' => '9.155786',
                 'night_price' => 55,
-                'cover_img' =>"storage/img/cover_milano_plus.jpeg"
+                'cover_img' =>"storage/img/cover_milano_plus.jpg"
              ],
              [
                 'user_id' => 1,
@@ -498,7 +497,7 @@ class FlatSeeder extends Seeder
                 'visible' => true,
                 'address' =>  'Via del Ponte a Jozzi, 16, 50023 Impruneta FI',
                 'lat' => '43.733672',
-                'lon' => ' 11.255098',
+                'lon' => '11.255098',
                 'night_price' => 105,
                 'cover_img' =>"storage/img/cover_firenze_img.jpeg" 
              ],
@@ -512,7 +511,7 @@ class FlatSeeder extends Seeder
                 'visible' => true,
                 'address' =>  'Via Marocchesa, 817, 31021 Mogliano Veneto TV',
                 'lat' => '45.535776',
-                'lon' => ' 12.243674',
+                'lon' => '12.243674',
                 'night_price' => 105,
                 'cover_img' =>"storage/img/cover_venezia_black.jpeg"
              ],
@@ -526,9 +525,9 @@ class FlatSeeder extends Seeder
                 'visible' => true,
                 'address' =>  'Chirignago, 30174 Chirignago-Zelarino VE',
                 'lat' => '45.485296',
-                'lon' => ' 12.187798',
+                'lon' => '12.187798',
                 'night_price' => 85,
-                'cover_img' =>"storage/img/cover_sol_venezia.jpeg"
+                'cover_img' =>"storage/img/cover_sol_venezia.jpg"
              ],
              [
                 'user_id' => 1,
@@ -542,7 +541,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.438430',
                 'lon' => ' 12.204492',
                 'night_price' => 85,
-                'cover_img' =>"storage/img/cover_venezia_img.jpeg"
+                'cover_img' =>"storage/img/cover_venezia_img.jpg"
 
              ],
              [
@@ -557,7 +556,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.435520',
                 'lon' => '12.325657',
                 'night_price' => 120,
-                'cover_img' =>"storage/img/cover_venezia_center.jpeg"
+                'cover_img' =>"storage/img/cover_venezia_center.jpg"
              ],
              [
                 'user_id' => 2,
@@ -586,7 +585,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.480685',
                 'lon' => '12.288729',
                 'night_price' => 80,
-                'cover_img' =>"storage/img/cover_venezia_solaro.jpeg"
+                'cover_img' =>"storage/img/cover_venezia_solaro.jpg"
              ],
              [
                 'user_id' => 2,
@@ -600,7 +599,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.435234',
                 'lon' => '12.334154',
                 'night_price' => 90,
-                'cover_img' =>"storage/img/cover_leon_venezia.jpeg"
+                'cover_img' =>"storage/img/cover_leon_venezia.jpg"
              ],
              [
                 'user_id' => 1,
@@ -614,7 +613,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.435234',
                 'lon' => '12.334154',
                 'night_price' => 140,
-                'cover_img' =>"storage/img/cover_venezia_appartamento.jpeg"
+                'cover_img' =>"storage/img/cover_venezia_appartamento.jpg"
              ],
              [
                 'user_id' => 2,
@@ -658,7 +657,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.443970',
                 'lon' => '12.322355',
                 'night_price' => 205,
-                'cover_img' =>"storage/img/cover_venezia_attico.jpeg"
+                'cover_img' =>"storage/img/cover_venezia_attico.jpg"
  
              ],
              [
@@ -687,7 +686,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.425743',
                 'lon' => '12.325392',
                 'night_price' => 290,
-                'cover_img' =>"storage/img/cover_venezia_boutique.jpeg"
+                'cover_img' =>"storage/img/cover_venezia_boutique.jpg"
              ],
              [
                 'user_id' => 2,
@@ -701,7 +700,7 @@ class FlatSeeder extends Seeder
                 'lat' => '45.429221',
                 'lon' => '12.332087',
                 'night_price' => 290,
-                'cover_img' =>"storage/img/cover_venezia_henrion.jpeg"
+                'cover_img' =>"storage/img/cover_venezia_henrion.jpg"
              ]
              
 

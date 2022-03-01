@@ -238,14 +238,14 @@ class ImageSeeder extends Seeder
                 'flat_id' => 28,
                 'path' => 'storage/img/path2Lorenzo.jpg'
             ],
-            [
-                'flat_id' => 29,
-                'path' => 'storage/img/pathLorenzo.jpg'
-            ],
-            [
-                'flat_id' => 29,
-                'path' => 'storage/img/path2Lorenzo.jpg'
-            ],
+            // [
+            //     'flat_id' => 29,
+            //     'path' => 'storage/img/pathLorenzo.jpg'
+            // ],
+            // [
+            //     'flat_id' => 29,
+            //     'path' => 'storage/img/path2Lorenzo.jpg'
+            // ],
             [
                 'flat_id' => 30,
                 'path' => 'storage/img/path1Infinity.jpg'
@@ -264,11 +264,11 @@ class ImageSeeder extends Seeder
             ],
             [
                 'flat_id' => 32,
-                'path' => 'storage/img/pathLasta.jpg'
+                'path' => 'storage/img/pathLasta.jpeg'
             ],
             [
                 'flat_id' => 32,
-                'path' => 'storage/img/pathLasta1.jpg'
+                'path' => 'storage/img/pathLasta1.jpeg'
             ],
             [
                 'flat_id' => 33,
@@ -276,20 +276,20 @@ class ImageSeeder extends Seeder
             ],
             [
                 'flat_id' => 33,
-                'path' => 'storage/img/pathlastone1.jpg'
+                'path' => 'storage/img/pathlastone1.jpeg'
             ],
             [
                 "flat_id" => 34,
-                "path" => "storage/img/milano_plus.jpeg"
+                "path" => "storage/img/milano_plus.jpg"
             ],
             [
                 "flat_id" => 34,
-                "path" => "storage/img/milano_plus_2.jpeg"
+                "path" => "storage/img/milano_plus_2.jpg"
             ],
-            [
-                "flat_id" => 35,
-                "path" => "storage/img/firenze_img.jpeg"
-            ],
+            // [
+            //     "flat_id" => 35,
+            //     "path" => "storage/img/firenze_img.jpeg"
+            // ],
             [
                 "flat_id" => 35,
                 "path" => "storage/img/firenze_img_2.jpeg"
@@ -308,19 +308,19 @@ class ImageSeeder extends Seeder
             ],
             [
                 "flat_id" => 37,
-                "path" => "storage/img/venezia_img_2.jpeg"
+                "path" => "storage/img/venezia_img_2.jpg"
             ],
             [
                 "flat_id" => 37,
-                "path" => "storage/img/venezia_img.jpeg"
+                "path" => "storage/img/venezia_img.jpg"
             ],
             [
                 "flat_id" => 38,
-                "path" => "storage/img/venezia_center.jpeg"
+                "path" => "storage/img/venezia_center.jpg"
             ],
             [
                 "flat_id" => 38,
-                "path" => "storage/img/venezia_center_2.jpeg"
+                "path" => "storage/img/venezia_center_2.jpg"
             ],
             [
                 "flat_id" => 39,
@@ -332,31 +332,31 @@ class ImageSeeder extends Seeder
             ],
             [
                 "flat_id" => 40,
-                "path" => "storage/img/venezia_solaro.jpeg"
+                "path" => "storage/img/venezia_solaro.jpg"
             ],
             [
                 "flat_id" => 40,
-                "path" => "storage/img/venezia_solaro_2.jpeg"
+                "path" => "storage/img/venezia_solaro_2.jpg"
             ],
             [
                 "flat_id" => 40,
-                "path" => "storage/img/venezia_solaro_3.jpeg"
+                "path" => "storage/img/venezia_solaro_3.jpg"
             ],
             [
                 "flat_id" => 41,
-                "path" => "storage/img/venezia_leon_venezia.jpeg"
+                "path" => "storage/img/leon_venezia.jpg"
             ],
             [
                 "flat_id" => 41,
-                "path" => "storage/img/venezia_leon_venezia_2.jpeg"
+                "path" => "storage/img/leon_venezia_2.jpg"
             ],
             [
                 "flat_id" => 42,
-                "path" => "storage/img/venezia_appartamento.jpeg"
+                "path" => "storage/img/venezia_appartamento.jpg"
             ],
             [
                 "flat_id" => 42,
-                "path" => "storage/img/venezia_appartamento_2.jpeg"
+                "path" => "storage/img/venezia_appartamento_2.jpg"
             ],
             [
                 "flat_id" => 43,
@@ -376,15 +376,15 @@ class ImageSeeder extends Seeder
             ],
             [
                 "flat_id" => 45,
-                "path" => "storage/img/venezia_attico.jpeg"
+                "path" => "storage/img/venezia_attico.jpg"
             ],
             [
                 "flat_id" => 45,
-                "path" => "storage/img/venezia_attico_2.jpeg"
+                "path" => "storage/img/venezia_attico_2.jpg"
             ],
             [
                 "flat_id" => 45,
-                "path" => "storage/img/venezia_attico_3.jpeg"
+                "path" => "storage/img/venezia_attico_3.jpg"
             ],
             [
                 "flat_id" => 46,
@@ -396,10 +396,10 @@ class ImageSeeder extends Seeder
             ],
             [
                 "flat_id" => 47,
-                "path" => "storage/img/venezia_boutique.jpeg"
+                "path" => "storage/img/venezia_boutique.jpg"
             ],[
                 "flat_id" => 47,
-                "path" => "storage/img/venezia_boutique_2.jpeg"
+                "path" => "storage/img/venezia_boutique_2.jpg"
             ],
             [
                 "flat_id" => 48,
