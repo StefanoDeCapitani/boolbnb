@@ -33,7 +33,7 @@ class FlatController extends Controller
     public function index()
     {
 
-        $flats = Flat::where('user_id', '=', Auth::id())->with('activeSponsorships')->paginate(4);
+        $flats = Flat::where('user_id', '=', Auth::id())->orderBy('created_at', 'DESC')->with('activeSponsorships')->paginate(4);
 
         return view('admin.dashboard', compact('flats'));
     }
@@ -68,16 +68,18 @@ class FlatController extends Controller
                 $flat->services()->sync($services);
             }
     
-
-        $images = $data['images'];
-        foreach ($images as $image) {
-            $path = Storage::put('public/img',$image);
-            $path = 'storage'. str_replace('public','',$path);
-            $newImage = new Image();
-            $newImage->flat_id = $flat->id;
-            $newImage->path = $path;
-            $newImage->save();
-           
+        if ($request->images) {
+            
+            $images = $data['images'];
+            foreach ($images as $image) {
+                $path = Storage::put('public/img',$image);
+                $path = 'storage'. str_replace('public','',$path);
+                $newImage = new Image();
+                $newImage->flat_id = $flat->id;
+                $newImage->path = $path;
+                $newImage->save();
+                
+            }
         }
         return redirect()->route('admin.flats.index');
     

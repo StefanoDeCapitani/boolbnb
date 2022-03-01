@@ -274,6 +274,9 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1rem;
 }
+.btn:hover{
+    color: white;
+}
 
 .btn-apply {
     background-color: #001632;
