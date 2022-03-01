@@ -301,6 +301,51 @@ class FlatSeeder extends Seeder
                 'visible' => true,
                 'night_price' => 80
             ],
+            [ 
+                'user_id' => 1,
+                'title' => 'Villa Rosa, piccola e tranquilla',
+                'n_rooms' => 2,
+                'n_beds' => 2,
+                'n_bathrooms' => 1,
+                'sq_meters' => 80,
+                'visible' => true,
+                'address' =>  'Via fossati 26, 31021 Mogliano Veneto Ve',
+                'lat' => '45.551988',
+                'lon' => '12.225222',
+                'night_price' => 55,
+                'cover_img' =>"storage/img/cover_Pavia_intero_alloggio.jpg"
+
+            ],
+            [ 
+                'user_id' => 2,
+                'title' => 'Chic & Design in the trendy area of Milan',
+                'n_rooms' => 4,
+                'n_beds' => 4,
+                'n_bathrooms' => 2,
+                'sq_meters' => 150,
+                'visible' => true,
+                'address' =>  'Via Claudio Treves, 34, 20090 Trezzano sul Naviglio MI',
+                'lat' => '45.417155',
+                'lon' => '9.064244',
+                'night_price' => 99,
+                'cover_img' =>"storage/img/cover_milan.jpg"
+
+            ],
+            [ 
+                'user_id' => 1,
+                'title' => 'Elegant apartment near Central Station',
+                'n_rooms' => 1,
+                'n_beds' => 1,
+                'n_bathrooms' => 1,
+                'sq_meters' => 80,
+                'visible' => true,
+                'address' =>  'Via Vitruvio, 20124 Milano MI',
+                'lat' => '45.481982',
+                'lon' => '9.207527',
+                'night_price' => 105,
+                'cover_img' =>"storage/img/cover_milano_elegant.jpeg"
+
+            ],
 
 
         ];

@@ -162,6 +162,30 @@ class ImageSeeder extends Seeder
                 'flat_id'=>19, 
                 'path' =>'storage/img/eur_perfetto_per_coppia_2.jpg'
             ],
+            [
+                'flat_id'=>20, 
+                'path' =>'storage/img/pavia.jpg.jpg'
+            ],
+            [
+                'flat_id'=>20, 
+                'path' =>'storage/img/pavia_2.jpg'
+            ],
+            [
+                'flat_id'=>21, 
+                'path' =>'storage/img/Milan.jpg.jpg'
+            ],
+            [
+                'flat_id'=>21, 
+                'path' =>'storage/img/Milan_2.jpg'
+            ],
+            [
+                'flat_id'=>22, 
+                'path' =>'storage/img/milano_elegant.jpg.jpg'
+            ],
+            [
+                'flat_id'=>22, 
+                'path' =>'storage/img/milano_elegant_2.jpg'
+            ],
         ];
 
         foreach($images as $image){
