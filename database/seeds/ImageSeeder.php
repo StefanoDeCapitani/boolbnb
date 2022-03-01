@@ -238,14 +238,14 @@ class ImageSeeder extends Seeder
                 'flat_id' => 28,
                 'path' => 'storage/img/path2Lorenzo.jpg'
             ],
-            // [
-            //     'flat_id' => 29,
-            //     'path' => 'storage/img/pathLorenzo.jpg'
-            // ],
-            // [
-            //     'flat_id' => 29,
-            //     'path' => 'storage/img/path2Lorenzo.jpg'
-            // ],
+            [
+                'flat_id' => 29,
+                'path' => 'storage/img/pathLorenzo.jpg'
+            ],
+            [
+                'flat_id' => 29,
+                'path' => 'storage/img/path2Lorenzo.jpg'
+            ],
             [
                 'flat_id' => 30,
                 'path' => 'storage/img/path1Infinity.jpg'
