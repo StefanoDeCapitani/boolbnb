@@ -123,7 +123,7 @@
           minHeight: 200.00,
           minWidth: 200.00,
           scale: 1.00,
-          speed: 3.10,
+          speed: 1.10,
           texturePath: "/storage/img/noise.png"
         })
         </script>
