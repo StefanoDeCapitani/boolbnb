@@ -30,7 +30,7 @@
             <h3 class="pb-5  pt-5 text-center">Non sai dove andare?</h3>
             {{-- luoghi consigliati --}}
             <div class="row gap-2 justify-content-center pb-4">
-                <div class=" col-12 p-2 col-md-6 col-lg-2">
+                <div class="card_up col-12 p-2 col-md-6 col-lg-2">
                     <div class=" recommendedPlaces">
                         <img src="\storage\img\venezia.jpg" alt="">
                         <h2 class="RecomenText">
@@ -38,7 +38,7 @@
                         </h2>
                     </div>
                 </div>
-                <div class="col-12 p-2 col-md-6 col-lg-2">
+                <div class="card_up col-12 p-2 col-md-6 col-lg-2">
                     <div class=" recommendedPlaces">
                         <img src="\storage\img\pisa.jpg" alt="">
                         <h2 class="RecomenText">
@@ -46,7 +46,7 @@
                         </h2>
                     </div>
                 </div>
-                <div class="col-12 p-2 col-md-6 col-lg-2">
+                <div class="card_up col-12 p-2 col-md-6 col-lg-2">
                     <div class=" recommendedPlaces">
                         <img src="\storage\img\roma.jpg" alt="">
                         <h2 class="RecomenText">
@@ -54,7 +54,7 @@
                         </h2>
                     </div>
                 </div>
-                <div class="col-12 p-2 col-md-6 col-lg-2">
+                <div class="card_up col-12 p-2 col-md-6 col-lg-2">
                     <div class=" recommendedPlaces">
                         <img src="\storage\img\cagliari.jpg" alt="">
     
@@ -70,12 +70,13 @@
         <div class="my-5">
             {{-- Sezione degli appartamenti in evidenza --}}
             <h3 class="pb-5  pt-5 text-center">Appartamenti in evidenza</h3>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" style="width: 100%;
+            margin: 0;">
                 @foreach ($flatsSponsered as $flat)
                     <div class="col-12 p-2 col-md-6 col-lg-3">
-                        <div class="GuestSponsoredCard" style="width: 18rem; max-height: 188px">
+                        <div class="GuestSponsoredCard" style="width: 100%; max-height: 188px">
                             <img src="{{ asset($flat->cover_img) }}" class="card-img-top" style="width: 100%" alt="cover">
-                            <div class="card-body TextCard">
+                            <div class="card-body TextCard" style="width: 100%">
                                 <h4 class="card-title">{{ $flat->title }}</h4>
     
                                 <a href="{{ route('flats.show', $flat->slug) }}" class="btn btn-primary">Visualizza</a>

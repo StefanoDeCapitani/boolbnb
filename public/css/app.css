@@ -7,7 +7,7 @@
   position: relative;
   /* min-height: 280px; */
   /* background-image: #dee4eced, url(./storage/app/public/img/montagna.jpg); */
-  background-image: linear-gradient(#dee4eced, #dee4eced), url(./storage/app/public/img/pat.jpg);
+  background-image: linear-gradient(to bottom, #dee4eced 10%, #dee4ec), url(./storage/app/public/img/pat.jpg);
   background-repeat: repeat;
   background-size: contain;
 }
@@ -102,6 +102,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   justify-content: center;
   display: flex;
   flex-direction: column;
+  transition: all 0.3s;
 }
 
 .Hero_GuestPage {
@@ -111,10 +112,12 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   background-position: center;
 }
 
-.recommendedPlaces {
+.card_up .recommendedPlaces {
   position: relative;
+  bottom: 0px;
+  transition: bottom 0.2s ease-in-out;
 }
-.recommendedPlaces .RecomenText {
+.card_up .recommendedPlaces .RecomenText {
   color: white;
   position: absolute;
   left: 0;
@@ -128,6 +131,10 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   align-items: center;
   justify-content: center;
   opacity: 0;
+  transition: all 0.2s;
+}
+.card_up :hover {
+  bottom: 15px;
 }
 
 .recommendedPlaces {
@@ -176,9 +183,9 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   opacity: 1;
 }
 .GuestSponsoredCard .TextCard .btn-primary {
-  background-color: #001632;
+  background-color: #DEE4EC;
   border: 1px solid #0335777e;
-  color: white;
+  color: black;
   border-radius: 15px;
 }
 
@@ -415,28 +422,28 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   border-color: #01DFC1;
 }
 
-.modal .modal-dialog {
+.modal_sponsor .modal-dialog {
   position: relative;
   top: 50%;
   transform: translateY(-50%) !important;
 }
-.modal .modal-dialog form {
+.modal_sponsor .modal-dialog form {
   text-align: center;
 }
-.modal .modal-dialog form .btn_buy {
+.modal_sponsor .modal-dialog form .btn_buy {
   background: #4776E6;
   background: linear-gradient(to right, #8E54E9, #4776E6);
 }
-.modal .modal-dialog form .btn {
+.modal_sponsor .modal-dialog form .btn {
   border-radius: 15px;
   color: white;
   font-weight: 700;
   padding: 7px 20px;
 }
-.modal .modal-dialog form .btn :hover {
+.modal_sponsor .modal-dialog form .btn :hover {
   color: white !important;
 }
-.modal .modal-dialog form .close {
+.modal_sponsor .modal-dialog form .close {
   background-color: #DEE4EC;
   color: #001632;
 }
