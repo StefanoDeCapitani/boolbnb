@@ -114,24 +114,43 @@
         }
     }
 }
-.GuestSponsoredCard{
-    &:hover{
+
+
+.wave-top{
+    transform: translateY(1px);
+}
+.wave-bottom{
+    transform: rotate(180deg) translateY(1px);
+}
+.backgroundWave{
+
+    background-color: #DEE4EC;
+
+    .GuestSponsoredCard{
+
+        width: 100%; 
+        max-height: 175px;
+
+        &:hover{
+            .TextCard{
+                opacity: 1;
+            }
+        }
+    
         .TextCard{
-            opacity: 1;
+            .btn-primary{
+                background-color: #DEE4EC;
+                border: 1px solid #0335777e;
+                color: black;
+                border-radius: 15px;
+    
+            }
         }
-    }
-
-    .TextCard{
-        .btn-primary{
-            background-color: #DEE4EC;
-            border: 1px solid #0335777e;
-            color: black;
-            border-radius: 15px;
-
-        }
+        
     }
     
 }
+
 
 
 .chiSiamo{

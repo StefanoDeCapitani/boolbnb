@@ -19,6 +19,11 @@ class FlatController extends Controller
                 $flatsSponsered[] = $flatActive;
             }
         }
+        
+        
+        if (count($flatsSponsered) > 8) {
+            $flatsSponsered = array_slice($flatsSponsered, 8 );
+        }
         return view("index",compact('flatsSponsered'));
     }
 

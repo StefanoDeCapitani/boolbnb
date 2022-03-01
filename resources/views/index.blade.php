@@ -4,8 +4,8 @@
 
 @section('links')
     <script src="{{ asset('js\home.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
 @endsection
 
 @section('content')
@@ -17,16 +17,17 @@
         {{-- hero --}}
         <div id="fly" class="Hero_GuestPage pb-4">
             <div class="homePage row justify-content-center">
-                <h1 class=" text-center">Che il viaggio abbia inizio</h1>
+                <h1 class=" text-center" style="text-shadow: 0 0 20px #00000063;
+                margin-bottom: 20px;">Che il viaggio abbia inizio</h1>
                 <div id="search-box" class=" col-12 col-md-6 " >
                 </div>
             </div>
             
         </div>
     </div>
-    <div class="container">
+    <div class="">
         {{-- luoghi consigliati --}}
-        <div class="my-5">
+        <div class="my-5 container">
             <h3 class="pb-5  pt-5 text-center">Non sai dove andare?</h3>
             {{-- luoghi consigliati --}}
             <div class="row gap-2 justify-content-center pb-4">
@@ -67,30 +68,33 @@
 
         </div>
 
-        <div class="my-5">
-            {{-- Sezione degli appartamenti in evidenza --}}
-            <h3 class="pb-5  pt-5 text-center">Appartamenti in evidenza</h3>
-            <div class="row justify-content-center" style="width: 100%;
-            margin: 0;">
-                @foreach ($flatsSponsered as $flat)
+        <img src="{{ asset('/storage/img/wave.svg') }}" class="wave-top" alt="">
+        <div class="backgroundWave" >
+            <div class=" container py-5" >
+                {{-- Sezione degli appartamenti in evidenza --}}
+                <h3 class="pb-5  pt-3 text-center">Appartamenti in evidenza</h3>
+                <div class="row justify-content-center" style="width: 100%;
+                margin: 0;">
+                    @foreach ($flatsSponsered as $flat)
                     <div class="col-12 p-2 col-md-6 col-lg-3">
-                        <div class="GuestSponsoredCard" style="width: 100%; max-height: 188px">
+                        <div class="GuestSponsoredCard">
                             <img src="{{ asset($flat->cover_img) }}" class="card-img-top" style="width: 100%" alt="cover">
                             <div class="card-body TextCard" style="width: 100%">
                                 <h4 class="card-title">{{ $flat->title }}</h4>
-    
+                                
                                 <a href="{{ route('flats.show', $flat->slug) }}" class="btn btn-primary">Visualizza</a>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
-
+                    @endforeach
+                </div>
+            </div> 
         </div>
+        <img src="{{ asset('/storage/img/wave.svg') }}" class="wave-bottom" alt="">
 
 
 
-        <div class="my-5">
+        <div class="my-5 container">
 
             <div class="row justify-content-center align-items-center py-5">
                 <div class="col-10 py-5 col-lg-5 chiSiamo">
@@ -114,19 +118,18 @@
             </div>
         </div>
     </div>
-    <script>
-        VANTA.CLOUDS2({
-          el: "#fly",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          speed: 1.10,
-          texturePath: "/storage/img/noise.png"
-        })
-        </script>
+    
+<script>
+VANTA.CLOUDS({
+  el: "#fly",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  speed: 1.10
+})
+</script>
         
 
 @endsection
