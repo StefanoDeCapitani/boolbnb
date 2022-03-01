@@ -19,6 +19,7 @@
         justify-content: center;
         display: flex;
         flex-direction: column;
+        transition: all 0.3s;
     };
 }
 .Hero_GuestPage{
@@ -27,29 +28,38 @@
     background-size: cover;
     height: 90vh;
     background-position: center;
-   
+    
 }
 
-.recommendedPlaces{
-    position: relative;
-    
-    .RecomenText{
-        color: white;
-        position: absolute;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-weight: 600;
-        background-color: #00163281;
-        top: 0;
-        display: flex;
-        bottom: -10px;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: all 0.2s;
+.card_up{
+    .recommendedPlaces{
+        position: relative;
+        bottom: 0px;
+        transition: bottom 0.2s ease-in-out;
+        
+        
+        .RecomenText{
+            color: white;
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: 600;
+            background-color: #00163281;
+            top: 0;
+            display: flex;
+            bottom: -10px;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.2s;
+        }
+    }
+    :hover{
+        bottom: 15px;
     }
 }
+
 
 .recommendedPlaces{
     overflow: hidden;
@@ -113,15 +123,14 @@
 
     .TextCard{
         .btn-primary{
-            background-color: #001632;
+            background-color: #DEE4EC;
             border: 1px solid #0335777e;
-            color: white;
+            color: black;
             border-radius: 15px;
 
         }
     }
-       
-   
+    
 }
 
 

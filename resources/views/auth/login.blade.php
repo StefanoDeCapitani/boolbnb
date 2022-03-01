@@ -55,22 +55,22 @@
                                     <button type="submit" class="btn btn-primary d-block">
                                         {{ __('Login') }}
                                     </button>
-                                   <div class="d-flex"> 
+                                    <div class="d-flex"> 
 
-                                    <a class="btn btn-link" href="{{ route('register') }}">Sign-in</a>
+                                        <a class="btn btn-link" href="{{ route('register') }}">Sign-in</a>
 
 
-                                    @if (Route::has('password.request'))
-                                        <a style="margin-left: auto" class="btn btn-link text-end " href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
+                                        @if (Route::has('password.request'))
+                                            <a style="margin-left: auto" class="btn btn-link text-end " href="{{ route('password.request') }}">
+                                                {{ __('Forgot Your Password?') }}
+                                            </a>
 
-                                        
-                                    @endif
+                                            
+                                        @endif
 
-                                  
-                                </div>
-                                  
+                                    
+                                    </div>
+                                    
                             </div>
                         </form>
                     </div>

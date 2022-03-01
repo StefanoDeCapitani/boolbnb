@@ -7,7 +7,7 @@
                 <h2 class="py-2">Creato da</h2>
                 <div class="col-lg-1 col-sm-12 text-center text-lg-start text-sm-center">
                     <ul>
-                        <li><h4>Stefano De Capitani</h4></li>
+                        <li><h4>Stefano </h4><h5>De Capitani</h5></li>
                         <li><a href="https://www.linkedin.com/in/stefano-de-capitani-232403145/">Linkedin</a></li>
                         <li><a href="https://github.com/StefanoDeCapitani">Git-Hub</a></li>
                         
@@ -47,7 +47,7 @@
                 </div>
                 
                 
-                <div class="col-lg-6 col-sm-12 logo_cont">
+                <div class="col-lg-5 col-sm-12 logo_cont">
                     
                         <a href="{{ url('/') }}"><img src="{{ asset('logo/logo-boolbnb.png')}} " alt=""></a>
                     
