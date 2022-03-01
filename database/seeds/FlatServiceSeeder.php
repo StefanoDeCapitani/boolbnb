@@ -34,6 +34,7 @@ class FlatServiceSeeder extends Seeder
                 $savedNumbers[] = $servicesIds[$generatedNumber];
                 $flat->services()->attach($servicesIds[$generatedNumber]);
             }
+
         }
     }
 }
