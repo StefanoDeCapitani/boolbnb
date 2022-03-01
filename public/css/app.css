@@ -177,6 +177,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   left: 0;
   width: 100%;
   align-items: center;
+  margin: 0 !important;
 }
 
 .homePage h1,
@@ -230,6 +231,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 
 .icon-delete {
   color: #BA0101 !important;
+  cursor: pointer;
 }
 
 .btn-delete {
@@ -460,6 +462,37 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   color: #edf7ff;
   background-color: #015E6E;
   border-color: #01DFC1;
+}
+
+.modal .modal-dialog {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%) !important;
+}
+
+.modal .modal-dialog form {
+  text-align: center;
+}
+
+.modal .modal-dialog form .btn_buy {
+  background: #4776E6;
+  background: linear-gradient(to right, #8E54E9, #4776E6);
+}
+
+.modal .modal-dialog form .btn {
+  border-radius: 15px;
+  color: white;
+  font-weight: 700;
+  padding: 7px 20px;
+}
+
+.modal .modal-dialog form .btn :hover {
+  color: white !important;
+}
+
+.modal .modal-dialog form .close {
+  background-color: #DEE4EC;
+  color: #001632;
 }
 
 .imgCarousel {

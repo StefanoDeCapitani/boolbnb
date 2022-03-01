@@ -54,25 +54,21 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
                     <div class="modal-body">
                         <form id="payment-form" action="{{ route('admin.sponsorship.store', $slug) }}" method="post" class="pb-3">
                             <div id='token' data-clienttoken='{{ $clientToken }}'></div>
                             @csrf
-                            <!-- Putting the empty container you plan to pass to
-                                        `braintree.dropin.create` inside a form will make layout and flow
-                                        easier to manage -->
+                            
                             <div id="dropin-container">
                             </div>
-                            <input type="submit" class="btn btn-primary" />
+                            <button type="button" class="btn close mx-2" data-bs-dismiss="modal" aria-label="Close">Annulla</button>
+                            <input type="submit" class="btn btn_buy mx-2" />
                             <input type="hidden" id="nonce" name="payment_method_nonce" />
                             <input type="hidden" id="plan" name="plan" />
                         </form>
     
                         <script type="text/javascript">
-                            // call braintree.dropin.create code here
+                        
                         </script>
     
                     </div>

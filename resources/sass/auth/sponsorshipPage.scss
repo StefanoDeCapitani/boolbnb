@@ -43,4 +43,38 @@
     }  
 }
 
+.modal{
+    .modal-dialog{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%)!important;
+        form{
+            text-align: center;
+            
+            .btn_buy{
+            
+                background: #4776E6;  
+                background: -webkit-linear-gradient(to right, #8E54E9, #4776E6); 
+                background: linear-gradient(to right, #8E54E9, #4776E6);  
+            }
+            .btn{
+                border-radius: 15px;
+                color: white;
+                font-weight: 700;
+                padding: 7px 20px;
+                
+                :hover{
+                    color: white!important;
+                }
+                
+                
+            }
+            .close{
+                background-color: #DEE4EC;
+                color: #001632;
+            }
+        }
+    }
+}
+
 
