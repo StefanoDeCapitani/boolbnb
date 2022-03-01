@@ -146,7 +146,7 @@ form.addEventListener("submit", function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean#43\Esercitazioni\ProgettoFinale\boolbnb\resources\js\handle-flats-form.js */"./resources/js/handle-flats-form.js");
+module.exports = __webpack_require__(/*! C:\Users\andre\Boolean\Classe-#43\Progetto-finale\boolbnb\resources\js\handle-flats-form.js */"./resources/js/handle-flats-form.js");
 
 
 /***/ })
