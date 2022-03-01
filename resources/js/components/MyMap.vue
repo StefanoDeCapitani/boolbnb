@@ -18,10 +18,14 @@ export default {
     props: {
         center: Object,
         flats: Array,
+        activeFlatPosition: Object,
     },
     watch: {
         center(newValue) {
             this.map.flyTo({ center: newValue, zoom: 10 });
+        },
+        activeFlatPosition(newValue) {
+            this.map.flyTo({ center: newValue, zoom: 17 });
         },
         flats(newValue) {
             for (let marker of this.markers) {
@@ -29,8 +33,10 @@ export default {
             }
             if (newValue) {
                 for (let flat of newValue) {
+                    var element = document.createElement("div");
+                    element.id = "marker";
                     this.markers.push(
-                        new tt.Marker()
+                        new tt.Marker({ element: element })
                             .setLngLat({ lon: flat.lon, lat: flat.lat })
                             .addTo(this.map)
                     );
@@ -64,6 +70,7 @@ export default {
     width: 100%;
     height: 700px;
     border-radius: 10px;
+    box-shadow: 0px 3px 8px 0px #dee4ec !important;
 }
 
 @media screen and(max-width: 1199px) {

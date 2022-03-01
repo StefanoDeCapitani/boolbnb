@@ -2,32 +2,27 @@
 @import "variables";
 
 // stile homepage
-@import 'partials/footer';
-@import 'partials/header';
+@import "partials/footer";
+@import "partials/header";
 
 //stile guestpage
-@import 'partials/indexGuest';
+@import "partials/indexGuest";
 @import "partials/dashboard";
-@import 'auth/login';
-@import 'auth/register';
-@import 'messages';
-
+@import "auth/login";
+@import "auth/register";
+@import "messages";
 
 //stile sponsor page
-@import 'auth/sponsorshipPage.scss';
-@import 'auth/showApartment.scss';
+@import "auth/sponsorshipPage.scss";
+@import "auth/showApartment.scss";
 
-@import '@tomtom-international/web-sdk-plugin-searchbox/dist/SearchBox';
-
+@import "@tomtom-international/web-sdk-plugin-searchbox/dist/SearchBox";
 
 //stile pagina show
 
-
-@import 'partials/input';
+@import "partials/input";
 
 @import "auth/analytics";
-
-
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
@@ -43,4 +38,11 @@
 main {
     /* min-height:calc(100vh - (280px + 70px));  */
     flex-grow: 2;
+}
+
+#marker {
+    background-image: url("/storage/img/marker-boolbnb.png");
+    background-size: cover;
+    width: 40px;
+    height: 40px;
 }
