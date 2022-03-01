@@ -4,6 +4,8 @@
 
 @section('links')
     <script src="{{ asset('js\home.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds2.min.js"></script>
 @endsection
 
 @section('content')
@@ -13,7 +15,7 @@
         
         
         {{-- hero --}}
-        <div class="Hero_GuestPage pb-4">
+        <div id="fly" class="Hero_GuestPage pb-4">
             <div class="homePage row justify-content-center">
                 <h1 class=" text-center">Che il viaggio abbia inizio</h1>
                 <div id="search-box" class=" col-12 col-md-6 " >
@@ -111,5 +113,19 @@
             </div>
         </div>
     </div>
+    <script>
+        VANTA.CLOUDS2({
+          el: "#fly",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          speed: 3.10,
+          texturePath: "/storage/img/noise.png"
+        })
+        </script>
+        
 
 @endsection

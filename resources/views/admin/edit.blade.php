@@ -50,7 +50,7 @@
                     </div>
                     <div class="d-flex flex-wrap row-cols-2" style="justify-content: space-between">
                         <div class="mb-3">
-                            <label for="n_rooms" class="form-label">Numero stanze</label>
+                            <label for="n_rooms" class="form-label">Stanze</label>
                             <input type="number" class="form-control" id="n_rooms" name="n_rooms"
                                 value="{{ $flat->n_rooms }}">
                             @error('n_rooms')
@@ -58,7 +58,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="n_bathrooms" class="form-label">Numero bagni</label>
+                            <label for="n_bathrooms" class="form-label">Bagni</label>
                             <input type="number" class="form-control" id="n_bathrooms" name="n_bathrooms"
                                 value="{{ $flat->n_bathrooms }}">
                             @error('n_bathrooms')
@@ -66,7 +66,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="n_beds" class="form-label">Numero letti</label>
+                            <label for="n_beds" class="form-label">Letti</label>
                             <input type="number" class="form-control" id="n_beds" name="n_beds"
                                 value="{{ $flat->n_beds }}">
                             @error('n_beds')
@@ -144,10 +144,10 @@
                         <input id="file-input" name="images[]" type="file" multiple value="{{ old('images[]') }}"
                             data-multipleimg='@json($flat->images)'>
                         <label for="file-input">
-                            <i class="fas fa-upload"></i>Choose Path
+                            <i class="fas fa-upload me-2"></i>Immagini Galleria
                         </label>
 
-                        <p id="num-of-files">No Files Chosen</p>
+                        <p id="num-of-files">Nessun File Selezionato</p>
                         <div id="images" class="row">
 
                         </div>
@@ -165,7 +165,7 @@
                             {{ $flat->visible ? 'checked' : '' }} name="visible" value="1">
                     </div>
 
-                    <button class="btn btn-success mb-3">Salva</button>
+                    <button class="submit-style">Salva</button>
 
 
                 </form>

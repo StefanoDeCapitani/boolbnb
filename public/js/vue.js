@@ -453,15 +453,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FlatsResults",
   props: {
-    flats: Array
+    flats: Array,
+    clickedFlatId: Number
   },
   data: function data() {
     return {
       activeFlatPosition: {},
-      activeFlat: -1
+      activeFlat: null
     };
   },
   computed: {
@@ -492,6 +495,17 @@ __webpack_require__.r(__webpack_exports__);
         lng: flat.lon
       };
       this.$emit("flat-activated", this.activeFlatPosition);
+    }
+  },
+  watch: {
+    clickedFlatId: function clickedFlatId(newValue) {
+      this.activeFlat = newValue;
+      this.$nextTick(function () {
+        document.getElementById("active").scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      });
     }
   }
 });
@@ -549,6 +563,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       });
     },
     flats: function flats(newValue) {
+      var _this = this;
+
       var _iterator = _createForOfIteratorHelper(this.markers),
           _step;
 
@@ -568,16 +584,33 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             _step2;
 
         try {
-          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var _loop = function _loop() {
             var flat = _step2.value;
             var element = document.createElement("div");
             element.id = "marker";
-            this.markers.push(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
+            element.addEventListener("click", function () {
+              _this.$emit("marker-clicked", flat.id);
+
+              _this.map.flyTo({
+                center: {
+                  lon: flat.lon,
+                  lat: flat.lat
+                },
+                zoom: 15
+              });
+            });
+            var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
               element: element
             }).setLngLat({
               lon: flat.lon,
               lat: flat.lat
-            }).addTo(this.map));
+            }).addTo(_this.map);
+
+            _this.markers.push(marker);
+          };
+
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            _loop();
           }
         } catch (err) {
           _iterator2.e(err);
@@ -655,6 +688,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -674,6 +711,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       results: null,
       activeFlatPosition: null,
+      clickedFlatId: null,
       flats: [],
       filter: {
         polygon: [],
@@ -766,7 +804,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#filter-modal {\n  height: -webkit-min-content;\n  height: -moz-min-content;\n  height: min-content;\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  border-radius: 20px !important;\n  overflow: hidden;\n}\n.modal-body {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 1rem;\n}\n@media screen and (max-width: 768px) {\n.modal-body {\n    display: flex;\n    flex-direction: column;\n    gap: 1rem;\n}\n}\n.form-select {\n  width: 35%;\n  min-width: 90px;\n}\n.increment-decrement {\n  max-width: 190px;\n}\n.services {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  -moz-column-gap: 1rem;\n       column-gap: 1rem;\n}\n.btn-apply {\n  background-color: #001632;\n  border-radius: 20px !important;\n  color: white;\n  padding: 7px 20px;\n}\n.btn-reset {\n  border-radius: 20px !important;\n  background-color: #dee4ec;\n  color: #001632;\n}\n.btn_filter {\n  height: 100%;\n  border-radius: 0px 15px 15px 0px;\n  background-color: #001632;\n  padding: 0px 30px;\n  border-color: #001632;\n}\n.btn-primary:active {\n  background-color: #001632 !important;\n  border-color: #001632;\n}\n.btn-primary:hover {\n  background-color: #001632 !important;\n  border-color: #001632;\n}\n.btn-primary:focus {\n  background-color: #001632 !important;\n  border-color: #001632;\n  box-shadow: none;\n}", ""]);
+exports.push([module.i, "#filter-modal {\n  height: -webkit-min-content;\n  height: -moz-min-content;\n  height: min-content;\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  border-radius: 20px !important;\n  overflow: hidden;\n}\n.modal-body {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 1rem;\n}\n@media screen and (max-width: 768px) {\n.modal-body {\n    display: flex;\n    flex-direction: column;\n    gap: 1rem;\n}\n}\n.form-select {\n  width: 35%;\n  min-width: 90px;\n}\n.increment-decrement {\n  max-width: 190px;\n}\n.services {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  -moz-column-gap: 1rem;\n       column-gap: 1rem;\n}\n.btn-apply {\n  background-color: #001632;\n  border-radius: 20px !important;\n  color: white;\n  padding: 7px 20px;\n}\n.btn-reset {\n  border-radius: 20px !important;\n  background-color: #dee4ec;\n  color: #001632;\n}\n.btn_filter {\n  height: 100%;\n  border-radius: 0px 15px 15px 0px;\n  background-color: #001632;\n  padding: 0px 30px;\n  border-color: #001632;\n  box-shadow: 0px 3px 8px 0px #dee4ec !important;\n}\n.btn-primary:active {\n  background-color: #001632 !important;\n  border-color: #001632;\n}\n.btn-primary:hover {\n  background-color: #001632 !important;\n  border-color: #001632;\n}\n.btn-primary:focus {\n  background-color: #001632 !important;\n  border-color: #001632;\n  box-shadow: none;\n}", ""]);
 
 // exports
 
@@ -785,7 +823,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_spacing {\n  padding-bottom: 20px;\n}\n.card_spacing .card {\n  padding: 20px;\n  border: none;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px 0px #dee4ec !important;\n  cursor: pointer;\n}\n.card_spacing .card.active {\n  outline: 2px solid #00df6b;\n}\n.card_spacing .card .card-title {\n  margin-bottom: 0;\n  padding: 10px 0px;\n}\n.card_spacing .card .card-body {\n  padding: 0px 16px;\n}\n.card_spacing .card .card-img-top {\n  width: 280px;\n  height: 250px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 15px;\n}\n@media screen and (max-width: 768px) {\n.card_spacing .card .card-img-top {\n    width: 100%;\n}\n}\n.card_spacing .card .btn--show {\n  background-color: #dee4ec;\n  padding: 7px 20px;\n  border-radius: 20px;\n}", ""]);
+exports.push([module.i, ".card_spacing {\n  padding-bottom: 20px;\n}\n.card_spacing .card {\n  padding: 20px;\n  border: none;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px 0px #dee4ec !important;\n  cursor: pointer;\n}\n.card_spacing .card.active {\n  outline: 2px solid #00df6b;\n}\n.card_spacing .card .card-title {\n  margin-bottom: 0;\n  padding: 10px 0px;\n}\n.card_spacing .card .card-body {\n  padding: 0px 16px;\n  flex-grow: 0;\n}\n.card_spacing .card .card-img-top {\n  flex-shrink: 0;\n  width: 280px;\n  height: 250px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 15px;\n}\n@media screen and (max-width: 768px) {\n.card_spacing .card .card-img-top {\n    width: 100%;\n}\n.card_spacing .card .btn--show {\n    margin: 0.5rem;\n}\n}\n.card_spacing .card .btn--show {\n  background-color: #dee4ec;\n  padding: 7px 20px;\n  border-radius: 20px;\n}", ""]);
 
 // exports
 
@@ -804,7 +842,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".map[data-v-bbffbe96] {\n  width: 100%;\n  height: 700px;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px 0px #dee4ec !important;\n}\n@media screen and (max-width: 1199px) {\n.map[data-v-bbffbe96] {\n    height: 300px;\n    margin-bottom: 1rem;\n}\n}", ""]);
+exports.push([module.i, ".map[data-v-bbffbe96] {\n  width: 100%;\n  height: 70vh;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px 0px #dee4ec !important;\n}\n@media screen and (max-width: 1199px) {\n.map[data-v-bbffbe96] {\n    height: 300px;\n    margin-bottom: 1rem;\n}\n}", ""]);
 
 // exports
 
@@ -823,7 +861,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".searchbar_cont {\n  height: 45px;\n}\n.searchbar_cont .search_box {\n  width: 50%;\n  height: 100%;\n}\n@media screen and (max-width: 768px) {\n.searchbar_cont .search_box {\n    width: 90%;\n}\n}\n.searchbar_cont .search_box .tt-search-box {\n  margin-top: 0% !important;\n}\n.searchbar_cont .search_box .tt-search-box .tt-search-box-input-container {\n  border-radius: 15px 0px 0px 15px;\n}\n@media screen and (min-width: 1200px) {\n.flats-container {\n    height: 700px;\n    overflow: hidden;\n    /*Scrollbar style*/\n    /* width */\n    /* Track */\n    /* Handle */\n    /* Handle on hover */\n}\n.flats-container .flats-column {\n    height: 100%;\n    overflow: scroll;\n}\n.flats-container ::-webkit-scrollbar {\n    width: 8px;\n    height: 0;\n}\n.flats-container ::-webkit-scrollbar-track {\n    background: #adadad5d;\n    border-radius: 5px;\n}\n.flats-container ::-webkit-scrollbar-thumb {\n    background: rgba(110, 110, 110, 0.5);\n    border-radius: 5px;\n    box-shadow: 0 0 0 1px inset #adadad;\n}\n.flats-container ::-webkit-scrollbar-thumb:hover {\n    background: rgba(85, 85, 85, 0.418);\n}\n}", ""]);
+exports.push([module.i, ".results-text {\n  font-size: 1rem;\n}\n.searchbar_cont {\n  height: 45px;\n}\n.searchbar_cont .search_box {\n  width: 50%;\n  height: 100%;\n}\n@media screen and (max-width: 768px) {\n.searchbar_cont .search_box {\n    width: 90%;\n}\n}\n.searchbar_cont .search_box .tt-search-box {\n  margin-top: 0% !important;\n}\n.searchbar_cont .search_box .tt-search-box .tt-search-box-input-container {\n  border-radius: 15px 0px 0px 15px;\n}\n.flats-container {\n  height: 1000px;\n  overflow: hidden;\n  gap: 1rem;\n  /*Scrollbar style*/\n  /* width */\n  /* Track */\n  /* Handle */\n  /* Handle on hover */\n}\n.flats-container .map-container {\n  height: 30%;\n}\n.flats-container .flats-column {\n  height: 68%;\n  overflow: scroll;\n}\n.flats-container ::-webkit-scrollbar {\n  width: 8px;\n  height: 0;\n}\n.flats-container ::-webkit-scrollbar-track {\n  background: #adadad5d;\n  border-radius: 5px;\n}\n.flats-container ::-webkit-scrollbar-thumb {\n  background: rgba(110, 110, 110, 0.5);\n  border-radius: 5px;\n  box-shadow: 0 0 0 1px inset #adadad;\n}\n.flats-container ::-webkit-scrollbar-thumb:hover {\n  background: rgba(85, 85, 85, 0.418);\n}\n@media screen and (min-width: 1200px) {\n.flats-container {\n    height: 70vh;\n    overflow: hidden;\n}\n.flats-container .flats-column {\n    height: 100%;\n    overflow: scroll;\n}\n.flats-container .map-container {\n    height: 100%;\n}\n}", ""]);
 
 // exports
 
@@ -2482,6 +2520,7 @@ var render = function () {
             {
               staticClass: "card flex-md-row flex-column",
               class: { active: _vm.activeFlat === flat.id },
+              attrs: { id: _vm.activeFlat === flat.id ? "active" : "" },
               on: {
                 click: function ($event) {
                   return _vm.setActiveFlat($event, flat)
@@ -2570,6 +2609,7 @@ var render = function () {
             {
               staticClass: "card flex-md-row flex-column",
               class: { active: _vm.activeFlat === flat.id },
+              attrs: { id: _vm.activeFlat === flat.id ? "active" : "" },
               on: {
                 click: function ($event) {
                   return _vm.setActiveFlat($event, flat)
@@ -2703,7 +2743,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container py-2 mt-4", attrs: { id: "search-page " } },
+    { staticClass: "container mt-2", attrs: { id: "search-page " } },
     [
       _c(
         "div",
@@ -2726,8 +2766,12 @@ var render = function () {
         1
       ),
       _vm._v(" "),
-      _c("h4", { staticClass: "mt-5" }, [
-        _vm._v("Abbiamo trovato " + _vm._s(_vm.flats.length) + " risultati:"),
+      _c("h4", { staticClass: "mt-3 results-text" }, [
+        _vm._v(
+          "\n        Abbiamo trovato " +
+            _vm._s(_vm.flats.length) +
+            " risultati:\n    "
+        ),
       ]),
       _vm._v(" "),
       _c(
@@ -2739,7 +2783,10 @@ var render = function () {
             { staticClass: "col-12 col-xl-6 flats-column" },
             [
               _c("FlatsResults", {
-                attrs: { flats: _vm.flats },
+                attrs: {
+                  flats: _vm.flats,
+                  "clicked-flat-id": _vm.clickedFlatId,
+                },
                 on: {
                   "flat-activated": function ($event) {
                     _vm.activeFlatPosition = $event
@@ -2752,7 +2799,7 @@ var render = function () {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-12 col-xl-6" },
+            { staticClass: "col-12 col-xl-6 map-container" },
             [
               _vm.results
                 ? _c("MyMap", {
@@ -2760,6 +2807,11 @@ var render = function () {
                       center: _vm.results.position,
                       "active-flat-position": _vm.activeFlatPosition,
                       flats: _vm.flats,
+                    },
+                    on: {
+                      "marker-clicked": function ($event) {
+                        _vm.clickedFlatId = $event
+                      },
                     },
                   })
                 : _vm._e(),
