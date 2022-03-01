@@ -26,7 +26,7 @@
                     <div id="container-input-cover" class="mb-3">
     
                         <input id="inp" name="cover_img" type="file" value="{{ old('cover_img') }}">
-                        <label for="inp"><i class="fa fa-plus"></i> Copertina Flat</label>
+                        <label for="inp"><i class="fa fa-plus"></i> Aggiungi copertina</label>
     
                         <div id="imagePreview">
                             <img id="immagine" src="" alt="Image Previw">
@@ -103,15 +103,6 @@
                         </div>
                     </div>
                     <input id="services" type="hidden" name="services[]" value="">
-                    {{-- <div class="form-group">
-                    <label class="form-label">Tag</label>
-    
-                    <select name="services[]" class="form-control" multiple>
-                      @foreach ($services as $service)
-                      <option value="{{$service->id}}" {{in_array($service->id, old("services") ?: []) ? 'selected': ''}}>{{$service->name}}</option>
-                      @endforeach
-                    </select>
-                  </div> --}}
     
     
                     <div class="mb-3">

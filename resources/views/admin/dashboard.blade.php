@@ -41,7 +41,7 @@
                 <div class="row align-items-center">
                         <div class="col-lg-3 col-xs-10">
                             <a href="{{route("flats.show",$flat->slug)}}">
-                                <img src="{{asset($flat->cover_img)}}" style="width: 100%;border-radius: 13px;" alt="">
+                                <img src="{{asset($flat->cover_img)}}" style="width: 100%;border-radius: 13px; max-height: 200px; object-fit:cover;" alt="">
                             </a>
                         </div>
                         <div class="col-lg-9 col-xs-12 my-4 my-lg-0">
