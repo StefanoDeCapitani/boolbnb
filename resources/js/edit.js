@@ -2,13 +2,18 @@ const inpFile = document.getElementById('inp');
 const imageCont = document.getElementById('imagePreview')
 const immagine = document.getElementById('immagine')
 const iBox = document.getElementById('i-box')
+const multipleDelete = iBox.cloneNode(true)
+console.log(multipleDelete)
 
 const inpMultiple = document.getElementById('file-input')
 const numOfFiles = document.getElementById('num-of-files')
 const imageContainer = document.getElementById('images')
+const deletedImg = document.getElementById("deletedImg")
 const valueInput = JSON.parse(inpFile.dataset.valueinp);
 const ipActual = location.host;
-console.log(iBox)
+
+
+
 
 const multipleValue = JSON.parse(inpMultiple.dataset.multipleimg)
 console.log(multipleValue);
@@ -22,38 +27,53 @@ console.log(multipleValue);
     let figure = document.createElement('figure');
     let figCap = document.createElement('figcaption');
     let img = document.createElement('img');
-    figure.appendChild(img,figCap);
+    figure.appendChild(img);
+    figure.appendChild(multipleDelete);
     figure.setAttribute('class','col-12 col-lg-4')
     img.setAttribute('src',`http://${ipActual}/${pathImg}`);
     imageContainer.appendChild(figure);
   });
-
-  
-
-
-
 })();
 
-inpMultiple.addEventListener('change',function(){
-   imageContainer.innerHTML= ""
-    numOfFiles.textContent = `${this.files.length} File Selezionati `
 
-    for (i of this.files){
+
+let imagesData = [];
+inpMultiple.addEventListener('change',function(){
+
+    numOfFiles.textContent = `${this.files.length + multipleValue.length} File Selezionati `
+    console.log(inpMultiple.value)
+
+    
+
+    for (let file of this.files){
+        imagesData.push(file)
+       let currentFileIndex = imagesData.length - 1
+    
         let readerMultiple = new FileReader();
         let figure = document.createElement('figure');
         let figCap = document.createElement('figcaption');
-      
+        let multipleDlt = multipleDelete.cloneNode(true)
+        multipleDlt.addEventListener('click', function(){
+            imagesData.splice(currentFileIndex,1)
+            console.log(imagesData)
+            console.log(currentFileIndex)
+
+        })
         figure.appendChild(figCap);
         readerMultiple.addEventListener('load',function(){
             let img = document.createElement('img');
             figure.setAttribute('class','col-12 col-lg-4')
             img.setAttribute('src',readerMultiple.result);
+            
             figure.insertBefore(img,figCap);
+            figure.append(multipleDlt)
+
+            
         })
         imageContainer.appendChild(figure);
-        readerMultiple.readAsDataURL(i)
+        readerMultiple.readAsDataURL(file)
     }
-
+inpMultiple.value = imagesData;
 });
 
 

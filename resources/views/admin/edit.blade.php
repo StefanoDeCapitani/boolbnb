@@ -156,6 +156,8 @@
                         @enderror
                     </div>
 
+                    <input type="hidden" id="deletedImg" name="deletedImg">
+
 
 
                     <div class="form-check form-switch">
