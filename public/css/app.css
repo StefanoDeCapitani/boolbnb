@@ -75,6 +75,19 @@ nav .menu .dropdown #dropdownMenuLink :focus {
   box-shadow: none !important;
 }
 
+#btn-user {
+  background-color: #001632;
+  border-radius: 20px !important;
+  color: white;
+  padding: 7px 20px;
+}
+
+@media screen and (max-width: 400px) {
+  #btn-sign-in {
+    display: none;
+  }
+}
+
 .GuestSponsoredCard {
   border-radius: 25px;
   overflow: hidden;
@@ -100,7 +113,7 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 }
 
 .Hero_GuestPage {
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0) 10%, rgba(0, 0, 0, 0.336)), url(/images/montagna.jpg?b12e3731c1b325c8597fee1fc8a5de85);
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0) 10%, rgba(0, 0, 0, 0.336)), url(/images/montagna.jpg?71a7cc13e5977cc363e023d22a934d32);
   background-size: cover;
   height: 90vh;
   background-position: center;
@@ -286,7 +299,6 @@ nav .menu .dropdown #dropdownMenuLink :focus {
 
 .container .bg-login .card {
   width: 100%;
-  height: 70%;
   border-radius: 25px !important;
   padding: 20px 10px;
 }
@@ -15114,5 +15126,12 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 main {
   /* min-height:calc(100vh - (280px + 70px));  */
   flex-grow: 2;
+}
+
+#marker {
+  background-image: url("/storage/img/marker-boolbnb.png");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
 }
 

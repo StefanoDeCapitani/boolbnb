@@ -10,7 +10,7 @@
                 <div class="menu">
                     @auth
                         <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a id="btn-user" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
 
                                 @if (Auth::User()->name)
                                 {{Auth::User()->name}}
@@ -43,7 +43,7 @@
     
                         @if (Route::has('register'))
                         
-                            <a href="{{ route('register') }}"><button id="register" class="btn">Registrati</button></a>
+                            <a id="btn-sign-in" href="{{ route('register') }}"><button id="register" class="btn">Registrati</button></a>
                         @endif
                     @endauth
                 </div>

@@ -37,3 +37,18 @@ nav{
         }
     }
 }
+
+#btn-user{
+    background-color: #001632;
+    border-radius: 20px!important;
+    color: white;
+    padding: 7px 20px;
+}
+
+
+@media screen and (max-width: 400px){
+  
+    #btn-sign-in{
+        display: none;
+    }
+}

@@ -448,10 +448,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FlatsResults",
   props: {
     flats: Array
+  },
+  data: function data() {
+    return {
+      activeFlatPosition: {},
+      activeFlat: -1
+    };
   },
   computed: {
     activeFlats: function activeFlats() {
@@ -463,6 +474,24 @@ __webpack_require__.r(__webpack_exports__);
       return this.flats.filter(function (flat) {
         return flat.active_sponsorships.length === 0;
       });
+    }
+  },
+  methods: {
+    redirect: function redirect(slug) {
+      var url = window.location.href = "/flats/".concat(slug);
+      return url;
+    },
+    setActiveFlat: function setActiveFlat(event, flat) {
+      if (event.target.className === "btn btn--show") {
+        return;
+      }
+
+      this.activeFlat = flat.id;
+      this.activeFlatPosition = {
+        lat: flat.lat,
+        lng: flat.lon
+      };
+      this.$emit("flat-activated", this.activeFlatPosition);
     }
   }
 });
@@ -503,13 +532,20 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   props: {
     center: Object,
-    flats: Array
+    flats: Array,
+    activeFlatPosition: Object
   },
   watch: {
     center: function center(newValue) {
       this.map.flyTo({
         center: newValue,
         zoom: 10
+      });
+    },
+    activeFlatPosition: function activeFlatPosition(newValue) {
+      this.map.flyTo({
+        center: newValue,
+        zoom: 17
       });
     },
     flats: function flats(newValue) {
@@ -534,7 +570,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
             var flat = _step2.value;
-            this.markers.push(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat({
+            var element = document.createElement("div");
+            element.id = "marker";
+            this.markers.push(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
+              element: element
+            }).setLngLat({
               lon: flat.lon,
               lat: flat.lat
             }).addTo(this.map));
@@ -610,6 +650,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -628,6 +673,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       results: null,
+      activeFlatPosition: null,
       flats: [],
       filter: {
         polygon: [],
@@ -739,7 +785,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_spacing {\n  padding-bottom: 20px;\n  /* box-shadow: 0px 0px 20px 0px #e2e2e2!important; */\n}\n.card_spacing .card {\n  padding: 20px;\n  border: none;\n  border-radius: 10px;\n}\n.card_spacing .card .card-title {\n  margin-bottom: 0;\n  padding: 10px 0px;\n}\n.card_spacing .card .card-body {\n  padding: 0px 16px;\n}\n.card_spacing .card .card-img-top {\n  width: 280px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 15px;\n}\n@media screen and (max-width: 768px) {\n.card_spacing .card .card-img-top {\n    width: 100%;\n}\n}", ""]);
+exports.push([module.i, ".card_spacing {\n  padding-bottom: 20px;\n}\n.card_spacing .card {\n  padding: 20px;\n  border: none;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px 0px #dee4ec !important;\n  cursor: pointer;\n}\n.card_spacing .card.active {\n  outline: 2px solid #00df6b;\n}\n.card_spacing .card .card-title {\n  margin-bottom: 0;\n  padding: 10px 0px;\n}\n.card_spacing .card .card-body {\n  padding: 0px 16px;\n}\n.card_spacing .card .card-img-top {\n  width: 280px;\n  height: 250px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 15px;\n}\n@media screen and (max-width: 768px) {\n.card_spacing .card .card-img-top {\n    width: 100%;\n}\n}\n.card_spacing .card .btn--show {\n  background-color: #dee4ec;\n  padding: 7px 20px;\n  border-radius: 20px;\n}", ""]);
 
 // exports
 
@@ -758,7 +804,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".map[data-v-bbffbe96] {\n  width: 100%;\n  height: 700px;\n  border-radius: 10px;\n}\n@media screen and (max-width: 1199px) {\n.map[data-v-bbffbe96] {\n    height: 300px;\n    margin-bottom: 1rem;\n}\n}", ""]);
+exports.push([module.i, ".map[data-v-bbffbe96] {\n  width: 100%;\n  height: 700px;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px 0px #dee4ec !important;\n}\n@media screen and (max-width: 1199px) {\n.map[data-v-bbffbe96] {\n    height: 300px;\n    margin-bottom: 1rem;\n}\n}", ""]);
 
 // exports
 
@@ -2430,108 +2476,172 @@ var render = function () {
     { attrs: { id: "flats-results" } },
     [
       _vm._l(_vm.activeFlats, function (flat) {
-        return _c("div", { key: flat.id, staticClass: "card_spacing" }, [
-          _c("div", { staticClass: "card flex-md-row flex-column" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: { src: flat.cover_img, alt: "..." },
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-body d-inline" },
-              [
-                _c("span", { staticClass: "badge bg-warning text-dark my-1" }, [
-                  _vm._v("In Evidenza"),
-                ]),
-                _vm._v(" "),
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(flat.title)),
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("Servizi:")]),
-                _vm._v(" "),
-                _vm._l(flat.services, function (service) {
-                  return _c("span", { key: service.id }, [
-                    _c("span", { staticClass: "px-2", class: service.icon }),
-                  ])
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_bathrooms) + " Bagni"),
+        return _c("div", { key: flat.id, staticClass: "card_spacing pt-1" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card flex-md-row flex-column",
+              class: { active: _vm.activeFlat === flat.id },
+              on: {
+                click: function ($event) {
+                  return _vm.setActiveFlat($event, flat)
+                },
+              },
+            },
+            [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: { src: flat.cover_img, alt: "..." },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-body d-inline" },
+                [
+                  _c(
+                    "span",
+                    { staticClass: "badge bg-warning text-dark my-1" },
+                    [_vm._v("In Evidenza")]
+                  ),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(flat.title)),
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_beds) + " Letti"),
+                  _c("span", [_vm._v("Servizi:")]),
+                  _vm._v(" "),
+                  _vm._l(flat.services, function (service) {
+                    return _c("span", { key: service.id }, [
+                      _c("span", { staticClass: "px-2", class: service.icon }),
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_bathrooms) + " Bagni"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_beds) + " Letti"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_rooms) + " Camere"),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_rooms) + " Camere"),
+                  _c("div", { staticClass: "py-2" }, [
+                    _c("span", [
+                      _c("span", { staticClass: "fa-solid fa-location-dot" }),
+                      _vm._v(
+                        "\n                        " + _vm._s(flat.address)
+                      ),
+                    ]),
                   ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "py-2" }, [
-                  _c("span", [
-                    _c("span", { staticClass: "fa-solid fa-location-dot" }),
-                    _vm._v("\n                        " + _vm._s(flat.address)),
-                  ]),
-                ]),
-              ],
-              2
-            ),
-          ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn--show",
+                      on: {
+                        click: function ($event) {
+                          return _vm.redirect(flat.slug)
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                    MOSTRA DETTAGLI\n                "
+                      ),
+                    ]
+                  ),
+                ],
+                2
+              ),
+            ]
+          ),
         ])
       }),
       _vm._v(" "),
       _vm._l(_vm.notActiveFlats, function (flat) {
         return _c("div", { key: flat.id, staticClass: "card_spacing" }, [
-          _c("div", { staticClass: "card flex-md-row flex-column" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: { src: flat.cover_img, alt: "..." },
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-body d-inline" },
-              [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(flat.title)),
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("Servizi:")]),
-                _vm._v(" "),
-                _vm._l(flat.services, function (service) {
-                  return _c("span", { key: service.id }, [
-                    _c("span", { staticClass: "px-2", class: service.icon }),
-                  ])
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_bathrooms) + " Bagni"),
+          _c(
+            "div",
+            {
+              staticClass: "card flex-md-row flex-column",
+              class: { active: _vm.activeFlat === flat.id },
+              on: {
+                click: function ($event) {
+                  return _vm.setActiveFlat($event, flat)
+                },
+              },
+            },
+            [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: { src: flat.cover_img, alt: "..." },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-body d-inline" },
+                [
+                  _c("h5", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(flat.title)),
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_beds) + " Letti"),
+                  _c("span", [_vm._v("Servizi:")]),
+                  _vm._v(" "),
+                  _vm._l(flat.services, function (service) {
+                    return _c("span", { key: service.id }, [
+                      _c("span", { staticClass: "px-2", class: service.icon }),
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_bathrooms) + " Bagni"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_beds) + " Letti"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "pe-1" }, [
+                      _vm._v(_vm._s(flat.n_rooms) + " Camere"),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "pe-1" }, [
-                    _vm._v(_vm._s(flat.n_rooms) + " Camere"),
+                  _c("div", { staticClass: "py-2" }, [
+                    _c("span", [
+                      _c("span", { staticClass: "fa-solid fa-location-dot" }),
+                      _vm._v(
+                        "\n                        " + _vm._s(flat.address)
+                      ),
+                    ]),
                   ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "py-2" }, [
-                  _c("span", [
-                    _c("span", { staticClass: "fa-solid fa-location-dot" }),
-                    _vm._v("\n                        " + _vm._s(flat.address)),
-                  ]),
-                ]),
-              ],
-              2
-            ),
-          ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn--show",
+                      on: {
+                        click: function ($event) {
+                          return _vm.redirect(flat.slug)
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                    MOSTRA DETTAGLI\n                "
+                      ),
+                    ]
+                  ),
+                ],
+                2
+              ),
+            ]
+          ),
         ])
       }),
     ],
@@ -2593,7 +2703,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container py-5 mt-4", attrs: { id: "search-page " } },
+    { staticClass: "container py-2 mt-4", attrs: { id: "search-page " } },
     [
       _c(
         "div",
@@ -2627,7 +2737,16 @@ var render = function () {
           _c(
             "div",
             { staticClass: "col-12 col-xl-6 flats-column" },
-            [_c("FlatsResults", { attrs: { flats: _vm.flats } })],
+            [
+              _c("FlatsResults", {
+                attrs: { flats: _vm.flats },
+                on: {
+                  "flat-activated": function ($event) {
+                    _vm.activeFlatPosition = $event
+                  },
+                },
+              }),
+            ],
             1
           ),
           _vm._v(" "),
@@ -2637,7 +2756,11 @@ var render = function () {
             [
               _vm.results
                 ? _c("MyMap", {
-                    attrs: { center: _vm.results.position, flats: _vm.flats },
+                    attrs: {
+                      center: _vm.results.position,
+                      "active-flat-position": _vm.activeFlatPosition,
+                      flats: _vm.flats,
+                    },
                   })
                 : _vm._e(),
             ],
@@ -15228,7 +15351,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean#43\Esercitazioni\ProgettoFinale\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\matte\Desktop\classe43BOOLEAN\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })
