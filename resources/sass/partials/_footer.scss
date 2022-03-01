@@ -3,36 +3,47 @@
 }
 
 .bg_color{
-
+    position:relative ;
     /* min-height: 280px; */
-    background-color: #DEE4EC;
-    ul{
-        padding: 0px;
-        list-style: none;
-        li{
+    /* background-image: #dee4eced, url(./storage/app/public/img/montagna.jpg); */
+    background-image:  linear-gradient(#dee4eced, #dee4eced), url("public/images/pat.jpg"); 
+    background-repeat: repeat;
+    background-size: contain;
+    
+    
+       
+        ul{
+            padding: 0px;
+            list-style: none;
+            li{
+                h4{
+                    font-weight: 800;
+                }
+                a{
+                    color: black;
+                    text-decoration: none;
+                } 
+            }
+        }
+        .logo_cont{
+            display: flex;
+            justify-content: center;
+            img{
+                /* max-width: 230px; */
+                object-fit: cover;
+    
+                
+            }
+        }
+    
+        .footer_bar{
+            color: #9aa3af;
+        }
+        .footer-end{
             a{
-                color: black;
-                text-decoration: none;
-            } 
+                color: #001632;
+            }
         }
-    }
-    .logo_cont{
-        display: flex;
-        justify-content: center;
-        img{
-            max-width: 230px;
-            object-fit: cover;
-
-            
-        }
-    }
-
-    .footer_bar{
-        color: #9aa3af;
-    }
-    .footer-end{
-        a{
-            color: #001632;
-        }
-    }
+    
+    
 }
