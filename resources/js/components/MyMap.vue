@@ -33,13 +33,19 @@ export default {
             }
             if (newValue) {
                 for (let flat of newValue) {
-                    var element = document.createElement("div");
+                    let element = document.createElement("div");
                     element.id = "marker";
-                    this.markers.push(
-                        new tt.Marker({ element: element })
-                            .setLngLat({ lon: flat.lon, lat: flat.lat })
-                            .addTo(this.map)
-                    );
+                    element.addEventListener("click", () => {
+                        this.$emit("marker-clicked", flat.id);
+                        this.map.flyTo({
+                            center: { lon: flat.lon, lat: flat.lat },
+                            zoom: 15,
+                        });
+                    });
+                    let marker = new tt.Marker({ element: element })
+                        .setLngLat({ lon: flat.lon, lat: flat.lat })
+                        .addTo(this.map);
+                    this.markers.push(marker);
                 }
             }
         },
@@ -68,7 +74,7 @@ export default {
 <style lang="scss" scoped>
 .map {
     width: 100%;
-    height: 700px;
+    height: 70vh;
     border-radius: 10px;
     box-shadow: 0px 3px 8px 0px #dee4ec !important;
 }

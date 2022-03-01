@@ -1,5 +1,5 @@
 <template>
-    <div id="search-page " class="container py-2 mt-4">
+    <div id="search-page " class="container mt-2">
         <div
             class="d-flex justify-content-center align-items-center searchbar_cont"
         >
@@ -9,21 +9,25 @@
                 @apply-filter="applyFilter($event)"
             ></FilterData>
         </div>
-        <h4 class="mt-5">Abbiamo trovato {{ flats.length }} risultati:</h4>
+        <h4 class="mt-3 results-text">
+            Abbiamo trovato {{ flats.length }} risultati:
+        </h4>
         <div class="row flats-container d-flex flex-column-reverse">
             <div class="col-12 col-xl-6 flats-column">
                 <FlatsResults
                     :flats="flats"
+                    :clicked-flat-id="clickedFlatId"
                     @flat-activated="activeFlatPosition = $event"
                 >
                 </FlatsResults>
             </div>
 
-            <div class="col-12 col-xl-6">
+            <div class="col-12 col-xl-6 map-container">
                 <MyMap
                     :center="results.position"
                     :active-flat-position="activeFlatPosition"
                     :flats="flats"
+                    @marker-clicked="clickedFlatId = $event"
                     v-if="results"
                 ></MyMap>
             </div>
@@ -48,6 +52,7 @@ export default {
         return {
             results: null,
             activeFlatPosition: null,
+            clickedFlatId: null,
             flats: [],
             filter: {
                 polygon: [],
@@ -129,6 +134,9 @@ export default {
 </script>
 
 <style lang="scss">
+.results-text {
+    font-size: 1rem;
+}
 .searchbar_cont {
     height: 45px;
     .search_box {
@@ -145,39 +153,54 @@ export default {
         }
     }
 }
+.flats-container {
+    height: 1000px;
+    overflow: hidden;
+    gap: 1rem;
+    .map-container {
+        height: 30%;
+    }
+    .flats-column {
+        height: 68%;
+        overflow: scroll;
+    }
+    /*Scrollbar style*/
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 0;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #adadad5d;
+        border-radius: 5px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgba(110, 110, 110, 0.5);
+        border-radius: 5px;
+        box-shadow: 0 0 0 1px inset #adadad;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(85, 85, 85, 0.418);
+    }
+}
 
 @media screen and(min-width: 1200px) {
     .flats-container {
-        height: 700px;
+        height: 70vh;
         overflow: hidden;
         .flats-column {
             height: 100%;
             overflow: scroll;
         }
-        /*Scrollbar style*/
-
-        /* width */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 0;
-        }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: #adadad5d;
-            border-radius: 5px;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: rgba(110, 110, 110, 0.5);
-            border-radius: 5px;
-            box-shadow: 0 0 0 1px inset #adadad;
-        }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(85, 85, 85, 0.418);
+        .map-container {
+            height: 100%;
         }
     }
 }
