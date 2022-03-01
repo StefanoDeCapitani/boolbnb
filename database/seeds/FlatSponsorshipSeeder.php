@@ -51,18 +51,18 @@ class FlatSponsorshipSeeder extends Seeder
                 'expiration_date'=>Carbon::now()->addDays(6),
                 'payment_id'=>'sdf4',
             ],
-            // [
-            //     'sponsorship_id'=>2,
-            //     'flat_id'=>37,
-            //     'expiration_date'=>Carbon::now()->addDays(3),
-            //     'payment_id'=>'afwa3',
-            // ],
-            // [
-            //     'sponsorship_id'=>1,
-            //     'flat_id'=>40,
-            //     'expiration_date'=>Carbon::now()->addDays(1),
-            //     'payment_id'=>'fswfa6',
-            // ],
+            [
+                'sponsorship_id'=>2,
+                'flat_id'=>37,
+                'expiration_date'=>Carbon::now()->addDays(3),
+                'payment_id'=>'afwa3',
+            ],
+            [
+                'sponsorship_id'=>1,
+                'flat_id'=>40,
+                'expiration_date'=>Carbon::now()->addDays(1),
+                'payment_id'=>'fswfa6',
+            ],
         ];
 
         foreach ($flatSponsorship as $sponsorship) {
